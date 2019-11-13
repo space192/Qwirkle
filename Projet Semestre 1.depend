@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1573665908 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\main.c
+	<stdio.h>
+	<stdlib.h>
+
