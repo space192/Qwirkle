@@ -1,6 +1,6 @@
 #ifndef PROTOTYPES_H_INCLUDED
 #define PROTOTYPES_H_INCLUDED
 
-
+void menu();
 
 #endif // PROTOTYPES_H_INCLUDED
