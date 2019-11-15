@@ -1,7 +1,7 @@
 #include "constantes.h"
 #include "prototypes.h"
 
-void definirPiocheDegrade(T_TUILES* pioche[36]);
+void definirPiocheDegrade(T_TUILES* pioche[36])
 {
     int i;
     int X=0;
@@ -40,7 +40,7 @@ void definirPiocheDegrade(T_TUILES* pioche[36]);
 }
 
 
-void definirPiocheNormale(T_TUILES* pioche[108]);
+void definirPiocheNormale(T_TUILES* pioche[108])
 {
     int i;
     int j;
