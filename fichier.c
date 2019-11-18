@@ -1,4 +1,5 @@
 #include "constantes.h"
+#include <time.h>
 
 void affichageRegle()
 {

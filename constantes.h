@@ -15,7 +15,7 @@ typedef struct TUILE
     int positionX;
     int positionY;
 
-}T_TUILE
+}T_TUILE;
 
 
 #endif // CONSTANTES_H_INCLUDED

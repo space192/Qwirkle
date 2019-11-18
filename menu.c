@@ -1,4 +1,5 @@
 #include "prototypes.h"
+#include <time.h>
 
 void menu()
 {
