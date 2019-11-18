@@ -6,7 +6,7 @@
 void menu()
 {
 	int graphique = 0, nombreJoueurs, i, difficulte;
-  printf("Bienvenue dans le Qwirkle\nVoulez vous jouer en graphique ou en console ?\n");
+  printf("Bienvenue dans le Qwirkle\nVoulez vous jouer en graphique ou en console ?\n0:console\n1:graphique\n");
   do
   {
   	scanf("%d", &graphique);
@@ -21,20 +21,23 @@ void menu()
   joueur = malloc(nombreJoueurs * sizeof(T_JOUEUR));
   for(i = 0; i < 4; i++)
   {
+  	printf("entrer le nom du joueur %d\n", i+1);
   	fflush(stdin);
     gets(joueur[i].nom);
   }
-  printf("Super on va enfin pouvoir jouer :D\nMais dis moi dans quel difficulté veux tu jouer ?\n1:Degrade\n2:Normal\n");
+  printf("Super on va enfin pouvoir jouer :D\nMais dis moi dans quel difficulte veux tu jouer ?\n1:Degrade\n2:Normal\n");
   do
   {
   	scanf("%d", &difficulte);
   }
   while(difficulte <= 1 && difficulte >= 2);
-  if(graphique = 0)
+  if(graphique == 0)
   {
+      printf("console\n");
   }
   else if (graphique = 1)
   {
+      printf("graphic\n");
   }
   printf("Merci d'avoir Jouer !\n");
 }
