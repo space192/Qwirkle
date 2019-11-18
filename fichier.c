@@ -1,9 +1,11 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "constantes.h"
 #include <time.h>
 
 void affichageRegle()
 {
-    FILE* regles = NULL;
+    FILE *regles = NULL;
     regles = fopen("regles.txt", "r");
     if(regles == NULL)
     {
@@ -24,7 +26,7 @@ void sauvegardeScore(T_JOUEUR joueur[4])
     FILE* score = NULL;
     int i;
     score = fopen("scores.txt", "a");
-    if(regles == NULL)
+    if(score == NULL)
     {
         printf("erreur lors de la sauvegarde des scores peut etre que le fichier score est manquant.\n");
     }
@@ -34,7 +36,7 @@ void sauvegardeScore(T_JOUEUR joueur[4])
         {
             fputs(joueur[i].nom, score);
             fputs(joueur[i].score, score);
-            fputs(joueur.tuiles, score);
+            fputs(joueur[i].tuiles, score);
         }
         fclose(score);
     }

@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include "prototypes.h"
 
 
 int main()
 {
-    printf("Wesh!\n");
+    menu();
     return 0;
 }

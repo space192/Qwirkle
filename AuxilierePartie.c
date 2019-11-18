@@ -1,5 +1,9 @@
 #include "constantes.h"
 #include "prototypes.h"
+#include <time.h>
+#include <windows.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 void definirPiocheDegrade(T_TUILE* pioche[36])
 {
@@ -83,7 +87,7 @@ void definirPiocheNormale(T_TUILE* pioche[108])
         }
      ajout= ajout+36;
     }
-
+}
 void retraitPiocheNormale(T_TUILE* pioche[108],T_TUILE* main[6])
 {
     int i;
@@ -152,8 +156,10 @@ void retraitPiocheDegrade(T_TUILE* pioche[36],T_TUILE* main[6])
     }
 }
 
-
-
-
-
-
+void gotolicol(int lig, int col)
+{
+    COORD mycoord;
+    mycoord.X = col;
+    mycoord.Y = lig;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), mycoord);
+}
