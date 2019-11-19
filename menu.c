@@ -31,7 +31,7 @@ void menu()
   while(difficulte <= 1 && difficulte >= 2);
   if(graphique == 0)
   {
-      printf("console\n");
+      jeu(joueur);
   }
   else if (graphique = 1)
   {

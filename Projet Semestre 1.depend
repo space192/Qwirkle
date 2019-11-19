@@ -39,7 +39,7 @@
 1574183889 source:c:\users\arthur\documents\github\projet-semetre-1\main.c
 	"prototypes.h"
 
-1574184018 c:\users\arthur\documents\github\projet-semetre-1\prototypes.h
+1574193357 c:\users\arthur\documents\github\projet-semetre-1\prototypes.h
 	"constantes.h"
 	<windows.h>
 	<time.h>
@@ -48,7 +48,7 @@
 
 1574095033 c:\users\arthur\documents\github\projet-semetre-1\constantes.h
 
-1574183889 source:c:\users\arthur\documents\github\projet-semetre-1\menu.c
+1574193357 source:c:\users\arthur\documents\github\projet-semetre-1\menu.c
 	"prototypes.h"
 
 1574183889 source:c:\users\arthur\documents\github\projet-semetre-1\choix partie.c
@@ -58,5 +58,8 @@
 	"prototypes.h"
 
 1574183889 source:c:\users\arthur\documents\github\projet-semetre-1\score.c
+	"prototypes.h"
+
+1574191983 source:c:\users\arthur\documents\github\projet-semetre-1\auxilierepartie.c
 	"prototypes.h"
 

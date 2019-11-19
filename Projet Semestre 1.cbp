@@ -41,6 +41,9 @@
 		<Unit filename="fichier.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="jeu.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
