@@ -5,46 +5,45 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void definirPiocheDegrade(T_TUILE* pioche[36])
+void definirPiocheDegrade(T_TUILE *pioche)
 {
     int i;
-    int X=0;
-    int Y=0;
 
     for(i=0;i<6;i++)// Carrés
     {
-        pioche[i]->forme= '0xDB';
-        pioche[i]->couleur=i+1;
+        pioche[i].forme = 0xDB;
+        pioche[i].couleur=(i+1);
     }
     for(i=6;i<12;i++)// Rond
     {
-        pioche[i]->forme= '0x09';
-        pioche[i]->couleur=i+1;
+        pioche[i].forme= 0x09;
+        pioche[i].couleur=i+1;
     }
     for(i=12;i<18;i++)// Triangles
     {
-        pioche[i]->forme= '0x1E';
-        pioche[i]->couleur=i+1;
+        pioche[i].forme= 0x1E;
+        pioche[i].couleur=i+1;
     }
     for(i=18;i<24;i++)// Etoiles
     {
-        pioche[i]->forme= '0x0F';
-        pioche[i]->couleur=i+1;
+        pioche[i].forme= 0x0F;
+        pioche[i].couleur=i+1;
     }
     for(i=24;i<30;i++)// Croix
     {
-        pioche[i]->forme= '0xC5';
-        pioche[i]->couleur=i+1;
+        pioche[i].forme= 0xC5;
+        pioche[i].couleur=i+1;
     }
     for(i=30;i<36;i++)// Trèfle
     {
-        pioche[i]->forme= '0x05';
-        pioche[i]->couleur=i+1;
+        pioche[i].forme= 0x05;
+        pioche[i].couleur=i+1;
     }
+
 }
 
 
-void definirPiocheNormale(T_TUILE* pioche[108])
+void definirPiocheNormale(T_TUILE *pioche)
 {
     int i;
     int j;
@@ -57,38 +56,38 @@ void definirPiocheNormale(T_TUILE* pioche[108])
 
         for(i=0+ajout;i<6;i++)// Carrés
         {
-            pioche[i]->forme= '0xDB';
-            pioche[i]->couleur=i+1;
+            pioche[i].forme= 0xDB;
+            pioche[i].couleur=i+1;
         }
         for(i=6+ajout;i<12;i++)// Rond
         {
-            pioche[i]->forme= '0x09';
-            pioche[i]->couleur=i+1;
+            pioche[i].forme= 0x09;
+            pioche[i].couleur=i+1;
         }
         for(i=12+ajout;i<18;i++)// Triangles
         {
-            pioche[i]->forme= '0x1E';
-            pioche[i]->couleur=i+1;
+            pioche[i].forme= 0x1E;
+            pioche[i].couleur=i+1;
         }
         for(i=18+ajout;i<24;i++)// Etoiles
         {
-            pioche[i]->forme= '0xOF';
-            pioche[i]->couleur=i+1;
+            pioche[i].forme= 0xOF;
+            pioche[i].couleur=i+1;
         }
         for(i=24+ajout;i<30;i++)// Croix
         {
-            pioche[i]->forme= '0xC5';
-            pioche[i]->couleur=i+1;
+            pioche[i].forme= 0xC5;
+            pioche[i].couleur=i+1;
         }
         for(i=30+ajout;i<36;i++)// Trèfle
         {
-            pioche[i]->forme= '0x05';
-            pioche[i]->couleur=i+1;
+            pioche[i].forme= 0x05;
+            pioche[i].couleur=i+1;
         }
      ajout= ajout+36;
     }
 }
-void retraitPiocheNormale(T_TUILE* pioche[108],T_TUILE* main[6])
+void retraitPiocheNormale(T_TUILE *pioche,T_TUILE *main)
 {
     int i;
     int BS=108;
@@ -102,17 +101,17 @@ void retraitPiocheNormale(T_TUILE* pioche[108],T_TUILE* main[6])
     {
         alea== rand()%BS;
 
-        if (main[i]->forme= ' ')
+        if (main[i].forme= ' ')
         {
-           main[i]->forme=pioche[alea]->forme;
-           temp->forme = pioche[alea]->forme;
-           pioche[alea]->forme=pioche[BS]->forme;
-           pioche[BS]->forme=temp->forme;
+           main[i].forme=pioche[alea].forme;
+           temp.forme = pioche[alea].forme;
+           pioche[alea].forme=pioche[BS].forme;
+           pioche[BS].forme=temp.forme;
 
-           main[i]->couleur=pioche[alea]->couleur;
-           temp->couleur = pioche[alea]->couleur;
-           pioche[alea]->couleur=pioche[BS]->couleur;
-           pioche[BS]->couleur=temp->couleur;
+           main[i].couleur=pioche[alea].couleur;
+           temp.couleur = pioche[alea].couleur;
+           pioche[alea].couleur=pioche[BS].couleur;
+           pioche[BS].couleur=temp.couleur;
 
            BS--;
         }
@@ -123,7 +122,7 @@ void retraitPiocheNormale(T_TUILE* pioche[108],T_TUILE* main[6])
 
 
 
-void retraitPiocheDegrade(T_TUILE* pioche[36],T_TUILE* main[6])
+void retraitPiocheDegrade(T_TUILE *pioche,T_TUILE *main)
 {
     int i;
     int BS=36;
@@ -137,17 +136,17 @@ void retraitPiocheDegrade(T_TUILE* pioche[36],T_TUILE* main[6])
     {
         alea== rand()%BS;
 
-        if (main[i]->forme= ' ')
+        if (main[i].forme= ' ')
         {
-           main[i]->forme=pioche[alea]->forme;
-           temp->forme = pioche[alea]->forme;
-           pioche[alea]->forme=pioche[BS]->forme;
-           pioche[BS]->forme=temp->forme;
+           main[i].forme=pioche[alea].forme;
+           temp.forme = pioche[alea].forme;
+           pioche[alea].forme=pioche[BS].forme;
+           pioche[BS].forme=temp.forme;
 
-           main[i]->couleur=pioche[alea]->couleur;
-           temp->couleur = pioche[alea]->couleur;
-           pioche[alea]->couleur=pioche[BS]->couleur;
-           pioche[BS]->couleur=temp->couleur;
+           main[i].couleur=pioche[alea].couleur;
+           temp.couleur = pioche[alea].couleur;
+           pioche[alea].couleur=pioche[BS].couleur;
+           pioche[BS].couleur=temp.couleur;
 
            BS--;
         }
