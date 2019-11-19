@@ -21,5 +21,6 @@ void deplacerCurseur(int *x, int *y);
 void afficherTerrain();
 void afficherMainJoueur();
 void Color(int couleurDuTexte,int couleurDeFond);
+void afficherNom(T_JOUEUR joueur);
 
 #endif // PROTOTYPES_H_INCLUDED

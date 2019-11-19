@@ -226,7 +226,7 @@ void deplacerCurseur(int *x, int *y)
     }
     else if(*x >= 25)
     {
-        *x-=2;
+        *x=1;
     }
     gotoligcol(*x, *y);
 }
@@ -248,4 +248,11 @@ void Color(int couleurDuTexte,int couleurDeFond)
 {
     HANDLE H=GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(H,couleurDeFond*16+couleurDuTexte);
+}
+
+void afficherNom(T_JOUEUR joueur)
+{
+    gotoligcol(2, 60);
+    printf("C'est a : %s de jouer!\n", joueur.nom);
+    gotoligcol(1, 1);
 }
