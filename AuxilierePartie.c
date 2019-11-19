@@ -13,27 +13,27 @@ void definirPiocheDegrade(T_TUILE *pioche)
     for(i=6;i<12;i++)// Rond
     {
         pioche[i].forme= 0x09;
-        pioche[i].couleur=i+1;
+        pioche[i].couleur=i-5;
     }
     for(i=12;i<18;i++)// Triangles
     {
         pioche[i].forme= 0x1E;
-        pioche[i].couleur=i+1;
+        pioche[i].couleur=i-11;
     }
     for(i=18;i<24;i++)// Etoiles
     {
         pioche[i].forme= 0x0F;
-        pioche[i].couleur=i+1;
+        pioche[i].couleur=i-17;
     }
     for(i=24;i<30;i++)// Croix
     {
         pioche[i].forme= 0xC5;
-        pioche[i].couleur=i+1;
+        pioche[i].couleur=i-23;
     }
     for(i=30;i<36;i++)// Trèfle
     {
         pioche[i].forme= 0x05;
-        pioche[i].couleur=i+1;
+        pioche[i].couleur=i-29;
     }
 
 }
@@ -58,27 +58,27 @@ void definirPiocheNormale(T_TUILE *pioche)
         for(i=6+ajout;i<12;i++)// Rond
         {
             pioche[i].forme= 0x09;
-            pioche[i].couleur=i+1;
+            pioche[i].couleur=i-5;
         }
         for(i=12+ajout;i<18;i++)// Triangles
         {
             pioche[i].forme= 0x1E;
-            pioche[i].couleur=i+1;
+            pioche[i].couleur=i-11;
         }
         for(i=18+ajout;i<24;i++)// Etoiles
         {
             pioche[i].forme= 0x1E;
-            pioche[i].couleur=i+1;
+            pioche[i].couleur=i-17;
         }
         for(i=24+ajout;i<30;i++)// Croix
         {
             pioche[i].forme= 0xC5;
-            pioche[i].couleur=i+1;
+            pioche[i].couleur=i-23;
         }
         for(i=30+ajout;i<36;i++)// Trèfle
         {
             pioche[i].forme= 0x05;
-            pioche[i].couleur=i+1;
+            pioche[i].couleur=i-29;
         }
      ajout= ajout+36;
     }
@@ -231,16 +231,32 @@ void deplacerCurseur(int *x, int *y)
     gotoligcol(*x, *y);
 }
 
-void afficherMainJoueur()
+void afficherMainJoueur(T_TUILE *main)
 {
     int i;
+    int j=0;
+    int var=1;
     printf("%c", 0xC9);
-    for(i=0; i < 25;i++)
+    for(i=0; i < 5;i++)
     {
         printf("%c%c", 0xCD, 0xCB);
     }
     printf("%c%c\n", 0xCD,0xBB);
-    printf("%c",0xCC);
+    for(i=0;i<6;i++)
+    {
+        printf("%c", 0xBA);
+        Color(main[j].couleur, 0);
+        printf("%c", main[j].forme);
+        Color(15, 0);
+        j++;
+    }
+    printf("%c\n", 0xBA);
+    printf("%c",0xC8);
+    for(i=0; i < 5;i++)
+    {
+        printf("%c%c", 0xCD, 0xCA);
+    }
+    printf("%c%c\n", 0xCD,0xBC);
 
 }
 
