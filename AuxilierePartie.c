@@ -1,9 +1,5 @@
-#include "constantes.h"
 #include "prototypes.h"
-#include <time.h>
-#include <windows.h>
-#include <stdio.h>
-#include <stdlib.h>
+
 
 void definirPiocheDegrade(T_TUILE *pioche)
 {
@@ -71,7 +67,7 @@ void definirPiocheNormale(T_TUILE *pioche)
         }
         for(i=18+ajout;i<24;i++)// Etoiles
         {
-            pioche[i].forme= 0xOF;
+            pioche[i].forme= 0x1E;
             pioche[i].couleur=i+1;
         }
         for(i=24+ajout;i<30;i++)// Croix
@@ -92,7 +88,7 @@ void retraitPiocheNormale(T_TUILE *pioche,T_TUILE *main)
     int i;
     int BS=108;
     srand(time(NULL));
-    T_TUILE* temp;
+    T_TUILE temp;
     int alea;
 
     while(BS!=0)
@@ -127,7 +123,7 @@ void retraitPiocheDegrade(T_TUILE *pioche,T_TUILE *main)
     int i;
     int BS=36;
     srand(time(NULL));
-    T_TUILE* temp;
+    T_TUILE temp;
     int alea;
 
     while(BS!=0)
@@ -233,4 +229,23 @@ void deplacerCurseur(int *x, int *y)
         *x-=2;
     }
     gotoligcol(*x, *y);
+}
+
+void afficherMainJoueur()
+{
+    int i;
+    printf("%c", 0xC9);
+    for(i=0; i < 25;i++)
+    {
+        printf("%c%c", 0xCD, 0xCB);
+    }
+    printf("%c%c\n", 0xCD,0xBB);
+    printf("%c",0xCC);
+
+}
+
+void Color(int couleurDuTexte,int couleurDeFond)
+{
+    HANDLE H=GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(H,couleurDeFond*16+couleurDuTexte);
 }

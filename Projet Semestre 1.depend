@@ -1,5 +1,38 @@
 # depslib dependency file v1.0
-1573665908 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\main.c
+1574181796 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"prototypes.h"
+
+1574091159 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\choix partie.c
+	<time.h>
+
+1574103545 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\fichier.c
+	<stdio.h>
+	<stdlib.h>
+	"constantes.h"
+	<time.h>
+
+1574091159 c:\users\plpai\onedrive\documents\github\projet-semetre-1\constantes.h
+
+1574104259 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\menu.c
+	"prototypes.h"
+	<time.h>
+	<stdio.h>
+	<stdlib.h>
+
+1574181521 c:\users\plpai\onedrive\documents\github\projet-semetre-1\prototypes.h
+	"constantes.h"
+
+1574091159 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\score.c
+	<time.h>
+
+1574182019 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\auxilierepartie.c
+	"constantes.h"
+	"prototypes.h"
+	<time.h>
+	<windows.h>
 	<stdio.h>
 	<stdlib.h>
 

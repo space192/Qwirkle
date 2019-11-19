@@ -1,6 +1,11 @@
 #ifndef PROTOTYPES_H_INCLUDED
 #define PROTOTYPES_H_INCLUDED
 #include "constantes.h"
+#include <windows.h>
+#include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
+
 void menu();
 
 void definirPiocheDegrade(T_TUILE *pioche);
@@ -14,5 +19,7 @@ void retraitPiocheDegrade(T_TUILE *pioche,T_TUILE *main);
 void gotoligcol(int lig, int col);
 void deplacerCurseur(int *x, int *y);
 void afficherTerrain();
+void afficherMainJoueur();
+void Color(int couleurDuTexte,int couleurDeFond);
 
 #endif // PROTOTYPES_H_INCLUDED
