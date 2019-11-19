@@ -272,3 +272,38 @@ void afficherNom(T_JOUEUR joueur)
     printf("C'est a : %s de jouer!\n", joueur.nom);
     gotoligcol(1, 1);
 }
+
+void Leaderbord(T_JOUEUR *joueur)
+{
+    int i,j,k = 16;
+    gotoligcol(14, 76);
+    printf("Leaderbord");
+    gotoligcol(15, 65);
+    printf("%c", 0xC9);
+    for(i=0 ; i < 29; i++)
+    {
+        printf("%c", 0xCD);
+    }
+    printf("%c", 0xBB);
+    for(j = 16; j <= 19 ; j++)
+    {
+        gotoligcol(j, 65);
+        printf("%c", 0xBA);
+        gotoligcol(j, 95);
+        printf("%c", 0xBA);
+    }
+    gotoligcol(j, 65);
+    printf("%c", 0xC8);
+    gotoligcol(j, 66);
+    for(i = 0; i < 29; i++)
+    {
+        printf("%c", 0xCD);
+    }
+    printf("%c", 0xBC);
+    for(i = 0 ; i < 4 ; i++)
+    {
+        gotoligcol(k++, 66);
+        printf("Le Score du Joueur %d vaut: %d", i+1, joueur->score);
+    }
+    gotoligcol(1,1);
+}

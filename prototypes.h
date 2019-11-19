@@ -22,5 +22,5 @@ void afficherTerrain();
 void afficherMainJoueur(T_TUILE *main);
 void Color(int couleurDuTexte,int couleurDeFond);
 void afficherNom(T_JOUEUR joueur);
-
+void Leaderbord(T_JOUEUR *joueur);
 #endif // PROTOTYPES_H_INCLUDED
