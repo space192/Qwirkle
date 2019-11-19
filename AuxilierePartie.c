@@ -155,10 +155,82 @@ void retraitPiocheDegrade(T_TUILE *pioche,T_TUILE *main)
     }
 }
 
-void gotolicol(int lig, int col)
+void gotoligcol(int lig, int col)
 {
     COORD mycoord;
     mycoord.X = col;
     mycoord.Y = lig;
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), mycoord);
+}
+
+void afficherTerrain()
+{
+    int i,j,k;
+    printf("%c", 0xC9);
+    for(i=0; i < 25;i++)
+    {
+        printf("%c%c", 0xCD, 0xCB);
+    }
+    printf("%c%c\n", 0xCD,0xBB);
+    for(i = 0; i < 12; i++)
+    {
+        for(j=0; j < 26 ;j++)
+        {
+            printf("%c ", 0xBA);
+        }
+        printf("%c\n", 0xBA);
+        if(i!=11)
+        {
+            printf("%c", 0xCC);
+            for(k=0;k < 25;k++)
+            {
+                printf("%c%c", 0xCD, 0xCE);
+            }
+            printf("%c%c\n", 0xCD,0xB9);
+        }
+    }
+    printf("%c", 0xc8);
+    for(i = 0;i< 25; i++)
+    {
+        printf("%c%c", 0xCD, 0xCA);
+    }
+    printf("%c%c", 0xCD,0xBC);
+    gotoligcol(1,1);
+}
+
+void deplacerCurseur(int *x, int *y)
+{
+    char c;
+    if(getch() == 224)
+    {
+        c = getch();
+        switch(c)
+        {
+        case 72:
+            *x-= 2;
+            break;
+        case 80:
+            *x+= 2;
+            break;
+        case 75:
+            *y-= 2;
+            break;
+        case 77:
+            *y+= 2;
+            break;
+        }
+    }
+    if(*y >= 53)
+    {
+        *y=1;
+    }
+    else if(*y <= 0)
+    {
+        *y+=2;
+    }
+    else if(*x >= 25)
+    {
+        *x-=2;
+    }
+    gotoligcol(*x, *y);
 }
