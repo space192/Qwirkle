@@ -99,6 +99,7 @@ void retraitPiocheNormale(T_TUILE *pioche,T_TUILE *main)
 
         if (main[i].forme= ' ')
         {
+
            main[i].forme=pioche[alea].forme;
            temp.forme = pioche[alea].forme;
            pioche[alea].forme=pioche[BS].forme;
@@ -135,6 +136,8 @@ void retraitPiocheDegrade(T_TUILE *pioche,T_TUILE *main, int *BS)
 
         if (main[i].forme= ' ')
         {
+
+           *BS -= 1;
            main[i].forme=pioche[alea].forme;
            temp.forme = pioche[alea].forme;
            pioche[alea].forme=pioche[*BS].forme;
@@ -145,7 +148,7 @@ void retraitPiocheDegrade(T_TUILE *pioche,T_TUILE *main, int *BS)
            pioche[alea].couleur=pioche[*BS].couleur;
            pioche[*BS].couleur=temp.couleur;
 
-           *BS -= 1;
+
         }
 
     }
