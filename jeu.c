@@ -41,8 +41,5 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
         }
 
         afficherMainJoueur(main, nombreJoueurs);
-
-
-
     }
 }
