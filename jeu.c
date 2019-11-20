@@ -2,50 +2,46 @@
 
 void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
 {
-    int sauvegarde = 0, BS, i,j,k;
+    int sauvegarde = 0, BS, i,k;
     T_TUILE *pioche = NULL;
-    T_TUILE **main = NULL;
+    T_TUILE **main;
     do
     {
         printf("voulez vous reprendre une partie sauvegarde ?\n1:oui\n2:non\n");
         scanf("%d", &sauvegarde);
+        fflush(stdin);
     }
-    while(sauvegarde <= 2 && sauvegarde >= 1);
+    while(sauvegarde > 2 || sauvegarde < 1);
     if(sauvegarde == 1)
     {
 
     }
     else if(sauvegarde == 2)
     {
-        main = malloc(nombreJoueurs * sizeof(T_TUILE)); //main[][]
+        main = malloc(nombreJoueurs * sizeof(T_TUILE *)); //main[][]
         for(i = 0 ; i < nombreJoueurs ; i++)
         {
-            main[i] = malloc(6 * sizeof(T_TUILE));
+           main[i] = malloc(6 * sizeof(T_TUILE));
         }
         if(difficulte == 1) //difficulte 1 = degrade // diffuclte 2 = normal
         {
             BS = 36;
             pioche = malloc(BS * sizeof(T_TUILE));
             definirPiocheDegrade(pioche);
-            for(k=0;k<nombreJoueurs;k++)
-            {
-                retraitPiocheDegrade(pioche,main[k],&BS, &k);
-            }
+            initialiserMain(main, nombreJoueurs);
+            retraitPiocheDegrade(pioche,main,&BS, nombreJoueurs);
         }
         else if(difficulte == 2)
         {
             BS = 108;
             pioche = malloc(BS * sizeof(T_TUILE));
             definirPiocheNormale(pioche);
-            for(k=0;k<nombreJoueurs;k++)
-            {
-                retraitPiocheNormale(pioche,main[k],&BS, &k);
-            }
+            initialiserMain(main, nombreJoueurs);
+            retraitPiocheNormale(pioche,main,&BS, nombreJoueurs);
         }
-    for(i = 0;i < nombreJoueurs ; i++)
-    {
-        afficherMainJoueur(main[i], &i);
-    }
+
+        afficherMainJoueur(main, nombreJoueurs);
+
 
 
     }

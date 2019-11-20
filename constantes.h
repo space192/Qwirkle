@@ -12,8 +12,6 @@ typedef struct TUILE
 {
     char forme;
     int couleur;
-    int positionX;
-    int positionY;
 
 }T_TUILE;
 

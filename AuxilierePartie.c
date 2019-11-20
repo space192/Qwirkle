@@ -44,8 +44,6 @@ void definirPiocheNormale(T_TUILE *pioche)
     int i;
     int j;
     int ajout=0;
-    int X=0;
-    int Y=0;
 
     for(j=0;j<3;j++) //On fait la boucle 3 fois
     {
@@ -83,7 +81,7 @@ void definirPiocheNormale(T_TUILE *pioche)
      ajout= ajout+36;
     }
 }
-void retraitPiocheNormale(T_TUILE *pioche,T_TUILE **main, int *BS, int k)
+void retraitPiocheNormale(T_TUILE *pioche,T_TUILE main[][6], int *BS, int k)
 {
     int i;
     srand(time(NULL));
@@ -98,7 +96,7 @@ void retraitPiocheNormale(T_TUILE *pioche,T_TUILE **main, int *BS, int k)
         {
         if(main[k][i].forme == ' ')
         {
-           *BS--;
+           (*BS)--;
            main[k][i].forme=pioche[alea].forme;
            temp.forme = pioche[alea].forme;
            pioche[alea].forme=pioche[*BS].forme;
@@ -119,13 +117,15 @@ void retraitPiocheNormale(T_TUILE *pioche,T_TUILE **main, int *BS, int k)
 
 
 
-void retraitPiocheDegrade(T_TUILE *pioche,T_TUILE **main, int *BS, int k)
+void retraitPiocheDegrade(T_TUILE *pioche,T_TUILE main[][6], int *BS, int k)
 {
-    int i;
+    int i,j;
     srand(time(NULL));
     T_TUILE temp;
     int alea;
 
+    for(j=0;j<k;j++)
+    {
     if((*BS)!=0)
     {
     for(i=0;i<6;i++)
@@ -133,16 +133,16 @@ void retraitPiocheDegrade(T_TUILE *pioche,T_TUILE **main, int *BS, int k)
         srand(time(NULL));
         alea= rand()%(*BS);
 
-        if (main[k][i].forme= ' ')
+        if(main[j][i].forme == ' ')
         {
 
            *BS -= 1;
-           main[k][i].forme=pioche[alea].forme;
+           main[j][i].forme=pioche[alea].forme;
            temp.forme = pioche[alea].forme;
            pioche[alea].forme=pioche[*BS].forme;
            pioche[*BS].forme=temp.forme;
 
-           main[k][i].couleur=pioche[alea].couleur;
+           main[j][i].couleur=pioche[alea].couleur;
            temp.couleur = pioche[alea].couleur;
            pioche[alea].couleur=pioche[*BS].couleur;
            pioche[*BS].couleur=temp.couleur;
@@ -152,9 +152,10 @@ void retraitPiocheDegrade(T_TUILE *pioche,T_TUILE **main, int *BS, int k)
 
     }
     }
-
-
+    }
 }
+
+
 
 void gotoligcol(int lig, int col)
 {
@@ -259,11 +260,12 @@ void deplacerCurseur(int *x, int *y, int *num)
     gotoligcol(*y, *x);
 }
 
-void afficherMainJoueur(T_TUILE **main, int k)
+void afficherMainJoueur(T_TUILE main[][6], int k)
 {
-    int i;
-    int j=0;
-    int var=1;
+    int i,j;
+
+    for(j = 0; j < k ;j++)
+    {
     printf("%c", 0xC9);
 
     for(i=0; i < 5;i++)
@@ -274,10 +276,9 @@ void afficherMainJoueur(T_TUILE **main, int k)
     for(i=0;i<6;i++)
     {
         printf("%c", 0xBA);
-        Color(main[k][j].couleur, 0);
-        printf("%c", main[k][j].forme);
+        Color(main[j][i].couleur, 0);
+        printf("%c", main[j][i].forme);
         Color(15, 0);
-        j++;
     }
     printf("%c\n", 0xBA);
 
@@ -310,7 +311,7 @@ void afficherMainJoueur(T_TUILE **main, int k)
         printf("%c%c", 0xCD, 0xCA);
     }
     printf("%c%c\n", 0xCD,0xBC);
-
+    }
 }
 
 void Color(int couleurDuTexte,int couleurDeFond)
@@ -361,7 +362,7 @@ void Leaderbord(T_JOUEUR *joueur)
     gotoligcol(1,1);
 }
 
-void initialiserMain(T_TUILE **main, int nombreJoueurs)
+void initialiserMain(T_TUILE main[][6], int nombreJoueurs)
 {
     int i,j;
     for(i=0;i<nombreJoueurs;i++)
