@@ -5,7 +5,7 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
-void jeu(T_JOUEUR *joueur);
+void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs);
 void menu();
 
 void definirPiocheDegrade(T_TUILE *pioche);

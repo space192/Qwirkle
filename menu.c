@@ -32,7 +32,7 @@ void menu()
     while(difficulte <= 1 && difficulte >= 2);
     if(graphique == 0)
     {
-        jeu(joueur);
+        jeu(joueur, difficulte, nombreJoueurs);
     }
     else if (graphique = 1)
     {
