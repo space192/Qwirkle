@@ -101,6 +101,20 @@ int main()
     main5[5].forme= ' ';
     main5[5].couleur=6;
 
+    T_TUILE main6[6];
+    main6[0].forme= ' ';
+    main6[0].couleur=1;
+    main6[1].forme= ' ';
+    main6[1].couleur=2;
+    main6[2].forme= ' ';
+    main6[2].couleur=3;
+    main6[3].forme= ' ';
+    main6[3].couleur=4;
+    main6[4].forme= ' ';
+    main6[4].couleur=5;
+    main6[5].forme= ' ';
+    main6[5].couleur=6;
+
     definirPiocheDegrade(pioche);
 
     retraitPiocheDegrade(pioche,main0,&BS);
@@ -109,6 +123,8 @@ int main()
     retraitPiocheDegrade(pioche,main3,&BS);
     retraitPiocheDegrade(pioche,main4,&BS);
     retraitPiocheDegrade(pioche,main5,&BS);
+    retraitPiocheDegrade(pioche,main6,&BS);
+
 
     afficherMainJoueur(main0);
     afficherMainJoueur(main1);
@@ -116,6 +132,8 @@ int main()
     afficherMainJoueur(main3);
     afficherMainJoueur(main4);
     afficherMainJoueur(main5);
+    afficherMainJoueur(main6);
+
 
 
 

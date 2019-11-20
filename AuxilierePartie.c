@@ -126,7 +126,7 @@ void retraitPiocheDegrade(T_TUILE *pioche,T_TUILE *main, int *BS)
     T_TUILE temp;
     int alea;
 
-    while((*BS)!=0)
+    if((*BS)!=0)
     {
     for(i=0;i<6;i++)
     {
@@ -150,6 +150,8 @@ void retraitPiocheDegrade(T_TUILE *pioche,T_TUILE *main, int *BS)
 
     }
     }
+
+
 }
 
 void gotoligcol(int lig, int col)
