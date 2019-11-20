@@ -26,19 +26,19 @@
 1574260238 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\auxilierepartie.c
 	"prototypes.h"
 
-1574183889 source:c:\users\arthur\documents\github\projet-semetre-1\main.c
+1574284509 source:c:\users\arthur\documents\github\projet-semetre-1\main.c
 	"prototypes.h"
 
-1574193357 c:\users\arthur\documents\github\projet-semetre-1\prototypes.h
+1574284832 c:\users\arthur\documents\github\projet-semetre-1\prototypes.h
 	"constantes.h"
 	<windows.h>
 	<time.h>
 	<stdio.h>
 	<stdlib.h>
 
-1574095033 c:\users\arthur\documents\github\projet-semetre-1\constantes.h
+1574260411 c:\users\arthur\documents\github\projet-semetre-1\constantes.h
 
-1574193357 source:c:\users\arthur\documents\github\projet-semetre-1\menu.c
+1574281944 source:c:\users\arthur\documents\github\projet-semetre-1\menu.c
 	"prototypes.h"
 
 1574183889 source:c:\users\arthur\documents\github\projet-semetre-1\choix partie.c
@@ -50,9 +50,12 @@
 1574183889 source:c:\users\arthur\documents\github\projet-semetre-1\score.c
 	"prototypes.h"
 
-1574191983 source:c:\users\arthur\documents\github\projet-semetre-1\auxilierepartie.c
+1574284832 source:c:\users\arthur\documents\github\projet-semetre-1\auxilierepartie.c
 	"prototypes.h"
 
 1574242415 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\jeu.c
+	"prototypes.h"
+
+1574284609 source:c:\users\arthur\documents\github\projet-semetre-1\jeu.c
 	"prototypes.h"
 

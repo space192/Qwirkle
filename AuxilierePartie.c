@@ -83,46 +83,45 @@ void definirPiocheNormale(T_TUILE *pioche)
      ajout= ajout+36;
     }
 }
-void retraitPiocheNormale(T_TUILE *pioche,T_TUILE *main)
+void retraitPiocheNormale(T_TUILE *pioche,T_TUILE **main, int *BS, int k)
 {
     int i;
-    int BS=108;
     srand(time(NULL));
     T_TUILE temp;
     int alea;
 
-    while(BS!=0)
-    {
     for(i=0;i<6;i++)
     {
-        alea= rand()%BS;
+        alea= rand()%*BS;
 
-        if (main[i].forme= ' ')
+        if((*BS)!=0)
         {
-
-           main[i].forme=pioche[alea].forme;
+        if(main[k][i].forme == ' ')
+        {
+           *BS--;
+           main[k][i].forme=pioche[alea].forme;
            temp.forme = pioche[alea].forme;
-           pioche[alea].forme=pioche[BS].forme;
-           pioche[BS].forme=temp.forme;
+           pioche[alea].forme=pioche[*BS].forme;
+           pioche[*BS].forme=temp.forme;
 
-           main[i].couleur=pioche[alea].couleur;
+           main[k][i].couleur=pioche[alea].couleur;
            temp.couleur = pioche[alea].couleur;
-           pioche[alea].couleur=pioche[BS].couleur;
-           pioche[BS].couleur=temp.couleur;
+           pioche[alea].couleur=pioche[*BS].couleur;
+           pioche[*BS].couleur=temp.couleur;
 
-           BS--;
+
+        }
         }
 
     }
-    }
+
 }
 
 
 
-void retraitPiocheDegrade(T_TUILE *pioche,T_TUILE *main, int *BS)
+void retraitPiocheDegrade(T_TUILE *pioche,T_TUILE **main, int *BS, int k)
 {
     int i;
-
     srand(time(NULL));
     T_TUILE temp;
     int alea;
@@ -134,16 +133,16 @@ void retraitPiocheDegrade(T_TUILE *pioche,T_TUILE *main, int *BS)
         srand(time(NULL));
         alea= rand()%(*BS);
 
-        if (main[i].forme= ' ')
+        if (main[k][i].forme= ' ')
         {
 
            *BS -= 1;
-           main[i].forme=pioche[alea].forme;
+           main[k][i].forme=pioche[alea].forme;
            temp.forme = pioche[alea].forme;
            pioche[alea].forme=pioche[*BS].forme;
            pioche[*BS].forme=temp.forme;
 
-           main[i].couleur=pioche[alea].couleur;
+           main[k][i].couleur=pioche[alea].couleur;
            temp.couleur = pioche[alea].couleur;
            pioche[alea].couleur=pioche[*BS].couleur;
            pioche[*BS].couleur=temp.couleur;
@@ -260,12 +259,13 @@ void deplacerCurseur(int *x, int *y, int *num)
     gotoligcol(*y, *x);
 }
 
-void afficherMainJoueur(T_TUILE *main)
+void afficherMainJoueur(T_TUILE **main, int k)
 {
     int i;
     int j=0;
     int var=1;
     printf("%c", 0xC9);
+
     for(i=0; i < 5;i++)
     {
         printf("%c%c", 0xCD, 0xCB);
@@ -274,8 +274,8 @@ void afficherMainJoueur(T_TUILE *main)
     for(i=0;i<6;i++)
     {
         printf("%c", 0xBA);
-        Color(main[j].couleur, 0);
-        printf("%c", main[j].forme);
+        Color(main[k][j].couleur, 0);
+        printf("%c", main[k][j].forme);
         Color(15, 0);
         j++;
     }
@@ -359,4 +359,16 @@ void Leaderbord(T_JOUEUR *joueur)
         printf("Le Score du Joueur %d vaut: %d", i+1, joueur->score);
     }
     gotoligcol(1,1);
+}
+
+void initialiserMain(T_TUILE **main, int nombreJoueurs)
+{
+    int i,j;
+    for(i=0;i<nombreJoueurs;i++)
+    {
+        for(j=0;j<6;j++)
+        {
+            main[i][j].forme=' ';
+        }
+    }
 }

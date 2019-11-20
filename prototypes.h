@@ -12,15 +12,16 @@ void definirPiocheDegrade(T_TUILE *pioche);
 
 void definirPiocheNormale(T_TUILE *pioche);
 
-void retraitPiocheNormale(T_TUILE *pioche,T_TUILE *main);
+void retraitPiocheNormale(T_TUILE *pioche,T_TUILE **main, int *BS, int k);
 
-void retraitPiocheDegrade(T_TUILE *pioche,T_TUILE *main, int *BS);
+void retraitPiocheDegrade(T_TUILE *pioche,T_TUILE **main, int *BS, int k);
 
 void gotoligcol(int lig, int col);
 void deplacerCurseur(int *x, int *y, int *num);
 void afficherTerrain();
-void afficherMainJoueur(T_TUILE *main);
+void afficherMainJoueur(T_TUILE **main, int k);
 void Color(int couleurDuTexte,int couleurDeFond);
 void afficherNom(T_JOUEUR joueur);
 void Leaderbord(T_JOUEUR *joueur);
+void initialiserMain(T_TUILE **main, int nombreJoueurs);
 #endif // PROTOTYPES_H_INCLUDED
