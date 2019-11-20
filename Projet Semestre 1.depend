@@ -1,40 +1,30 @@
 # depslib dependency file v1.0
-1574181796 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\main.c
-	<stdio.h>
-	<stdlib.h>
-	<time.h>
+1574244811 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\main.c
 	"prototypes.h"
 
-1574091159 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\choix partie.c
-	<time.h>
+1574183819 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\choix partie.c
+	"prototypes.h"
 
-1574103545 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\fichier.c
-	<stdio.h>
-	<stdlib.h>
-	"constantes.h"
-	<time.h>
+1574183819 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\fichier.c
+	"prototypes.h"
 
 1574091159 c:\users\plpai\onedrive\documents\github\projet-semetre-1\constantes.h
 
-1574104259 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\menu.c
+1574245251 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\menu.c
 	"prototypes.h"
-	<time.h>
-	<stdio.h>
-	<stdlib.h>
 
-1574181521 c:\users\plpai\onedrive\documents\github\projet-semetre-1\prototypes.h
+1574245078 c:\users\plpai\onedrive\documents\github\projet-semetre-1\prototypes.h
 	"constantes.h"
-
-1574091159 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\score.c
-	<time.h>
-
-1574182019 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\auxilierepartie.c
-	"constantes.h"
-	"prototypes.h"
-	<time.h>
 	<windows.h>
+	<time.h>
 	<stdio.h>
 	<stdlib.h>
+
+1574183819 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\score.c
+	"prototypes.h"
+
+1574244811 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\auxilierepartie.c
+	"prototypes.h"
 
 1574183889 source:c:\users\arthur\documents\github\projet-semetre-1\main.c
 	"prototypes.h"
@@ -61,5 +51,8 @@
 	"prototypes.h"
 
 1574191983 source:c:\users\arthur\documents\github\projet-semetre-1\auxilierepartie.c
+	"prototypes.h"
+
+1574242415 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\jeu.c
 	"prototypes.h"
 

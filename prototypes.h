@@ -5,7 +5,7 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
-
+void jeu(T_JOUEUR *joueur);
 void menu();
 
 void definirPiocheDegrade(T_TUILE *pioche);
@@ -23,5 +23,4 @@ void afficherMainJoueur(T_TUILE *main);
 void Color(int couleurDuTexte,int couleurDeFond);
 void afficherNom(T_JOUEUR joueur);
 void Leaderbord(T_JOUEUR *joueur);
-void jeu(T_JOUEUR *joueur);
 #endif // PROTOTYPES_H_INCLUDED
