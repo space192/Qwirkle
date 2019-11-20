@@ -52,7 +52,7 @@ void definirPiocheNormale(T_TUILE *pioche)
 
         for(i=0+ajout;i<6;i++)// Carrés
         {
-            pioche[i].forme= 0xDB;
+            pioche[i].forme= 0xFE;
             pioche[i].couleur=i+1;
         }
         for(i=6+ajout;i<12;i++)// Rond
@@ -118,34 +118,34 @@ void retraitPiocheNormale(T_TUILE *pioche,T_TUILE *main)
 
 
 
-void retraitPiocheDegrade(T_TUILE *pioche,T_TUILE *main)
+void retraitPiocheDegrade(T_TUILE *pioche,T_TUILE *main, int *BS)
 {
     int i;
-    int BS=36;
+
     srand(time(NULL));
     T_TUILE temp;
     int alea;
 
-    while(BS!=0)
+    while((*BS)!=0)
     {
     for(i=0;i<6;i++)
     {
         srand(time(NULL));
-        alea= rand()%BS;
+        alea= rand()%(*BS);
 
         if (main[i].forme= ' ')
         {
            main[i].forme=pioche[alea].forme;
            temp.forme = pioche[alea].forme;
-           pioche[alea].forme=pioche[BS].forme;
-           pioche[BS].forme=temp.forme;
+           pioche[alea].forme=pioche[*BS].forme;
+           pioche[*BS].forme=temp.forme;
 
            main[i].couleur=pioche[alea].couleur;
            temp.couleur = pioche[alea].couleur;
-           pioche[alea].couleur=pioche[BS].couleur;
-           pioche[BS].couleur=temp.couleur;
+           pioche[alea].couleur=pioche[*BS].couleur;
+           pioche[*BS].couleur=temp.couleur;
 
-           BS--;
+           *BS -= 1;
         }
 
     }
@@ -252,6 +252,30 @@ void afficherMainJoueur(T_TUILE *main)
         j++;
     }
     printf("%c\n", 0xBA);
+
+    printf("%c", 0xCC);
+    for(i=0;i<5;i++)
+    {
+      printf("%c", 0xCD);
+      printf("%c", 0xCE);
+    }
+    printf("%c", 0xCD);
+    printf("%c\n", 0xB9);
+
+    printf("%c", 0xBA);
+    printf("%c", 'a');
+    printf("%c", 0xBA);
+    printf("%c", 'z');
+    printf("%c", 0xBA);
+    printf("%c", 'e');
+    printf("%c", 0xBA);
+    printf("%c", 'r');
+    printf("%c", 0xBA);
+    printf("%c", 't');
+    printf("%c", 0xBA);
+    printf("%c", 'y');
+    printf("%c\n", 0xBA);
+
     printf("%c",0xC8);
     for(i=0; i < 5;i++)
     {

@@ -14,7 +14,7 @@ void definirPiocheNormale(T_TUILE *pioche);
 
 void retraitPiocheNormale(T_TUILE *pioche,T_TUILE *main);
 
-void retraitPiocheDegrade(T_TUILE *pioche,T_TUILE *main);
+void retraitPiocheDegrade(T_TUILE *pioche,T_TUILE *main, int *BS);
 
 void gotoligcol(int lig, int col);
 void deplacerCurseur(int *x, int *y);
