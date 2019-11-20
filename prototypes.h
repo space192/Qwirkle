@@ -17,7 +17,7 @@ void retraitPiocheNormale(T_TUILE *pioche,T_TUILE *main);
 void retraitPiocheDegrade(T_TUILE *pioche,T_TUILE *main, int *BS);
 
 void gotoligcol(int lig, int col);
-void deplacerCurseur(int *x, int *y);
+void deplacerCurseur(int *x, int *y, int *num);
 void afficherTerrain();
 void afficherMainJoueur(T_TUILE *main);
 void Color(int couleurDuTexte,int couleurDeFond);

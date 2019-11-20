@@ -200,41 +200,64 @@ void afficherTerrain()
     gotoligcol(1,1);
 }
 
-void deplacerCurseur(int *x, int *y)
+void deplacerCurseur(int *x, int *y, int *num)
 {
-    char c;
-    if(getch() == 224)
+    int c;
+    c = getch();
+    switch(c)
+    {
+    case 224:
     {
         c = getch();
         switch(c)
         {
         case 72:
-            *x-= 2;
-            break;
-        case 80:
-            *x+= 2;
-            break;
-        case 75:
             *y-= 2;
             break;
-        case 77:
+        case 80:
             *y+= 2;
             break;
+        case 75:
+            *x-= 2;
+            break;
+        case 77:
+            *x+= 2;
+            break;
         }
+        break;
     }
-    if(*y >= 53)
-    {
-        *y=1;
+    case 'a':
+        *num = 1;
+        break;
+    case 'z':
+        *num = 2;
+        break;
+    case 'e':
+        *num = 3;
+        break;
+    case 'r':
+        *num = 4;
+        break;
+    case 't':
+        *num = 5;
+        break;
+    case 'y':
+        *num = 6;
+        break;
     }
-    else if(*y <= 0)
-    {
-        *y+=2;
-    }
-    else if(*x >= 25)
+    if(*x >= 53)
     {
         *x=1;
     }
-    gotoligcol(*x, *y);
+    else if(*x <= 0)
+    {
+        *x+=2;
+    }
+    else if(*y >= 25)
+    {
+        *y=1;
+    }
+    gotoligcol(*y, *x);
 }
 
 void afficherMainJoueur(T_TUILE *main)
