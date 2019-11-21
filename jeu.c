@@ -2,7 +2,7 @@
 
 void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
 {
-    int sauvegarde, BS, i,k, partie = 1, joueurActif, deplacement = 0, x = 0, y=0;
+    int sauvegarde, BS, i,k, partie = 1, joueurActif, deplacement = 0, x = 1, y=1;
     T_TUILE *pioche = NULL;
     T_TUILE **main;
     do
@@ -39,12 +39,11 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
             initialiserMain(main, nombreJoueurs);
             retraitPioche(pioche,main,&BS, nombreJoueurs);
         }
-
-        afficherMainJoueur(main, nombreJoueurs);
-
     }
+    system("cls");
     while(partie == 1)
     {
+        afficherTerrain();
         while(joueurActif != nombreJoueurs+1)
         {
             while(deplacement == 0)

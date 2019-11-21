@@ -214,6 +214,12 @@ void deplacerCurseur(int *x, int *y, int *num)
     case 'y':
         *num = 6;
         break;
+    case 'c':
+        *num = 7;
+        break;
+    case 'p':
+        *num = 8;
+        break;
     }
     if(*x >= 53)
     {
