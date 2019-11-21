@@ -389,8 +389,7 @@ void remplacerTuile(T_TUILE main[][6],T_TUILE *pioche, int j, int *BS)
             for(i=0;i<6;i++)
             {
                 alea= rand()%(*BS);
-                if(main[j][i].forme == ' ')
-                {
+
                     main[j][i].forme=pioche[alea].forme;
                     temp.forme = pioche[alea].forme;
                     pioche[alea].forme=pioche[*BS].forme;
@@ -400,7 +399,7 @@ void remplacerTuile(T_TUILE main[][6],T_TUILE *pioche, int j, int *BS)
                     temp.couleur = pioche[alea].couleur;
                     pioche[alea].couleur=pioche[*BS].couleur;
                     pioche[*BS].couleur=temp.couleur;
-                }
+
             }
         }
 }

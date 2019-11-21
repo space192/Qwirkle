@@ -42,5 +42,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
         }
 
         afficherMainJoueur(main, nombreJoueurs);
+        remplacerTuile(main,pioche2, 0, &BS);
+        afficherMainJoueur(main, nombreJoueurs);
     }
 }
