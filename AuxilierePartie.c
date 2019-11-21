@@ -4,7 +4,6 @@
 void definirPiocheDegrade(T_TUILE *pioche)
 {
     int i;
-
     for(i=0;i<6;i++)// Carrés
     {
         pioche[i].forme = 0xFE;
@@ -35,7 +34,6 @@ void definirPiocheDegrade(T_TUILE *pioche)
         pioche[i].forme= 0xAF;
         pioche[i].couleur=i-29;
     }
-
 }
 
 
@@ -83,36 +81,32 @@ void definirPiocheNormale(T_TUILE *pioche)
 }
 void retraitPiocheNormale(T_TUILE *pioche,T_TUILE main[][6], int *BS, int k)
 {
-    int i;
+    int i,j, alea;
     srand(time(NULL));
     T_TUILE temp;
-    int alea;
-
-    for(i=0;i<6;i++)
+    for(j = 0; j < k ; j++)
     {
-        alea= rand()%*BS;
-
         if((*BS)!=0)
         {
-        if(main[k][i].forme == ' ')
-        {
-           (*BS)--;
-           main[k][i].forme=pioche[alea].forme;
-           temp.forme = pioche[alea].forme;
-           pioche[alea].forme=pioche[*BS].forme;
-           pioche[*BS].forme=temp.forme;
+            for(i=0;i<6;i++)
+            {
+                alea= rand()%(*BS);
+                if(main[j][i].forme == ' ')
+                {
+                    *BS -= 1;
+                    main[j][i].forme=pioche[alea].forme;
+                    temp.forme = pioche[alea].forme;
+                    pioche[alea].forme=pioche[*BS].forme;
+                    pioche[*BS].forme=temp.forme;
 
-           main[k][i].couleur=pioche[alea].couleur;
-           temp.couleur = pioche[alea].couleur;
-           pioche[alea].couleur=pioche[*BS].couleur;
-           pioche[*BS].couleur=temp.couleur;
-
-
+                    main[j][i].couleur=pioche[alea].couleur;
+                    temp.couleur = pioche[alea].couleur;
+                    pioche[alea].couleur=pioche[*BS].couleur;
+                    pioche[*BS].couleur=temp.couleur;
+                }
+            }
         }
-        }
-
     }
-
 }
 
 
@@ -126,32 +120,26 @@ void retraitPiocheDegrade(T_TUILE *pioche,T_TUILE main[][6], int *BS, int k)
 
     for(j=0;j<k;j++)
     {
-    if((*BS)!=0)
-    {
-    for(i=0;i<6;i++)
-    {
-        srand(time(NULL));
-        alea= rand()%(*BS);
-
-        if(main[j][i].forme == ' ')
+        if((*BS)!=0)
         {
+            for(i=0;i<6;i++)
+            {
+                alea= rand()%(*BS);
+                if(main[j][i].forme == ' ')
+                {
+                    *BS -= 1;
+                    main[j][i].forme=pioche[alea].forme;
+                    temp.forme = pioche[alea].forme;
+                    pioche[alea].forme=pioche[*BS].forme;
+                    pioche[*BS].forme=temp.forme;
 
-           *BS -= 1;
-           main[j][i].forme=pioche[alea].forme;
-           temp.forme = pioche[alea].forme;
-           pioche[alea].forme=pioche[*BS].forme;
-           pioche[*BS].forme=temp.forme;
-
-           main[j][i].couleur=pioche[alea].couleur;
-           temp.couleur = pioche[alea].couleur;
-           pioche[alea].couleur=pioche[*BS].couleur;
-           pioche[*BS].couleur=temp.couleur;
-
-
+                    main[j][i].couleur=pioche[alea].couleur;
+                    temp.couleur = pioche[alea].couleur;
+                    pioche[alea].couleur=pioche[*BS].couleur;
+                    pioche[*BS].couleur=temp.couleur;
+                }
+            }
         }
-
-    }
-    }
     }
 }
 
@@ -266,51 +254,51 @@ void afficherMainJoueur(T_TUILE main[][6], int k)
 
     for(j = 0; j < k ;j++)
     {
-    printf("%c", 0xC9);
+        printf("%c", 0xC9);
 
-    for(i=0; i < 5;i++)
-    {
-        printf("%c%c", 0xCD, 0xCB);
-    }
-    printf("%c%c\n", 0xCD,0xBB);
-    for(i=0;i<6;i++)
-    {
+        for(i=0; i < 5 ;i++)
+        {
+            printf("%c%c", 0xCD, 0xCB);
+        }
+        printf("%c%c\n", 0xCD,0xBB);
+        for(i=0; i<6 ; i++)
+        {
+            printf("%c", 0xBA);
+            Color(main[j][i].couleur, 0);
+            printf("%c", main[j][i].forme);
+            Color(15, 0);
+        }
+        printf("%c\n", 0xBA);
+
+        printf("%c", 0xCC);
+        for(i=0;i<5;i++)
+        {
+        printf("%c", 0xCD);
+        printf("%c", 0xCE);
+        }
+        printf("%c", 0xCD);
+        printf("%c\n", 0xB9);
+
         printf("%c", 0xBA);
-        Color(main[j][i].couleur, 0);
-        printf("%c", main[j][i].forme);
-        Color(15, 0);
-    }
-    printf("%c\n", 0xBA);
+        printf("%c", 'a');
+        printf("%c", 0xBA);
+        printf("%c", 'z');
+        printf("%c", 0xBA);
+        printf("%c", 'e');
+        printf("%c", 0xBA);
+        printf("%c", 'r');
+        printf("%c", 0xBA);
+        printf("%c", 't');
+        printf("%c", 0xBA);
+        printf("%c", 'y');
+        printf("%c\n", 0xBA);
 
-    printf("%c", 0xCC);
-    for(i=0;i<5;i++)
-    {
-      printf("%c", 0xCD);
-      printf("%c", 0xCE);
-    }
-    printf("%c", 0xCD);
-    printf("%c\n", 0xB9);
-
-    printf("%c", 0xBA);
-    printf("%c", 'a');
-    printf("%c", 0xBA);
-    printf("%c", 'z');
-    printf("%c", 0xBA);
-    printf("%c", 'e');
-    printf("%c", 0xBA);
-    printf("%c", 'r');
-    printf("%c", 0xBA);
-    printf("%c", 't');
-    printf("%c", 0xBA);
-    printf("%c", 'y');
-    printf("%c\n", 0xBA);
-
-    printf("%c",0xC8);
-    for(i=0; i < 5;i++)
-    {
-        printf("%c%c", 0xCD, 0xCA);
-    }
-    printf("%c%c\n", 0xCD,0xBC);
+        printf("%c",0xC8);
+        for(i=0; i < 5;i++)
+        {
+            printf("%c%c", 0xCD, 0xCA);
+        }
+        printf("%c%c\n", 0xCD,0xBC);
     }
 }
 
@@ -369,7 +357,7 @@ void initialiserMain(T_TUILE main[][6], int nombreJoueurs)
     {
         for(j=0;j<6;j++)
         {
-            main[i][j].forme=' ';
+            main[i][j].forme= ' ';
         }
     }
 }
