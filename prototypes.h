@@ -24,4 +24,5 @@ void Color(int couleurDuTexte,int couleurDeFond);
 void afficherNom(T_JOUEUR joueur);
 void Leaderbord(T_JOUEUR *joueur);
 void initialiserMain(T_TUILE main[][6], int nombreJoueurs);
+void remplacerTuile(T_TUILE main[][6],T_TUILE *pioche, int j, int *BS);
 #endif // PROTOTYPES_H_INCLUDED

@@ -377,3 +377,30 @@ void initialiserMain(T_TUILE main[][6], int nombreJoueurs)
         }
     }
 }
+
+void remplacerTuile(T_TUILE main[][6],T_TUILE *pioche, int j, int *BS)
+{
+    int i;
+    srand(time(NULL));
+    T_TUILE temp;
+    int alea;
+        if((*BS)!=0)
+        {
+            for(i=0;i<6;i++)
+            {
+                alea= rand()%(*BS);
+                if(main[j][i].forme == ' ')
+                {
+                    main[j][i].forme=pioche[alea].forme;
+                    temp.forme = pioche[alea].forme;
+                    pioche[alea].forme=pioche[*BS].forme;
+                    pioche[*BS].forme=temp.forme;
+
+                    main[j][i].couleur=pioche[alea].couleur;
+                    temp.couleur = pioche[alea].couleur;
+                    pioche[alea].couleur=pioche[*BS].couleur;
+                    pioche[*BS].couleur=temp.couleur;
+                }
+            }
+        }
+}
