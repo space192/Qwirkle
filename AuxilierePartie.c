@@ -41,42 +41,58 @@ void definirPiocheNormale(T_TUILE *pioche)
 {
     int i;
     int j;
+    int k;
     int ajout=0;
 
     for(j=0;j<3;j++) //On fait la boucle 3 fois
     {
 
-        for(i=0+ajout;i<6;i++)// Carrés
+        k=1;
+        for(i=(0+ajout);i<(6+ajout);i++)// Carrés
         {
             pioche[i].forme= 0xFE;
-            pioche[i].couleur=i+1;
+            pioche[i].couleur=k;
+            k++;
+
         }
-        for(i=6+ajout;i<12;i++)// Rond
+        k=1;
+        for(i=(6+ajout);i<(12+ajout);i++)// Rond
         {
-            pioche[i].forme= 0x09;
-            pioche[i].couleur=i-5;
+            pioche[i].forme= 0x9E;
+            pioche[i].couleur=k;
+            k++;
         }
-        for(i=12+ajout;i<18;i++)// Triangles
+        k=1;
+        for(i=(12+ajout);i<(18+ajout);i++)// Triangles
         {
-            pioche[i].forme= 0x1E;
-            pioche[i].couleur=i-11;
+            pioche[i].forme= 0x4F;
+            pioche[i].couleur=k;
+            k++;
         }
-        for(i=18+ajout;i<24;i++)// Etoiles
+        k=1;
+        for(i=(18+ajout);i<(24+ajout);i++)// Etoiles
         {
-            pioche[i].forme= 0x1E;
-            pioche[i].couleur=i-17;
+            pioche[i].forme= 0x2B;
+            pioche[i].couleur=k;
+            k++;
         }
-        for(i=24+ajout;i<30;i++)// Croix
+        k=1;
+        for(i=(24+ajout);i<(30+ajout);i++)// Croix
         {
-            pioche[i].forme= 0xC5;
-            pioche[i].couleur=i-23;
+            pioche[i].forme= 0xAE;
+            pioche[i].couleur=k;
+            k++;
         }
-        for(i=30+ajout;i<36;i++)// Trèfle
+        k=1;
+        for(i=(30+ajout);i<(36+ajout);i++)// Trèfle
         {
-            pioche[i].forme= 0x05;
-            pioche[i].couleur=i-29;
+            pioche[i].forme= 0xAF;
+            pioche[i].couleur=k;
+            k++;
         }
-     ajout= ajout+36;
+        k=1;
+
+     ajout= (ajout+36);
     }
 }
 void retraitPiocheNormale(T_TUILE *pioche,T_TUILE main[][6], int *BS, int k)
