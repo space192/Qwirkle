@@ -95,6 +95,7 @@ void definirPiocheNormale(T_TUILE *pioche)
      ajout= (ajout+36);
     }
 }
+void retraitPioche(T_TUILE *pioche,T_TUILE main[][6], int *BS, int k)
 {
     int i,j, alea;
     srand(time(NULL));
