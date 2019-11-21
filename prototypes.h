@@ -5,6 +5,7 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <conio.h>
 void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs);
 void menu();
 
