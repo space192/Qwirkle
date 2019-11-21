@@ -266,7 +266,7 @@ void deplacerCurseur(int *x, int *y, int *num)
 
 void afficherMainJoueur(T_TUILE main[][6], int k)
 {
-    int i,j;
+    int i,j,l;
 
     for(j = 0; j < k ;j++)
     {
@@ -277,11 +277,11 @@ void afficherMainJoueur(T_TUILE main[][6], int k)
             printf("%c%c", 0xCD, 0xCB);
         }
         printf("%c%c\n", 0xCD,0xBB);
-        for(i=0; i<6 ; i++)
+        for(l=0; l<6 ; l++)
         {
             printf("%c", 0xBA);
-            Color(main[j][i].couleur, 0);
-            printf("%c", main[j][i].forme);
+            Color(main[j][l].couleur, 0);
+            printf("%c", main[j][l].forme);
             Color(15, 0);
         }
         printf("%c\n", 0xBA);

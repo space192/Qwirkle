@@ -4,6 +4,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
 {
     int sauvegarde, BS, i,k;
     T_TUILE *pioche = NULL;
+    T_TUILE *pioche2 = NULL;
     T_TUILE **main;
     do
     {
@@ -34,10 +35,10 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
         else if(difficulte == 2)
         {
             BS = 108;
-            pioche = malloc(BS * sizeof(T_TUILE));
-            definirPiocheNormale(pioche);
+            pioche2 = malloc(BS * sizeof(T_TUILE));
+            definirPiocheNormale(pioche2);
             initialiserMain(main, nombreJoueurs);
-            retraitPiocheNormale(pioche,main,&BS, nombreJoueurs);
+            retraitPiocheNormale(pioche2,main,&BS, nombreJoueurs);
         }
 
         afficherMainJoueur(main, nombreJoueurs);
