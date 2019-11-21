@@ -239,13 +239,17 @@ void deplacerCurseur(int *x, int *y, int *num)
 void afficherMainJoueur(T_TUILE main[][6], int j)
 {
     int i,l, m = 26, n = 13;
+
     gotoligcol(m, n);
+
     printf("%c", 0xC9);
     for(i=0; i < 5 ; i++)
     {
         printf("%c%c", 0xCD, 0xCB);
     }
     printf("%c%c", 0xCD,0xBB);
+    m++;
+
     gotoligcol(m++, n);
     for(l=0; l<6 ; l++)
     {
