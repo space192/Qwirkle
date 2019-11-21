@@ -236,58 +236,56 @@ void deplacerCurseur(int *x, int *y, int *num)
     gotoligcol(*y, *x);
 }
 
-void afficherMainJoueur(T_TUILE main[][6], int k)
+void afficherMainJoueur(T_TUILE main[][6], int j)
 {
-    int i,j,l;
-
-    for(j = 0; j < k ;j++)
+    int i,l, m = 26, n = 13;
+    gotoligcol(m, n);
+    printf("%c", 0xC9);
+    for(i=0; i < 5 ; i++)
     {
-        printf("%c", 0xC9);
-
-        for(i=0; i < 5 ;i++)
-        {
-            printf("%c%c", 0xCD, 0xCB);
-        }
-        printf("%c%c\n", 0xCD,0xBB);
-        for(l=0; l<6 ; l++)
-        {
-            printf("%c", 0xBA);
-            Color(main[j][l].couleur, 0);
-            printf("%c", main[j][l].forme);
-            Color(15, 0);
-        }
-        printf("%c\n", 0xBA);
-
-        printf("%c", 0xCC);
-        for(i=0;i<5;i++)
-        {
-        printf("%c", 0xCD);
-        printf("%c", 0xCE);
-        }
-        printf("%c", 0xCD);
-        printf("%c\n", 0xB9);
-
-        printf("%c", 0xBA);
-        printf("%c", 'a');
-        printf("%c", 0xBA);
-        printf("%c", 'z');
-        printf("%c", 0xBA);
-        printf("%c", 'e');
-        printf("%c", 0xBA);
-        printf("%c", 'r');
-        printf("%c", 0xBA);
-        printf("%c", 't');
-        printf("%c", 0xBA);
-        printf("%c", 'y');
-        printf("%c\n", 0xBA);
-
-        printf("%c",0xC8);
-        for(i=0; i < 5;i++)
-        {
-            printf("%c%c", 0xCD, 0xCA);
-        }
-        printf("%c%c\n", 0xCD,0xBC);
+        printf("%c%c", 0xCD, 0xCB);
     }
+    printf("%c%c", 0xCD,0xBB);
+    gotoligcol(m++, n);
+    for(l=0; l<6 ; l++)
+    {
+        printf("%c", 0xBA);
+        Color(main[j][l].couleur, 0);
+        printf("%c", main[j][l].forme);
+        Color(15, 0);
+    }
+    printf("%c", 0xBA);
+    gotoligcol(m++, n);
+    printf("%c", 0xCC);
+    for(i=0;i<5;i++)
+    {
+    printf("%c", 0xCD);
+    printf("%c", 0xCE);
+    }
+    printf("%c", 0xCD);
+    printf("%c", 0xB9);
+    gotoligcol(m++, n);
+    printf("%c", 0xBA);
+    printf("%c", 'a');
+    printf("%c", 0xBA);
+    printf("%c", 'z');
+    printf("%c", 0xBA);
+    printf("%c", 'e');
+    printf("%c", 0xBA);
+    printf("%c", 'r');
+    printf("%c", 0xBA);
+    printf("%c", 't');
+    printf("%c", 0xBA);
+    printf("%c", 'y');
+    printf("%c", 0xBA);
+    gotoligcol(m++, n);
+    printf("%c",0xC8);
+    for(i=0; i < 5;i++)
+    {
+        printf("%c%c", 0xCD, 0xCA);
+    }
+    printf("%c%c", 0xCD,0xBC);
+    gotoligcol(1,1);
 }
 
 void Color(int couleurDuTexte,int couleurDeFond)
