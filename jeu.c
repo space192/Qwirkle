@@ -2,7 +2,7 @@
 
 void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
 {
-    int sauvegarde, BS, i,k;
+    int sauvegarde, BS, i,k, partie = 1, joueurActif, deplacement = 0, x = 0, y=0;
     T_TUILE *pioche = NULL;
     T_TUILE **main;
     do
@@ -29,7 +29,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
             pioche = malloc(BS * sizeof(T_TUILE));
             definirPiocheDegrade(pioche);
             initialiserMain(main, nombreJoueurs);
-            retraitPiocheDegrade(pioche,main,&BS, nombreJoueurs);
+            retraitPioche(pioche,main,&BS, nombreJoueurs);
         }
         else if(difficulte == 2)
         {
@@ -37,11 +37,21 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
             pioche = malloc(BS * sizeof(T_TUILE));
             definirPiocheNormale(pioche);
             initialiserMain(main, nombreJoueurs);
-            retraitPiocheNormale(pioche,main,&BS, nombreJoueurs);
+            retraitPioche(pioche,main,&BS, nombreJoueurs);
         }
 
         afficherMainJoueur(main, nombreJoueurs);
-        remplacerTuile(main,pioche, 0, &BS);
-        afficherMainJoueur(main, nombreJoueurs);
+
+    }
+    while(partie == 1)
+    {
+        while(joueurActif != nombreJoueurs+1)
+        {
+            while(deplacement == 0)
+            {
+                deplacerCurseur(&x, &y, &deplacement);
+            }
+
+        }
     }
 }

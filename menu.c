@@ -16,7 +16,7 @@ void menu()
     {
         scanf("%d", &nombreJoueurs);
     }
-    while(nombreJoueurs < 2 || nombreJoueurs > 4);
+    while(nombreJoueurs < 2 || nombreJoueurs > 20);
     T_JOUEUR *joueur = NULL;
     joueur = malloc(nombreJoueurs * sizeof(T_JOUEUR));
     for(i = 0; i < nombreJoueurs; i++)

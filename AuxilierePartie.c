@@ -95,46 +95,11 @@ void definirPiocheNormale(T_TUILE *pioche)
      ajout= (ajout+36);
     }
 }
-void retraitPiocheNormale(T_TUILE *pioche,T_TUILE main[][6], int *BS, int k)
 {
     int i,j, alea;
     srand(time(NULL));
     T_TUILE temp;
     for(j = 0; j < k ; j++)
-    {
-        if((*BS)!=0)
-        {
-            for(i=0;i<6;i++)
-            {
-                alea= rand()%(*BS);
-                if(main[j][i].forme == ' ')
-                {
-                    *BS -= 1;
-                    main[j][i].forme=pioche[alea].forme;
-                    temp.forme = pioche[alea].forme;
-                    pioche[alea].forme=pioche[*BS].forme;
-                    pioche[*BS].forme=temp.forme;
-
-                    main[j][i].couleur=pioche[alea].couleur;
-                    temp.couleur = pioche[alea].couleur;
-                    pioche[alea].couleur=pioche[*BS].couleur;
-                    pioche[*BS].couleur=temp.couleur;
-                }
-            }
-        }
-    }
-}
-
-
-
-void retraitPiocheDegrade(T_TUILE *pioche,T_TUILE main[][6], int *BS, int k)
-{
-    int i,j;
-    srand(time(NULL));
-    T_TUILE temp;
-    int alea;
-
-    for(j=0;j<k;j++)
     {
         if((*BS)!=0)
         {

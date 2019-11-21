@@ -12,9 +12,9 @@ void definirPiocheDegrade(T_TUILE *pioche);
 
 void definirPiocheNormale(T_TUILE *pioche);
 
-void retraitPiocheNormale(T_TUILE *pioche,T_TUILE main[][6], int *BS, int k);
+void retraitPioche(T_TUILE *pioche,T_TUILE main[][6], int *BS, int k);
 
-void retraitPiocheDegrade(T_TUILE *pioche,T_TUILE main[][6], int *BS, int k);
+
 
 void gotoligcol(int lig, int col);
 void deplacerCurseur(int *x, int *y, int *num);
