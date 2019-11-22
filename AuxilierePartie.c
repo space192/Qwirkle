@@ -198,28 +198,28 @@ void deplacerCurseur(int *x, int *y, int *num)
         break;
     }
     case 'a':
-        *num = 1;
+        *num = 0;
         break;
     case 'z':
-        *num = 2;
+        *num = 1;
         break;
     case 'e':
-        *num = 3;
+        *num = 2;
         break;
     case 'r':
-        *num = 4;
+        *num = 3;
         break;
     case 't':
-        *num = 5;
+        *num = 4;
         break;
     case 'y':
-        *num = 6;
+        *num = 5;
         break;
     case 'c':
-        *num = 7;
+        *num = 6;
         break;
     case 'p':
-        *num = 8;
+        *num = 7;
         break;
     }
     if(*x >= 53)
@@ -404,4 +404,17 @@ void remplirMain(T_TUILE main[][6],T_TUILE *pioche, int j, int *BS)
                 }
             }
         }
+}
+
+void initialiserPlateau(T_TUILE plateau[][26])
+{
+    int i,k;
+    for(i=0;i<12;i++)
+    {
+        for(k=0;k<26;k++)
+        {
+            plateau[i][k].forme= ' ';
+            plateau[i][k].couleur= 0;
+        }
+    }
 }

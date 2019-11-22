@@ -2,9 +2,11 @@
 
 void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
 {
-    int sauvegarde, BS, i,k, partie = 1, joueurActif = 0, deplacement = 0, x = 1, y=1;
+    int sauvegarde, BS, i,k, partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1;
     T_TUILE *pioche = NULL;
     T_TUILE **main;
+    T_TUILE plateau[12][26];
+
     do
     {
         printf("voulez vous reprendre une partie sauvegarde ?\n1:oui\n2:non\n");
@@ -40,16 +42,18 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
             retraitPioche(pioche,main,&BS, nombreJoueurs);
         }
     }
+    initialiserPlateau(plateau);
     while(partie == 1)
     {
         afficherTerrain();
-        while(joueurActif != nombreJoueurs+1)
+        while(joueurActif != nombreJoueurs-1)
         {
             afficherMainJoueur(main, joueurActif);
-            while(deplacement == 0)
+            while(deplacement == 8)
             {
                 deplacerCurseur(&x, &y, &deplacement);
             }
+
         }
     }
 }
