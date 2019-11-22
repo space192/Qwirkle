@@ -34,6 +34,7 @@ void menu()
     while(difficulte < 1 || difficulte > 2);
     if(graphique == 0)
     {
+        system("cls");
         jeu(joueur, difficulte, nombreJoueurs);
     }
     else if (graphique = 1)

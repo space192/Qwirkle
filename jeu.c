@@ -12,6 +12,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
         fflush(stdin);
     }
     while(sauvegarde > 2 || sauvegarde < 1);
+    system("cls");
     if(sauvegarde == 1)
     {
     }
