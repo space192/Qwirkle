@@ -138,6 +138,7 @@ void gotoligcol(int lig, int col)
 void afficherTerrain()
 {
     int i,j,k;
+    system("cls");
     printf("%c", 0xC9);
     for(i=0; i < 25;i++)
     {
@@ -238,7 +239,7 @@ void deplacerCurseur(int *x, int *y, int *num)
 
 void afficherMainJoueur(T_TUILE main[][6], int j)
 {
-    int i,l, m = 26, n = 13;
+    int i,l, m = 25, n = 13;
 
     gotoligcol(m, n);
 

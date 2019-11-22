@@ -39,15 +39,8 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
             retraitPioche(pioche,main,&BS, nombreJoueurs);
         }
     }
-    gotoligcol(0,0);
-    for(i = 0 ; i < 10000; i++)
-    {
-
-        printf(" ");
-    }
     while(partie == 1)
     {
-        system("cls");
         afficherTerrain();
         while(joueurActif != nombreJoueurs+1)
         {
