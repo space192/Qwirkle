@@ -9,29 +9,29 @@ void definirPiocheDegrade(T_TUILE *pioche)
         pioche[i].forme = 0xFE;
         pioche[i].couleur=(i+1);
     }
-    for(i=6;i<12;i++)//Croix
+    for(i=6;i<12;i++)//Losange
     {
-        pioche[i].forme= 0x9E;
+        pioche[i].forme= 0x04;
         pioche[i].couleur=i-5;
     }
-    for(i=12;i<18;i++)// Rond
+    for(i=12;i<18;i++)// Trèfle
     {
-        pioche[i].forme= 0x4F;
+        pioche[i].forme= 0x05;
         pioche[i].couleur=i-11;
     }
-    for(i=18;i<24;i++)// Plus
+    for(i=18;i<24;i++)// Pique
     {
-        pioche[i].forme= 0x2B;
+        pioche[i].forme= 0x06;
         pioche[i].couleur=i-17;
     }
-    for(i=24;i<30;i++)// Croix
+    for(i=24;i<30;i++)// Triangle
     {
-        pioche[i].forme= 0xAE;
+        pioche[i].forme= 0x1E;
         pioche[i].couleur=i-23;
     }
-    for(i=30;i<36;i++)// Trèfle
+    for(i=30;i<36;i++)// Croix
     {
-        pioche[i].forme= 0xAF;
+        pioche[i].forme= 0x9E;
         pioche[i].couleur=i-29;
     }
 }
@@ -56,37 +56,37 @@ void definirPiocheNormale(T_TUILE *pioche)
 
         }
         k=1;
-        for(i=(6+ajout);i<(12+ajout);i++)// Rond
+        for(i=(6+ajout);i<(12+ajout);i++)// Losange
+        {
+            pioche[i].forme= 0x04;
+            pioche[i].couleur=k;
+            k++;
+        }
+        k=1;
+        for(i=(12+ajout);i<(18+ajout);i++)// Trèfle
+        {
+            pioche[i].forme= 0x05;
+            pioche[i].couleur=k;
+            k++;
+        }
+        k=1;
+        for(i=(18+ajout);i<(24+ajout);i++)// Pique
+        {
+            pioche[i].forme= 0x06;
+            pioche[i].couleur=k;
+            k++;
+        }
+        k=1;
+        for(i=(24+ajout);i<(30+ajout);i++)// Triangle
+        {
+            pioche[i].forme= 0x1E;
+            pioche[i].couleur=k;
+            k++;
+        }
+        k=1;
+        for(i=(30+ajout);i<(36+ajout);i++)// Croix
         {
             pioche[i].forme= 0x9E;
-            pioche[i].couleur=k;
-            k++;
-        }
-        k=1;
-        for(i=(12+ajout);i<(18+ajout);i++)// Triangles
-        {
-            pioche[i].forme= 0x4F;
-            pioche[i].couleur=k;
-            k++;
-        }
-        k=1;
-        for(i=(18+ajout);i<(24+ajout);i++)// Etoiles
-        {
-            pioche[i].forme= 0x2B;
-            pioche[i].couleur=k;
-            k++;
-        }
-        k=1;
-        for(i=(24+ajout);i<(30+ajout);i++)// Croix
-        {
-            pioche[i].forme= 0xAE;
-            pioche[i].couleur=k;
-            k++;
-        }
-        k=1;
-        for(i=(30+ajout);i<(36+ajout);i++)// Trèfle
-        {
-            pioche[i].forme= 0xAF;
             pioche[i].couleur=k;
             k++;
         }
