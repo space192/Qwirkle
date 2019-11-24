@@ -9,7 +9,7 @@
 void Color(int couleurDuTexte,int couleurDeFond);
 void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs);
 void menu();
-
+void afficherTuile( T_TUILE main[][6], int i, int k);
 void definirPiocheDegrade(T_TUILE *pioche);
 
 void definirPiocheNormale(T_TUILE *pioche);

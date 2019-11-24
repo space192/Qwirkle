@@ -20,10 +20,10 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
     }
     else if(sauvegarde == 2)
     {
-        main = malloc(nombreJoueurs * sizeof(T_TUILE *)); //main[][]
+        main = malloc(nombreJoueurs * sizeof(T_TUILE*)); //main[][]
         for(i = 0 ; i < nombreJoueurs ; i++)
         {
-           main[i] = malloc(6 * sizeof(T_TUILE*));
+            main[i] = malloc(6 * sizeof(T_TUILE*));
         }
         if(difficulte == 1) //difficulte 1 = degrade // diffuclte 2 = normal
         {
@@ -43,19 +43,20 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
         }
     }
     initialiserPlateau(plateau);
-    //while(partie == 1)
-    //{
+    while(partie == 1)
+    {
         afficherTerrain();
-        //while(joueurActif != nombreJoueurs-1)
-        //{
+        while(joueurActif < nombreJoueurs)
+        {
             afficherMainJoueur(main, joueurActif);
             while(deplacement == 8)
             {
                 deplacerCurseur(&x, &y, &deplacement);
             }
-            Color(main[joueurActif][deplacement].couleur, 0);
-            printf("%c", main[joueurActif][deplacement].forme);
-            Color(15, 0);
-        //}
-    //}
+            afficherTuile(main,joueurActif,deplacement);
+            deplacement = 8;
+            x = 1;
+            y = 1;
+        }
+    }
 }

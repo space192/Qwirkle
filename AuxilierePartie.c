@@ -418,3 +418,10 @@ void initialiserPlateau(T_TUILE plateau[][26])
         }
     }
 }
+
+void afficherTuile( T_TUILE main[][6], int i, int k)
+{
+    Color(main[i][k].couleur, 0);
+    printf("%c", main[i][k].forme);
+    Color(15, 0);
+}
