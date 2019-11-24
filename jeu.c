@@ -2,7 +2,7 @@
 
 void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
 {
-    int sauvegarde, BS, i,k, partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1;
+    int sauvegarde, BS, i,k, partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 30;
     T_TUILE *pioche = NULL;
     T_TUILE **main;
     T_TUILE plateau[12][26];
@@ -41,22 +41,65 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
             initialiserMain(main, nombreJoueurs);
             retraitPioche(pioche,main,&BS, nombreJoueurs);
         }
+        initialiserPlateau(plateau);
     }
-    initialiserPlateau(plateau);
     while(partie == 1)
     {
+        system("cls");
         afficherTerrain();
         while(joueurActif < nombreJoueurs)
         {
-            afficherMainJoueur(main, joueurActif);
-            while(deplacement == 8)
+            while(finTour == 0)
             {
-                deplacerCurseur(&x, &y, &deplacement);
+                afficherMainJoueur(main, joueurActif);
+                while(deplacement == 8)
+                {
+                    deplacerCurseur(&x, &y, &deplacement);
+                }
+                if(deplacement == 7)
+                {
+                    finTour = 1;
+                    deplacement = 8;
+                }
+                else
+                {
+                    afficherTuile(main,joueurActif,deplacement);
+                    deplacement = 8;
+                }
+                x = 1;
+                y = 1;
             }
-            afficherTuile(main,joueurActif,deplacement);
-            deplacement = 8;
-            x = 1;
-            y = 1;
+            joueurActif++;
+            finTour = 0;
         }
+        gotoligcol(l,6);
+        printf("voulez vous continuer la partie ?");
+        gotoligcol(l++,6);
+        printf("1:Continuer");
+        gotoligcol(l++,6);
+        printf("2:Sauvegarder et Quitter");
+        gotoligcol(l++,6);
+        printf("3:Quitter sans sauvegarder");
+        gotoligcol(l++,6);
+        do
+        {
+            scanf("%d", &partie);
+            gotoligcol(l++, 6);
+        }
+        while(partie < 1 || partie > 3);
+        system("cls");
+        system("cls");
+        system("cls");
+        system("cls");
+        joueurActif = 0;
+        gotoligcol(1, 1);
+    }
+    if(partie == 2)
+    {
+        //sauvegarde de la carte + des mains des joueurs ainsi que les scores
+    }
+    else if(partie == 3)
+    {
+        //sauvegarde des scores
     }
 }

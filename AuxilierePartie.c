@@ -197,28 +197,28 @@ void deplacerCurseur(int *x, int *y, int *num)
         }
         break;
     }
-    case 'a':
+    case 'a': //0
         *num = 0;
         break;
-    case 'z':
+    case 'z': //1
         *num = 1;
         break;
-    case 'e':
+    case 'e': //2
         *num = 2;
         break;
-    case 'r':
+    case 'r': //3
         *num = 3;
         break;
-    case 't':
+    case 't': //4
         *num = 4;
         break;
-    case 'y':
+    case 'y': //5
         *num = 5;
         break;
-    case 'c':
+    case 'c': //6
         *num = 6;
         break;
-    case 'p':
+    case 'p': //7
         *num = 7;
         break;
     }
