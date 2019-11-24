@@ -1,9 +1,9 @@
 #include "prototypes.h"
 
-int test(int x,int y,T_TUILE main,T_TUILE plateau,int joueurActif, int tuileJoueur)
+int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][26],int joueurActif, int tuileJoueur)
 {
-    int i = x ,res1,res2,res3,res4;
-    while((plateau[y][i+1].forme != ' ' && plateau[y][i+1] < 26) || res1 != 0)
+    int i = x ,res1 = 1,res2 = 1,res3 = 1,res4 = 1;
+    while((plateau[y][i+1].forme != ' ' && i+1 < 26) || res1 != 0)
     {
         if(main[joueurActif][tuileJoueur].forme == plateau[y][i+1].forme)
         {
@@ -32,7 +32,7 @@ int test(int x,int y,T_TUILE main,T_TUILE plateau,int joueurActif, int tuileJoue
 
     i=x;
 
-    while((plateau[y][i-1].forme != ' ' && plateau[y][i-1] >= 0) || res2 != 0)
+    while((plateau[y][i-1].forme != ' ' && i-1 >= 0) || res2 != 0)
     {
         if(main[joueurActif][tuileJoueur].forme == plateau[y][i-1].forme)
         {
@@ -61,7 +61,7 @@ int test(int x,int y,T_TUILE main,T_TUILE plateau,int joueurActif, int tuileJoue
 
     i=y;
 
-    while((plateau[i+1][x].forme != ' ' && plateau[i+1][x] < 26) || res3 != 0)
+    while((plateau[i+1][x].forme != ' ' && i+1 < 26) || res3 != 0)
     {
         if(main[joueurActif][tuileJoueur].forme == plateau[i+1][x].forme)
         {
@@ -74,7 +74,7 @@ int test(int x,int y,T_TUILE main,T_TUILE plateau,int joueurActif, int tuileJoue
                 res3 = 0;
             }
         }
-        else if(main[joueurActif][tuileJoueur].couleur == plateau[i+1][x]couleur)
+        else if(main[joueurActif][tuileJoueur].couleur == plateau[i+1][x].couleur)
         {
             if(main[joueurActif][tuileJoueur].forme != plateau[i+1][x].forme)
             {
@@ -90,7 +90,7 @@ int test(int x,int y,T_TUILE main,T_TUILE plateau,int joueurActif, int tuileJoue
 
     i=y;
 
-    while((plateau[i-1][x].forme != ' ' && plateau[i-1][x] >= 0) || res4 != 0)
+    while((plateau[i-1][x].forme != ' ' && i-1 >= 0) || res4 != 0)
     {
         if(main[joueurActif][tuileJoueur].forme == plateau[i-1][x].forme)
         {
@@ -116,5 +116,12 @@ int test(int x,int y,T_TUILE main,T_TUILE plateau,int joueurActif, int tuileJoue
         }
         i--;
     }
-
+    if(res1 == 1 && res2 == 1 && res3 == 1 && res4 == 1)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
 }

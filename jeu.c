@@ -43,17 +43,19 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
         }
     }
     initialiserPlateau(plateau);
-    while(partie == 1)
-    {
+    //while(partie == 1)
+    //{
         afficherTerrain();
-        while(joueurActif != nombreJoueurs-1)
-        {
+        //while(joueurActif != nombreJoueurs-1)
+        //{
             afficherMainJoueur(main, joueurActif);
             while(deplacement == 8)
             {
                 deplacerCurseur(&x, &y, &deplacement);
             }
-
-        }
-    }
+            Color(main[joueurActif][deplacement].couleur, 0);
+            printf("%c", main[joueurActif][deplacement].forme);
+            Color(15, 0);
+        //}
+    //}
 }
