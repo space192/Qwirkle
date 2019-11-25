@@ -299,10 +299,16 @@ void Color(int couleurDuTexte,int couleurDeFond)
     SetConsoleTextAttribute(H,couleurDeFond*16+couleurDuTexte);
 }
 
-void afficherNom(T_JOUEUR joueur)
+void afficherNom(T_JOUEUR *joueur, int j)
 {
+    int i;
     gotoligcol(2, 60);
-    printf("C'est a : %s de jouer!\n", joueur.nom);
+    for(i=0; i < 20 ; i++)
+    {
+        printf(" ");
+    }
+    gotoligcol(2, 60);
+    printf("C'est a : %s de jouer!\n", joueur[j].nom);
     gotoligcol(1, 1);
 }
 

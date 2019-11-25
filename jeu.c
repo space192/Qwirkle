@@ -2,7 +2,7 @@
 
 void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
 {
-    int sauvegarde, BS, i,k, partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 30;
+    int sauvegarde, BS, i,k, partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 31;
     T_TUILE *pioche = NULL;
     T_TUILE **main;
     T_TUILE plateau[12][26];
@@ -47,8 +47,10 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
     {
         system("cls");
         afficherTerrain();
+
         while(joueurActif < nombreJoueurs)
         {
+            afficherNom(joueur, joueurActif);
             while(finTour == 0)
             {
                 afficherMainJoueur(main, joueurActif);
@@ -73,20 +75,25 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
             finTour = 0;
         }
         gotoligcol(l,6);
-        printf("voulez vous continuer la partie ?");
-        gotoligcol(l++,6);
+        printf("voulez-vous continuer la partie ?");
+        l++;
+        gotoligcol(l,6);
         printf("1:Continuer");
-        gotoligcol(l++,6);
+        l++;
+        gotoligcol(l,6);
         printf("2:Sauvegarder et Quitter");
-        gotoligcol(l++,6);
+        l++;
+        gotoligcol(l,6);
         printf("3:Quitter sans sauvegarder");
-        gotoligcol(l++,6);
+        l++;
+        gotoligcol(l,6);
         do
         {
             scanf("%d", &partie);
             gotoligcol(l++, 6);
         }
         while(partie < 1 || partie > 3);
+        system("cls");
         system("cls");
         system("cls");
         system("cls");

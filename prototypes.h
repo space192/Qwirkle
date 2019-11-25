@@ -23,7 +23,7 @@ void gotoligcol(int lig, int col);
 void deplacerCurseur(int *x, int *y, int *num);
 void afficherTerrain();
 void afficherMainJoueur(T_TUILE main[][6], int k);
-void afficherNom(T_JOUEUR joueur);
+void afficherNom(T_JOUEUR *joueur, int j);
 void Leaderbord(T_JOUEUR *joueur);
 void initialiserMain(T_TUILE main[][6], int nombreJoueurs);
 void remplacerTuile(T_TUILE main[][6],T_TUILE *pioche, int j, int *BS);
