@@ -431,13 +431,13 @@ void initialiserPlateau(T_TUILE plateau[][26])
 void afficherTuile( T_TUILE main[][6], int i, int k,T_TUILE plateau[12][26],int x,int y)
 {
     int l,m;
-    l=(x/2)-1;
-    m=(y/2)+1;
+    l=(x-1)/2;
+    m=(y-1)/2;
     Color(main[i][k].couleur, 0);
     printf("%c", main[i][k].forme);
     Color(15, 0);
-    plateau[l][m].forme=main[i][k].forme;
-    plateau[l][m].couleur=main[i][k].couleur;
+    plateau[m][l].forme=main[i][k].forme;
+    plateau[m][l].couleur=main[i][k].couleur;
     main[i][k].forme = ' ';
 
 }
