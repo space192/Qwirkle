@@ -2,7 +2,7 @@
 
 void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
 {
-    int sauvegarde, BS, i,k, partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 31;
+    int sauvegarde, BS, i,k, partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 31, tuile = 0;
     T_TUILE *pioche = NULL;
     T_TUILE **main;
     T_TUILE plateau[12][26];
@@ -63,21 +63,25 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
                     finTour = 1;
                     deplacement = 8;
                 }
-                else if(deplacement==6)
+                else if(deplacement==6 && tuile==1)
                 {
-                    remplacerTuile(main,pioche,joueurActif, &BS);
                     deplacement = 8;
-                    finTour =1;
+                }
+                else if(deplacement==6 && tuile==0)
+                {
+                    remplacerTuile(main, pioche, joueurActif, &BS);
+                    finTour = 1;
                 }
                 else
                 {
                     afficherTuile(main,joueurActif,deplacement,plateau,x,y);
                     deplacement = 8;
+                    tuile = 1;
                 }
-
                 x = 1;
                 y = 1;
             }
+            tuile = 0;
             remplirMain(main,pioche,joueurActif,&BS);
             joueurActif++;
             finTour = 0;
@@ -97,10 +101,14 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
         gotoligcol(l,6);
         do
         {
+            fflush(stdin);
             scanf("%d", &partie);
             gotoligcol(l++, 6);
         }
         while(partie < 1 || partie > 3);
+        system("cls");
+        system("cls");
+        system("cls");
         system("cls");
         system("cls");
         system("cls");
