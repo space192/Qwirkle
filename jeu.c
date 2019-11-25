@@ -46,7 +46,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
     while(partie == 1)
     {
         system("cls");
-        afficherTerrain();
+        afficherTerrain(plateau);
 
         while(joueurActif < nombreJoueurs)
         {
@@ -63,14 +63,22 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
                     finTour = 1;
                     deplacement = 8;
                 }
+                else if(deplacement==6)
+                {
+                    remplacerTuile(main,pioche,joueurActif, &BS);
+                    deplacement = 8;
+                    finTour =1;
+                }
                 else
                 {
-                    afficherTuile(main,joueurActif,deplacement);
+                    afficherTuile(main,joueurActif,deplacement,plateau,x,y);
                     deplacement = 8;
                 }
+
                 x = 1;
                 y = 1;
             }
+            remplirMain(main,pioche,joueurActif,&BS);
             joueurActif++;
             finTour = 0;
         }

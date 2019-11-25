@@ -9,7 +9,7 @@
 void Color(int couleurDuTexte,int couleurDeFond);
 void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs);
 void menu();
-void afficherTuile( T_TUILE main[][6], int i, int k);
+void afficherTuile( T_TUILE main[][6], int i, int k,T_TUILE plateau[12][26],int x,int y);
 void definirPiocheDegrade(T_TUILE *pioche);
 
 void definirPiocheNormale(T_TUILE *pioche);
@@ -21,7 +21,7 @@ int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][26],int joueurActif, in
 
 void gotoligcol(int lig, int col);
 void deplacerCurseur(int *x, int *y, int *num);
-void afficherTerrain();
+void afficherTerrain(T_TUILE plateau[12][26]);
 void afficherMainJoueur(T_TUILE main[][6], int k);
 void afficherNom(T_JOUEUR *joueur, int j);
 void Leaderbord(T_JOUEUR *joueur);

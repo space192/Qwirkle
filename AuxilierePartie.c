@@ -135,7 +135,7 @@ void gotoligcol(int lig, int col)
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), mycoord);
 }
 
-void afficherTerrain()
+void afficherTerrain(T_TUILE plateau[12][26])
 {
     int i,j,k;
     system("cls");
@@ -149,7 +149,10 @@ void afficherTerrain()
     {
         for(j=0; j < 26 ;j++)
         {
-            printf("%c ", 0xBA);
+            printf("%c", 0xBA);
+            Color(plateau[i][j].couleur,0);
+            printf("%c",plateau[i][j].forme);
+            Color(15,0);
         }
         printf("%c\n", 0xBA);
         if(i!=11)
@@ -425,9 +428,16 @@ void initialiserPlateau(T_TUILE plateau[][26])
     }
 }
 
-void afficherTuile( T_TUILE main[][6], int i, int k)
+void afficherTuile( T_TUILE main[][6], int i, int k,T_TUILE plateau[12][26],int x,int y)
 {
+    int l,m;
+    l=(x/2)-1;
+    m=(y/2)+1;
     Color(main[i][k].couleur, 0);
     printf("%c", main[i][k].forme);
     Color(15, 0);
+    plateau[l][m].forme=main[i][k].forme;
+    plateau[l][m].couleur=main[i][k].couleur;
+    main[i][k].forme = ' ';
+
 }
