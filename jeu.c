@@ -9,7 +9,9 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
 
     do
     {
-        printf("voulez vous reprendre une partie sauvegarde ?\n1:oui\n2:non\n");
+        Color(11, 0);
+        printf("Voullez vous reprendre une partie sauvegarde ?\n1:oui\n2:non\n");
+        Color(15, 0);
         scanf("%d", &sauvegarde);
         fflush(stdin);
     }
