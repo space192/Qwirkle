@@ -311,7 +311,7 @@ void afficherNom(T_JOUEUR *joueur, int j)
         printf(" ");
     }
     gotoligcol(2, 60);
-    printf("C'est a : %s de jouer!\n", joueur[j].nom);
+    printf("C'est a %s de jouer!\n", joueur[j].nom);
     gotoligcol(1, 1);
 }
 
@@ -439,5 +439,7 @@ void afficherTuile( T_TUILE main[][6], int i, int k,T_TUILE plateau[12][26],int 
     plateau[m][l].forme=main[i][k].forme;
     plateau[m][l].couleur=main[i][k].couleur;
     main[i][k].forme = ' ';
+    main[i][k].couleur = 0;
+
 
 }
