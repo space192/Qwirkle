@@ -16,7 +16,6 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
         fflush(stdin);
     }
     while(sauvegarde > 2 || sauvegarde < 1);
-    system("cls");
     if(sauvegarde == 1)
     {
     }
@@ -63,6 +62,12 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
                 {
                     finTour = 1;
                     deplacement = 8;
+                }
+                if(deplacement == 6)
+                {
+                    remplacerTuile(main, pioche, joueurActif, &BS);
+                    deplacement = 8;
+                    finTour = 1;
                 }
                 else if(deplacement < 6)
                 {
