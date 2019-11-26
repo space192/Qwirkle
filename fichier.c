@@ -16,7 +16,7 @@ void affichageRegle()
         printf("%s", chaineRegle);
         fclose(regles);
     }
-
+    system("pause");
 }
 
 void sauvegardeScore(T_JOUEUR joueur[4])

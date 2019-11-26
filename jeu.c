@@ -6,7 +6,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
     T_TUILE *pioche = NULL;
     T_TUILE **main;
     T_TUILE plateau[12][26];
-
+    joueur[0].score = 0;
     do
     {
         Color(11, 0);
@@ -16,6 +16,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
         fflush(stdin);
     }
     while(sauvegarde > 2 || sauvegarde < 1);
+    system("cls");
     if(sauvegarde == 1)
     {
     }
@@ -48,12 +49,14 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
     {
         system("cls");
         afficherTerrain(plateau);
+
         while(joueurActif < nombreJoueurs)
         {
             afficherNom(joueur, joueurActif);
             while(finTour == 0)
             {
-                afficherMainJoueur(main, joueurActif);
+                afficherMainJoueur(main, joueurActif, x, y);
+                Leaderbord(joueur, x, y);
                 while(deplacement == 8)
                 {
                     deplacerCurseur(&x, &y, &deplacement);
@@ -78,9 +81,9 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
                    }
                    deplacement = 8;
                 }
-                x = 1;
-                y = 1;
             }
+            x = 1;
+            y = 1;
             remplirMain(main,pioche,joueurActif,&BS);
             joueurActif++;
             finTour = 0;
@@ -105,6 +108,9 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
             gotoligcol(l++, 6);
         }
         while(partie < 1 || partie > 3);
+        system("cls");
+        system("cls");
+        system("cls");
         system("cls");
         system("cls");
         system("cls");

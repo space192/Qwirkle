@@ -22,9 +22,9 @@ int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][26],int joueurActif, in
 void gotoligcol(int lig, int col);
 void deplacerCurseur(int *x, int *y, int *num);
 void afficherTerrain(T_TUILE plateau[12][26]);
-void afficherMainJoueur(T_TUILE main[][6], int k);
+void afficherMainJoueur(T_TUILE main[][6], int k, int x, int y);
 void afficherNom(T_JOUEUR *joueur, int j);
-void Leaderbord(T_JOUEUR *joueur);
+void Leaderbord(T_JOUEUR *joueur, int x, int y);
 void initialiserMain(T_TUILE main[][6], int nombreJoueurs);
 void remplacerTuile(T_TUILE main[][6],T_TUILE *pioche, int j, int *BS);
 void remplirMain(T_TUILE main[][6],T_TUILE *pioche, int j, int *BS);

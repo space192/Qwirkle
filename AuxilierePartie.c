@@ -240,7 +240,7 @@ void deplacerCurseur(int *x, int *y, int *num)
     gotoligcol(*y, *x);
 }
 
-void afficherMainJoueur(T_TUILE main[][6], int j)
+void afficherMainJoueur(T_TUILE main[][6], int j, int x, int y)
 {
     int i,l, m = 25, n = 13;
 
@@ -293,7 +293,7 @@ void afficherMainJoueur(T_TUILE main[][6], int j)
         printf("%c%c", 0xCD, 0xCA);
     }
     printf("%c%c", 0xCD,0xBC);
-    gotoligcol(1,1);
+    gotoligcol(y,x);
 }
 
 void Color(int couleurDuTexte,int couleurDeFond)
@@ -315,7 +315,7 @@ void afficherNom(T_JOUEUR *joueur, int j)
     gotoligcol(1, 1);
 }
 
-void Leaderbord(T_JOUEUR *joueur)
+void Leaderbord(T_JOUEUR *joueur, int x, int y)
 {
     int i,j,k = 16;
     gotoligcol(14, 76);
@@ -347,7 +347,7 @@ void Leaderbord(T_JOUEUR *joueur)
         gotoligcol(k++, 66);
         printf("Le Score du Joueur %d vaut: %d", i+1, joueur->score);
     }
-    gotoligcol(1,1);
+    gotoligcol(y,x);
 }
 
 void initialiserMain(T_TUILE main[][6], int nombreJoueurs)
@@ -440,6 +440,4 @@ void afficherTuile( T_TUILE main[][6], int i, int k,T_TUILE plateau[12][26],int 
     plateau[m][l].couleur=main[i][k].couleur;
     main[i][k].forme = ' ';
     main[i][k].couleur = 0;
-
-
 }
