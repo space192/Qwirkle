@@ -97,6 +97,22 @@ int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][26],int joueurActif, in
                 *l = 0;
             }
         }
+        if(j<=1)
+        {
+            j++;
+        }
+        else if(j=>-1)
+        {
+            j--;
+        }
+        else if(k==1)
+        {
+            k++;
+        }
+        else if(k==-1)
+        {
+            k--;
+        }
     }
 
     if(res1 == 1 && res2 == 1 && res3 == 1 && res4 == 1 && connecte == 1)
