@@ -2,7 +2,7 @@
 
 int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][26],int joueurActif, int tuileJoueur)
 {
-    int res1 = 0,res2 = 0,res3 = 0,res4 = 0,i,j,k,*l = NULL, connecte = 0;
+    int res1 = 1,res2 = 1,res3 = 1,res4 = 1,i,j,k,*l = NULL, connecte = 0, lockC=1, lockF=1;
     int colortemp1, colortemp2;
     char formetemp1, formetemp2;
     for(i=0;i<4;i++)
@@ -30,10 +30,17 @@ int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][26],int joueurActif, in
             l = &res4;
             break;
         }
+
+        formetemp2 = plateau[y+k][x+j].forme;
+
+        while(formetemp2!=' ')
+        {
+
         colortemp1 = main[joueurActif][tuileJoueur].couleur;
         colortemp2 = plateau[y+k][x+j].couleur;
         formetemp1 = main[joueurActif][tuileJoueur].forme;
         formetemp2 = plateau[y+k][x+j].forme;
+
         if(formetemp1 == formetemp2)
         {
             if(colortemp1 != colortemp2)
@@ -97,22 +104,23 @@ int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][26],int joueurActif, in
                 *l = 0;
             }
         }
-        if(j<=1)
+        if(i==0)
         {
             j++;
         }
-        else if(j=>-1)
+        else if(i==1)
         {
             j--;
         }
-        else if(k==1)
+        else if(i==2)
         {
             k++;
         }
-        else if(k==-1)
+        else if(k==3)
         {
             k--;
         }
+    }
     }
 
     if(res1 == 1 && res2 == 1 && res3 == 1 && res4 == 1 && connecte == 1)
