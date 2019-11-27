@@ -28,4 +28,5 @@ void Leaderbord(T_JOUEUR *joueur, int x, int y);
 void initialiserMain(T_TUILE main[][6], int nombreJoueurs);
 void remplacerTuile(T_TUILE main[][6],T_TUILE *pioche, int j, int *BS);
 void remplirMain(T_TUILE main[][6],T_TUILE *pioche, int j, int *BS);
+void afficherTitre();
 #endif // PROTOTYPES_H_INCLUDED

@@ -6,9 +6,8 @@ void menu()
     int graphique, nombreJoueurs, i, difficulte, choix,menu = 1;
     while(menu == 1)
     {
-        Color(11, 0);
-        printf("--Bienvenue dans Qwirkle--\n\n\n\n");
-        Color(15, 0);
+
+        afficherTitre();
         printf("Que voulez vous faire ?\n1:Jouer\n2:Afficher Les regles\n3:Consulter les scores\n4:Quitter\n");
         do
         {

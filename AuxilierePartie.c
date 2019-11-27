@@ -441,3 +441,25 @@ void afficherTuile( T_TUILE main[][6], int i, int k,T_TUILE plateau[12][26],int 
     main[i][k].forme = ' ';
     main[i][k].couleur = 0;
 }
+
+void afficherTitre()
+{
+    int i;
+    gotoligcol(0,78);
+    Color(11, 0);
+    printf("%c",0xC9);
+    for(i=0;i<24;i++)
+    {
+        printf("%c",0xCD);
+    }
+    printf("%c\n",0xBB);
+    printf("%C-Bienvenue dans Qwirkle-%C\n",0xBA,0xBA);
+    printf("%c",0xC8);
+    for(i=0;i<24;i++)
+    {
+        printf("%c",0xCD);
+    }
+    printf("%c\n\n\n\n",0xBC);
+
+    Color(15, 0);
+}
