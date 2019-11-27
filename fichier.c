@@ -44,8 +44,8 @@ void selecteurSauvegarde(char *nomSauvegarde)
 {
     struct dirent *de;
     DIR *dr = opendir("./bin/debug/sauvegarde");
-    char nomFichier[50][50];
-    int i=0,j = 0, y = 0, deplacement = 1, l;
+    char nomFichier[100][50];
+    int i=0,j = 0, y = 0, deplacement = 1, l,k=0;
     system("cls");
     if(dr == NULL)
     {
@@ -56,8 +56,9 @@ void selecteurSauvegarde(char *nomSauvegarde)
     {
         strcpy(nomFichier[i], de->d_name);
         i++;
+        k++;
     }
-    for(i=2;i<4;i++)
+    for(i=2;i<k;i++)
     {
         gotoligcol(j, 7);
         printf("%s", nomFichier[i]);
