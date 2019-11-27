@@ -2,7 +2,7 @@
 
 void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
 {
-    int sauvegarde, BS, i,k, partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 31, premierTour = 0;
+    int sauvegarde, BS, i,k, partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 31, premierTour = 0, lockC = 1, lockF = 1;
     T_TUILE *pioche = NULL;
     T_TUILE **main;
     T_TUILE plateau[12][26];
@@ -56,7 +56,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
             while(finTour == 0)
             {
                 afficherMainJoueur(main, joueurActif, x, y);
-                Leaderbord(joueur, x, y);
+                Leaderbord(joueur, x, y, nombreJoueurs);
                 while(deplacement == 8)
                 {
                     deplacerCurseur(&x, &y, &deplacement);
@@ -74,7 +74,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
                 }
                 else if(deplacement < 6)
                 {
-                   if(test((x-1)/2, (y-1)/2, main, plateau, joueurActif, deplacement) == 1 || premierTour == 0)
+                   if(test((x-1)/2, (y-1)/2, main, plateau, joueurActif, deplacement, &lockC, &lockF) == 1 || premierTour == 0)
                    {
                        afficherTuile(main, joueurActif, deplacement, plateau, x, y);
                        premierTour = 1;

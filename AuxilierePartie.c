@@ -315,7 +315,7 @@ void afficherNom(T_JOUEUR *joueur, int j)
     gotoligcol(1, 1);
 }
 
-void Leaderbord(T_JOUEUR *joueur, int x, int y)
+void Leaderbord(T_JOUEUR *joueur, int x, int y, int nombreJoueurs)
 {
     int i,j,k = 16;
     gotoligcol(14, 76);
@@ -342,7 +342,7 @@ void Leaderbord(T_JOUEUR *joueur, int x, int y)
         printf("%c", 0xCD);
     }
     printf("%c", 0xBC);
-    for(i = 0 ; i < 4 ; i++)
+    for(i = 0 ; i < nombreJoueurs ; i++)
     {
         gotoligcol(k++, 66);
         printf("Le Score du Joueur %d vaut: %d", i+1, joueur->score);
@@ -445,7 +445,6 @@ void afficherTuile( T_TUILE main[][6], int i, int k,T_TUILE plateau[12][26],int 
 void afficherTitre()
 {
     int i;
-    gotoligcol(0,78);
     Color(11, 0);
     printf("%c",0xC9);
     for(i=0;i<24;i++)
