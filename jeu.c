@@ -6,6 +6,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
     T_TUILE *pioche = NULL;
     T_TUILE **main;
     T_TUILE plateau[12][26];
+    char fichierSauvegarde[50];
     joueur[0].score = 0;
     do
     {
@@ -19,6 +20,9 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
     system("cls");
     if(sauvegarde == 1)
     {
+        selecteurSauvegarde(fichierSauvegarde);
+        system("cls");
+        printf("%s", fichierSauvegarde);
     }
     else if(sauvegarde == 2)
     {

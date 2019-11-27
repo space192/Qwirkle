@@ -39,14 +39,6 @@ int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][26],int joueurActif, in
             colortemp2 = plateau[y+k][x+j].couleur;
             formetemp1 = main[joueurActif][tuileJoueur].forme;
             formetemp2 = plateau[y+k][x+j].forme;
-            if(coleurTuile1 == colortemp2)
-            {
-                *lockC = 0;
-            }
-            else if(formeTuile1 == formetemp2)
-            {
-                *lockF = 0;
-            }
             if(formetemp1 == formetemp2 && *lockF == 1)
             {
                 if(colortemp1 != colortemp2)

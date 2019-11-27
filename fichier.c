@@ -39,3 +39,73 @@ void sauvegardeScore(T_JOUEUR joueur[4])
         fclose(score);
     }
 }
+
+void selecteurSauvegarde(char *nomSauvegarde)
+{
+    struct dirent *de;
+    DIR *dr = opendir("./bin/debug/sauvegarde");
+    char nomFichier[50][50];
+    int i=0,j = 0, y = 0, deplacement = 1, l;
+    system("cls");
+    if(dr == NULL)
+    {
+        printf("erreur d'ouverture de dossier");
+        exit(0);
+    }
+    while((de = readdir(dr)) !=NULL)
+    {
+        strcpy(nomFichier[i], de->d_name);
+        i++;
+    }
+    for(i=2;i<4;i++)
+    {
+        gotoligcol(j, 7);
+        printf("%s", nomFichier[i]);
+        j++;
+    }
+    gotoligcol(0,0);
+    printf("---->");
+    while(deplacement==1)
+    {
+        deplacerCurseurSauvegarde(&y, &deplacement);
+        printf("---->");
+        l = y+2;
+    }
+    strcpy(nomSauvegarde, nomFichier[l]);
+    closedir(dr);
+}
+
+void deplacerCurseurSauvegarde(int *y, int *num)
+{
+    int c;
+    c = getch();
+    switch(c)
+    {
+        case 224:
+        {
+            c = getch();
+            switch(c)
+            {
+            case 72:
+                *y = *y-1;
+                gotoligcol(*y+1,0);
+                printf("     ");
+                break;
+            case 80:
+                *y = *y+1;
+                gotoligcol(*y-1,0);
+                printf("     ");
+                break;
+            }
+        break;
+        }
+    case 13: //0
+        *num = 0;
+        break;
+    }
+    if(*y == -1)
+    {
+        *y = 0;
+    }
+    gotoligcol(*y, 0);
+}
