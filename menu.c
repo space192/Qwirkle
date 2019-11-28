@@ -3,7 +3,8 @@
 
 void menu()
 {
-    int graphique, nombreJoueurs, i, difficulte, choix,menu = 1;
+    int graphique, nombreJoueurs, i, difficulte, choix,menu = 1, sauvegarde =2;
+    T_JOUEUR *joueur = NULL;
     while(menu == 1)
     {
 
@@ -26,41 +27,52 @@ void menu()
             }
             while(graphique < 0 || graphique > 1);
             system("cls");
-            Color(11, 0);
-            printf("Parfait ! Combien de joueur veulent jouer au Qwirkle ?\n\n");
-            Color(15, 0);
             do
-            {
-                scanf("%d", &nombreJoueurs);
-            }
-            while(nombreJoueurs < 2 || nombreJoueurs > 4);
-            system("cls");
-            T_JOUEUR *joueur = NULL;
-            joueur = malloc(nombreJoueurs * sizeof(T_JOUEUR));
-            for(i = 0; i < nombreJoueurs; i++)
             {
                 Color(11, 0);
-                printf("Entrez le nom du joueur %d:\n", i+1);
+                printf("Voullez vous reprendre une partie sauvegarde ?\n1:oui\n2:non\n");
                 Color(15, 0);
+                scanf("%d", &sauvegarde);
                 fflush(stdin);
-                gets(joueur[i].nom);
             }
-            system("cls");
-            printf("Super on va enfin pouvoir jouer :D\n\n");
-            Color(11, 0);
-            printf("Mais dis moi dans quel difficulte veux tu jouer ?\n\n");
-            Color(15, 0);
-            printf("1:Degrade\n2:Normal\n");
-            do
+            while(sauvegarde > 2 || sauvegarde < 1);
+            if(sauvegarde==2)
             {
-                scanf("%d", &difficulte);
-                fflush(stdin);
+                Color(11, 0);
+                printf("Parfait ! Combien de joueur veulent jouer au Qwirkle ?\n\n");
+                Color(15, 0);
+                do
+                {
+                    scanf("%d", &nombreJoueurs);
+                }
+                while(nombreJoueurs < 2 || nombreJoueurs > 4);
+                system("cls");
+                joueur = malloc(nombreJoueurs * sizeof(T_JOUEUR));
+                for(i = 0; i < nombreJoueurs; i++)
+                {
+                    Color(11, 0);
+                    printf("Entrez le nom du joueur %d:\n", i+1);
+                    Color(15, 0);
+                    fflush(stdin);
+                    gets(joueur[i].nom);
+                }
+                system("cls");
+                printf("Super on va enfin pouvoir jouer :D\n\n");
+                Color(11, 0);
+                printf("Mais dis moi dans quel difficulte veux tu jouer ?\n\n");
+                Color(15, 0);
+                printf("1:Degrade\n2:Normal\n");
+                do
+                {
+                    scanf("%d", &difficulte);
+                    fflush(stdin);
+                }
+                while(difficulte < 1 || difficulte > 2);
             }
-            while(difficulte < 1 || difficulte > 2);
             if(graphique == 0)
             {
                 system("cls");
-                jeu(joueur, difficulte, nombreJoueurs);
+                jeu(joueur, difficulte, nombreJoueurs, sauvegarde);
                 menu = 0;
             }
             else if (graphique = 1)

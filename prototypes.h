@@ -8,14 +8,14 @@
 #include <conio.h>
 #include <dirent.h>
 void Color(int couleurDuTexte,int couleurDeFond);
-void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs);
+void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs, int sauvegarde);
 void menu();
 void afficherTuile( T_TUILE main[][6], int i, int k,T_TUILE plateau[][26],int x,int y);
 void definirPiocheDegrade(T_TUILE *pioche);
 void definirPiocheNormale(T_TUILE *pioche);
 void retraitPioche(T_TUILE *pioche,T_TUILE main[][6], int *BS, int k);
 int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][26],int joueurActif, int tuileJoueur, int *lockC, int *lockF);
-void deplacerCurseurSauvegarde(int *y, int *num);
+void deplacerCurseurSauvegarde(int *y, int *num,int k);
 void selecteurSauvegarde(char *nomSauvegarde);
 void gotoligcol(int lig, int col);
 void deplacerCurseur(int *x, int *y, int *num);

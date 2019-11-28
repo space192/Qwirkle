@@ -1,22 +1,13 @@
 #include "prototypes.h"
 
-void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs)
+void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
 {
-    int sauvegarde, BS, i,k, partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 31, premierTour = 0, lockC = 1, lockF = 1;
+    int BS, i,k, partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 31, premierTour = 0, lockC = 1, lockF = 1;
     T_TUILE *pioche = NULL;
     T_TUILE **main;
     T_TUILE plateau[12][26];
     char fichierSauvegarde[50];
     joueur[0].score = 0;
-    do
-    {
-        Color(11, 0);
-        printf("Voullez vous reprendre une partie sauvegarde ?\n1:oui\n2:non\n");
-        Color(15, 0);
-        scanf("%d", &sauvegarde);
-        fflush(stdin);
-    }
-    while(sauvegarde > 2 || sauvegarde < 1);
     system("cls");
     if(sauvegarde == 1)
     {

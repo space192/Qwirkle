@@ -68,7 +68,7 @@ void selecteurSauvegarde(char *nomSauvegarde)
     printf("---->");
     while(deplacement==1)
     {
-        deplacerCurseurSauvegarde(&y, &deplacement);
+        deplacerCurseurSauvegarde(&y, &deplacement, k);
         printf("---->");
         l = y+2;
     }
@@ -76,7 +76,7 @@ void selecteurSauvegarde(char *nomSauvegarde)
     closedir(dr);
 }
 
-void deplacerCurseurSauvegarde(int *y, int *num)
+void deplacerCurseurSauvegarde(int *y, int *num, int k)
 {
     int c;
     c = getch();
@@ -107,6 +107,10 @@ void deplacerCurseurSauvegarde(int *y, int *num)
     if(*y == -1)
     {
         *y = 0;
+    }
+    else if(*y > k-3)
+    {
+        *y=*y-1;
     }
     gotoligcol(*y, 0);
 }
