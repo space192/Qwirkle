@@ -2,7 +2,7 @@
 
 int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][26],int joueurActif, int tuileJoueur,int *lockC, int *lockF)
 {
-    int res1 = 1,res2 = 1,res3 = 1,res4 = 1,i,j,k,*l = NULL, connecte = 0,coleurTuile1=0;
+    int res1 = 1,res2 = 1,res3 = 1,res4 = 1,i,j,k,*l = NULL, connecte = 0,coleurTuile1=0, lockFtemp= 1, lockCtemp=1;
     int colortemp1, colortemp2;
     char formetemp1, formetemp2, formeTuile1;
     for(i=0;i<4;i++)
@@ -35,10 +35,14 @@ int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][26],int joueurActif, in
 
         while(formetemp2!=' ')
         {
+
+
             colortemp1 = main[joueurActif][tuileJoueur].couleur;
             colortemp2 = plateau[y+k][x+j].couleur;
             formetemp1 = main[joueurActif][tuileJoueur].forme;
             formetemp2 = plateau[y+k][x+j].forme;
+
+
             if(formetemp1 == formetemp2 && *lockF == 1)
             {
                 if(colortemp1 != colortemp2)
@@ -47,6 +51,7 @@ int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][26],int joueurActif, in
                     formeTuile1 = formetemp2;
                     coleurTuile1 = colortemp2;
                     connecte=1;
+                    *lockC= 0;
                 }
                 else if(colortemp1 == colortemp2)
                 {
@@ -69,6 +74,7 @@ int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][26],int joueurActif, in
                     formeTuile1 = formetemp2;
                     coleurTuile1 = colortemp2;
                     connecte = 1;
+                    *lockC= 0;
                 }
             }
             else if(colortemp1 == colortemp2 && *lockC == 1)
@@ -79,6 +85,7 @@ int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][26],int joueurActif, in
                     formeTuile1 = formetemp2;
                     coleurTuile1 = colortemp2;
                     connecte = 1;
+                    *lockF= 0;
                 }
                 else if(formetemp1 == formetemp2)
                 {
@@ -101,6 +108,7 @@ int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][26],int joueurActif, in
                     formeTuile1 = formetemp2;
                     coleurTuile1 = colortemp2;
                     connecte = 1;
+                    *lockF= 0;
                 }
             }
             if(plateau[y][x].forme != ' ' && plateau[y][x].couleur != 0)
@@ -136,6 +144,26 @@ int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][26],int joueurActif, in
             {
                 k--;
             }
+        /*lockFtemp = *lockF;
+        lockCtemp = *lockC;
+        if((lockFtemp ==0 && *lockF == 1)||(lockFtemp ==1 && *lockF == 0)||(lockFtemp ==0 && *lockF == 0))
+            {
+                *lockF = 0;
+            }
+            else if((lockCtemp ==0 && *lockC == 1)||(lockCtemp ==1 && *lockC == 0)||(lockCtemp ==0 && *lockC == 0))
+            {
+                *lockC = 0;
+            }
+            else if(lockCtemp ==1 && *lockC == 1)
+            {
+                *lockC = 1;
+            }
+            else if(lockFtemp ==1 && *lockF == 1)
+            {
+                *lockF = 1;
+            }*/
+
+
         }
 
     }
