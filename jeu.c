@@ -5,7 +5,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
     int BS, i,k, partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 31, premierTour = 0, lockC = 1, lockF = 1;
     T_TUILE *pioche = NULL;
     T_TUILE **main;
-    T_TUILE plateau[12][26];
+    T_TUILE plateau[13][27];
     char fichierSauvegarde[50];
     joueur[0].score = 0;
     system("cls");
