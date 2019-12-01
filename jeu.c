@@ -6,14 +6,13 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
     T_TUILE *pioche = NULL;
     T_TUILE **main;
     T_TUILE plateau[13][27];
-    char fichierSauvegarde[50];
+    char fichierSauvegarde[100], nameSauvegarde[100] = "sauvegarde/";
     joueur[0].score = 0;
     system("cls");
     if(sauvegarde == 1)
     {
         selecteurSauvegarde(fichierSauvegarde);
         system("cls");
-        printf("%s", fichierSauvegarde);
     }
     else if(sauvegarde == 2)
     {
@@ -103,25 +102,16 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
             gotoligcol(l++, 6);
         }
         while(partie < 1 || partie > 3);
-        system("cls");
-        system("cls");
-        system("cls");
-        system("cls");
-        system("cls");
-        system("cls");
-        system("cls");
-        system("cls");
-        system("cls");
-        system("cls");
-        system("cls");
-        system("cls");
+        effacerEcran();
         joueurActif = 0;
         gotoligcol(1, 1);
         l=31;
     }
     if(partie == 2)
     {
-        //sauvegarde de la carte + des mains des joueurs ainsi que les scores
+        effacerEcran();
+        nomSauvegarde(nameSauvegarde);
+        sauvegarderPartie(plateau, nameSauvegarde, nombreJoueurs,main,joueur,pioche,BS);
     }
     else if(partie == 3)
     {

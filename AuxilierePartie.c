@@ -319,7 +319,7 @@ void Leaderbord(T_JOUEUR *joueur, int x, int y, int nombreJoueurs)
 {
     int i,j,k = 16;
     gotoligcol(14, 76);
-    printf("Leaderbord");
+    printf("Leaderboard");
     gotoligcol(15, 65);
     printf("%c", 0xC9);
     for(i=0 ; i < 29; i++)
@@ -461,4 +461,17 @@ void afficherTitre()
     printf("%c\n\n\n\n",0xBC);
 
     Color(15, 0);
+}
+
+void effacerEcran()
+{
+    system("cls");
+    system("cls");
+    system("cls");
+    system("cls");
+    system("cls");
+    system("cls");
+    system("cls");
+    system("cls");
+    system("cls");
 }

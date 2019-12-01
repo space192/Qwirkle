@@ -114,3 +114,60 @@ void deplacerCurseurSauvegarde(int *y, int *num, int k)
     }
     gotoligcol(*y, 0);
 }
+
+void nomSauvegarde(char *nomSauvegarde)
+{
+    char typeSauvegarde[5] = ".sav";
+    char sauvegardeTemp[50];
+    FILE *fichier = NULL;
+    printf("entrez le nom de votre sauvegarde\n");
+    fflush(stdin);
+    scanf("%s", sauvegardeTemp);
+    strcat(nomSauvegarde, sauvegardeTemp);
+    strcat(nomSauvegarde, typeSauvegarde);
+    fichier = fopen(nomSauvegarde, "w");
+    if(fichier == NULL)
+    {
+        printf("erreur lors de la creation de la sauvegarde");
+    }
+}
+
+void sauvegarderPartie(T_TUILE plateau[][27], char *nomSauvegarde, int nombreJoueur, T_TUILE main[][6], T_JOUEUR *joueur, T_TUILE *pioche, int BS)
+{
+    FILE *fichier = NULL;
+    fichier = fopen(nomSauvegarde, "w");
+    int i,j;
+    if(fichier == NULL)
+    {
+        printf("erreur d'ouverture du fichier");
+        exit(0);
+    }
+    fprintf(fichier, "6\n");
+    for(i=0; i< 13;i++)
+    {
+        for(j=0; j < 27 ; j++)
+        {
+            fprintf(fichier, "%c%d", plateau[i][j].forme, plateau[i][j].couleur);
+        }
+        fprintf(fichier, "\n");
+    }
+    fprintf(fichier, "7\n");
+    for(i=0; i < nombreJoueur; i++)
+    {
+        fprintf(fichier, "%s%d", joueur[i].nom, joueur[i].score);
+    }
+    fprintf(fichier, "8\n");
+    for(i=0;i < nombreJoueur; i++)
+    {
+        for(j=0;j < 6 ; j++)
+        {
+            fprintf(fichier, "%c%d", main[i][j].forme, main[i][j].couleur);
+        }
+        fprintf(fichier ,"\n");
+    }
+    fprintf(fichier, "9\n");
+    for(i=0; i < BS; i++)
+    {
+        fprintf(fichier, "%c%d", pioche[i].forme, pioche[i].forme);
+    }
+}

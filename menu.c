@@ -43,6 +43,7 @@ void menu()
                 Color(15, 0);
                 do
                 {
+                    fflush(stdin);
                     scanf("%d", &nombreJoueurs);
                 }
                 while(nombreJoueurs < 2 || nombreJoueurs > 4);
