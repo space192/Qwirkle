@@ -30,5 +30,5 @@ void remplirMain(T_TUILE main[][6],T_TUILE *pioche, int j, int *BS);
 void afficherTitre();
 void initialiserPlateau(T_TUILE plateau[][27]);
 void nomSauvegarde(char *nomSauvegarde);
-void sauvegarderPartie(T_TUILE plateau[][27], char *nomSauvegarde, int nombreJoueur, T_TUILE main[][6], T_JOUEUR *joueur, T_TUILE *pioche, int BS);
+void sauvegarderPartie(T_TUILE plateau[][27], char *nomSauvegarde, int nombreJoueur, T_TUILE main[][6], T_JOUEUR *joueur, T_TUILE *pioche, int BS, int difficulte);
 #endif // PROTOTYPES_H_INCLUDED

@@ -7,7 +7,10 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
     T_TUILE **main;
     T_TUILE plateau[13][27];
     char fichierSauvegarde[100], nameSauvegarde[100] = "sauvegarde/";
-    joueur[0].score = 0;
+    for(i=0;i < nombreJoueurs;i++)
+    {
+        joueur[i].score = 0;
+    }
     system("cls");
     if(sauvegarde == 1)
     {
@@ -111,7 +114,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
     {
         effacerEcran();
         nomSauvegarde(nameSauvegarde);
-        sauvegarderPartie(plateau, nameSauvegarde, nombreJoueurs,main,joueur,pioche,BS);
+        sauvegarderPartie(plateau, nameSauvegarde, nombreJoueurs,main,joueur,pioche,BS, difficulte);
     }
     else if(partie == 3)
     {

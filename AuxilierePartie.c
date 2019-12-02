@@ -474,4 +474,5 @@ void effacerEcran()
     system("cls");
     system("cls");
     system("cls");
+    system("cls");
 }
