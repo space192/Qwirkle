@@ -154,9 +154,9 @@ void sauvegarderPartie(T_TUILE plateau[][27], char *nomSauvegarde, int nombreJou
     fprintf(fichier, "7\n");
     for(i=0; i < nombreJoueur; i++)
     {
-        fprintf(fichier, "%s%d", joueur[i].nom, joueur[i].score);
+        fprintf(fichier, "%s\n", joueur[i].nom);
     }
-    fprintf(fichier, "8\n");
+    fprintf(fichier, "\n8\n");
     for(i=0;i < nombreJoueur; i++)
     {
         for(j=0;j < 6 ; j++)
