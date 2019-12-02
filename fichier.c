@@ -175,7 +175,7 @@ void sauvegarderPartie(T_TUILE plateau[][27], char *nomSauvegarde, int nombreJou
 }
 
 
-void recupererPartie(T_TUILE plateau[][27], char *nomSauvegarde, int nombreJoueur, T_TUILE main[][6], T_JOUEUR *joueur, T_TUILE *pioche, int BS, int difficulte)
+/*void recupererPartie(T_TUILE plateau[][27], char *nomSauvegarde, int nombreJoueur, T_TUILE main[][6], T_JOUEUR *joueur, T_TUILE *pioche, int BS, int difficulte)
 {
     FILE *fichier = NULL;
     fichier = fopen(nomSauvegarde, "r");
@@ -185,3 +185,4 @@ void recupererPartie(T_TUILE plateau[][27], char *nomSauvegarde, int nombreJoueu
         printf("erreur d'ouverture du fichier")
     }
 }
+*/
