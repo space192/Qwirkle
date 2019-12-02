@@ -19,7 +19,7 @@ void affichageRegle()
     system("pause");
 }
 
-void sauvegardeScore(T_JOUEUR joueur[4])
+void sauvegardeScore(T_JOUEUR joueur[], int nombrejoueur)
 {
     FILE* score = NULL;
     int i;
@@ -30,11 +30,9 @@ void sauvegardeScore(T_JOUEUR joueur[4])
     }
     else
     {
-        for(i = 0 ; i < 4 ; i++)
+        for(i = 0 ; i < nombrejoueur ; i++)
         {
-            fputs(joueur[i].nom, score);
-            fputs(joueur[i].score, score);
-            fputs(joueur[i].tuiles, score);
+            fprintf(score, "%d", joueur[i].score);
         }
         fclose(score);
     }
@@ -143,20 +141,12 @@ void sauvegarderPartie(T_TUILE plateau[][27], char *nomSauvegarde, int nombreJou
         exit(0);
     }
     fprintf(fichier, "a\n");
-    for(i=0; i< 13;i++)
-    {
-        for(j=0; j < 27 ; j++)
-        {
-            fprintf(fichier, "%c%d", plateau[i][j].forme, plateau[i][j].couleur);
-        }
-        fprintf(fichier, "\n");
-    }
-    fprintf(fichier, "z\n");
+    fprintf(fichier, "%d\nz\n%d\ne\n%d\n", BS, nombreJoueur, difficulte);
     for(i=0; i < nombreJoueur; i++)
     {
         fprintf(fichier, "%s\n%d\n", joueur[i].nom, joueur[i].score);
     }
-    fprintf(fichier, "\ne\n");
+    fprintf(fichier, "\nr\n");
     for(i=0;i < nombreJoueur; i++)
     {
         for(j=0;j < 6 ; j++)
@@ -165,24 +155,59 @@ void sauvegarderPartie(T_TUILE plateau[][27], char *nomSauvegarde, int nombreJou
         }
         fprintf(fichier ,"\n");
     }
-    fprintf(fichier, "r\n");
+    fprintf(fichier, "t\n");
     for(i=0; i < BS; i++)
     {
         fprintf(fichier, "%c%d", pioche[i].forme, pioche[i].forme);
     }
-    fprintf(fichier, "\nt\n%d\ny\n%d\nu\n%d", BS,nombreJoueur, difficulte);
-
-}
-
-
-/*void recupererPartie(T_TUILE plateau[][27], char *nomSauvegarde, int nombreJoueur, T_TUILE main[][6], T_JOUEUR *joueur, T_TUILE *pioche, int BS, int difficulte)
-{
-    FILE *fichier = NULL;
-    fichier = fopen(nomSauvegarde, "r");
-    int i,j;
-    if(fichier == NULL)
+    fprintf(fichier, "\ny\n");
+    for(i=0; i< 13;i++)
     {
-        printf("erreur d'ouverture du fichier")
+        for(j=0; j < 27 ; j++)
+        {
+            fprintf(fichier, "%c%d", plateau[i][j].forme, plateau[i][j].couleur);
+        }
+        fprintf(fichier, "\n");
     }
 }
-*/
+
+void recupererSauvegarde(T_TUILE plateau[][27], char *nomSauvegarde, int *nombreJoueur, T_TUILE main[][6], T_JOUEUR *joueur, T_TUILE *pioche, int *BS, int *difficulte)
+{
+    int i,j;
+    char poubelle;
+    FILE *fichier = NULL;
+    fichier = fopen(nomSauvegarde, "r");
+    if(fichier == NULL)
+    {
+        printf("erreur d'ouverture de la sauvegarde");
+        exit(0);
+    }
+    fscanf(fichier, "%c\n%d\n%c\n%d\n%c\n%d\n", &poubelle, BS, &poubelle, nombreJoueur, &poubelle, difficulte);
+    for(i=0;i<nombreJoueur;i++)
+    {
+        fscanf(fichier, "%s\n%d\n", joueur[i].nom, joueur[i].score);
+    }
+    fscanf(fichier, "%c", &poubelle);
+    for(i=0;i < nombreJoueur;i++)
+    {
+        for(j=0;j < 6 ; j++)
+        {
+            fscanf(fichier, "%c%d", main[i][j].forme, main[i][j].couleur);
+        }
+        fscanf(fichier, "\n");
+    }
+    fscanf(fichier, "%c\n", &poubelle);
+    for(i = 0 ; i < BS; i++)
+    {
+        fscanf(fichier, "%c%d", pioche[i].forme, pioche[i].forme);
+    }
+    fscanf(fichier, "%c\n", &poubelle);
+    for(i=0; i< 13;i++)
+    {
+        for(j=0; j < 27 ; j++)
+        {
+            fscanf(fichier, "%c%d", plateau[i][j].forme, plateau[i][j].couleur);
+        }
+        fscanf(fichier, "\n");
+    }
+}

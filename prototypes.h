@@ -18,6 +18,8 @@ void retraitPioche(T_TUILE *pioche,T_TUILE main[][6], int *BS, int k);
 int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][27],int joueurActif, int tuileJoueur, int *lockC, int *lockF, int *pscore);
 void deplacerCurseurSauvegarde(int *y, int *num,int k);
 void selecteurSauvegarde(char *nomSauvegarde);
+void affichageRegle();
+void sauvegardeScore(T_JOUEUR joueur[], int nombrejoueur);
 void gotoligcol(int lig, int col);
 void deplacerCurseur(int *x, int *y, int *num);
 void afficherTerrain(T_TUILE plateau[13][27]);
@@ -31,4 +33,5 @@ void afficherTitre();
 void initialiserPlateau(T_TUILE plateau[][27]);
 void nomSauvegarde(char *nomSauvegarde);
 void sauvegarderPartie(T_TUILE plateau[][27], char *nomSauvegarde, int nombreJoueur, T_TUILE main[][6], T_JOUEUR *joueur, T_TUILE *pioche, int BS, int difficulte);
+void recupererSauvegarde(T_TUILE plateau[][27], char *nomSauvegarde, int *nombreJoueur, T_TUILE main[][6], T_JOUEUR *joueur, T_TUILE *pioche, int *BS, int *difficulte);
 #endif // PROTOTYPES_H_INCLUDED
