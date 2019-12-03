@@ -1,7 +1,4 @@
 #include "prototypes.h"
-
-
-
 int main()
 {
     menu();

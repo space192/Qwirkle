@@ -6,16 +6,18 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
     T_TUILE *pioche = NULL;
     T_TUILE **main;
     T_TUILE plateau[13][27];
-    char fichierSauvegarde[100], nameSauvegarde[100] = "sauvegarde/";
-    for(i=0;i < nombreJoueurs;i++)
-    {
-        joueur[i].score = 0;
-    }
+    char nameSauvegarde[100] = "sauvegarde/";
     system("cls");
     if(sauvegarde == 1)
     {
-        selecteurSauvegarde(fichierSauvegarde);
-        system("cls");
+        selecteurSauvegarde(nameSauvegarde);
+        recupererSauvegardeAuxiliere(&BS, &nombreJoueurs, nameSauvegarde, &difficulte);
+        main= malloc(nombreJoueurs * sizeof(T_TUILE*));
+        for(i = 0 ; i < nombreJoueurs ; i++)
+        {
+            main[i] = malloc(6 * sizeof(T_TUILE*));
+        }
+        pioche = malloc(BS * sizeof(T_TUILE));
     }
     else if(sauvegarde == 2)
     {
