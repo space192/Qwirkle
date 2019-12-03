@@ -475,4 +475,26 @@ void effacerEcran()
     system("cls");
     system("cls");
     system("cls");
+    system("cls");
+    system("cls");
+    system("cls");
+    system("cls");
+    system("cls");
+    system("cls");
+    system("cls");
+    system("cls");
+    system("cls");
+    system("cls");
+    system("cls");
+    system("cls");
+}
+
+void effacerChoix()
+{
+    int i;
+    gotoligcol(31, 6);
+    for(i = 0 ; i < 500 ; i++)
+    {
+        printf(" ");
+    }
 }

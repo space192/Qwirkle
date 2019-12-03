@@ -99,4 +99,5 @@ void menu()
         }
     }
     printf("Merci d'avoir Jouer !\n");
+    system("pause");
 }

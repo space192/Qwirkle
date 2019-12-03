@@ -41,7 +41,7 @@ void sauvegardeScore(T_JOUEUR joueur[], int nombrejoueur)
 void selecteurSauvegarde(char *nomSauvegarde)
 {
     struct dirent *de;
-    DIR *dr = opendir("./bin/debug/sauvegarde");
+    DIR *dr = opendir("./sauvegarde");
     char nomFichier[100][50];
     int i=0,j = 0, y = 0, deplacement = 1, l,k=0;
     system("cls");
@@ -130,23 +130,9 @@ void nomSauvegarde(char *nomSauvegarde)
     }
 }
 
-void sauvegarderPartie(T_TUILE plateau[][27], char *nomSauvegarde, int nombreJoueur, T_TUILE main[][6], T_JOUEUR *joueur, T_TUILE *pioche, int BS, int difficulte)
+void sauvegarderPartie(FILE *fichier, T_TUILE plateau[][27], int nombreJoueur, T_TUILE main[][6], T_JOUEUR *joueur, T_TUILE *pioche, int BS, int difficulte)
 {
-    FILE *fichier = NULL;
-    fichier = fopen(nomSauvegarde, "w");
     int i,j;
-    if(fichier == NULL)
-    {
-        printf("erreur d'ouverture du fichier");
-        exit(0);
-    }
-    fprintf(fichier, "a\n");
-    fprintf(fichier, "%d\nz\n%d\ne\n%d\n", BS, nombreJoueur, difficulte);
-    for(i=0; i < nombreJoueur; i++)
-    {
-        fprintf(fichier, "%s\n%d\n", joueur[i].nom, joueur[i].score);
-    }
-    fprintf(fichier, "\nr\n");
     for(i=0;i < nombreJoueur; i++)
     {
         for(j=0;j < 6 ; j++)
@@ -155,12 +141,10 @@ void sauvegarderPartie(T_TUILE plateau[][27], char *nomSauvegarde, int nombreJou
         }
         fprintf(fichier ,"\n");
     }
-    fprintf(fichier, "t\n");
     for(i=0; i < BS; i++)
     {
         fprintf(fichier, "%c%d", pioche[i].forme, pioche[i].forme);
     }
-    fprintf(fichier, "\ny\n");
     for(i=0; i< 13;i++)
     {
         for(j=0; j < 27 ; j++)
@@ -169,27 +153,25 @@ void sauvegarderPartie(T_TUILE plateau[][27], char *nomSauvegarde, int nombreJou
         }
         fprintf(fichier, "\n");
     }
-    fclose(fichier);
+    for(i=0; i < nombreJoueur; i++)
+    {
+        fprintf(fichier, "%s\n%d\n", joueur[i].nom, joueur[i].score);
+    }
 }
 
-void recupererSauvegarde(T_TUILE plateau[][27], char *nomSauvegarde, int *nombreJoueur, T_TUILE main[][6], T_JOUEUR *joueur, T_TUILE *pioche, int *BS, int *difficulte)
+void recupererSauvegarde(FILE *fichier, T_TUILE plateau[][27], int nombreJoueur, T_TUILE main[][6], T_JOUEUR *joueur, T_TUILE *pioche, int BS, int difficulte)
 {
     int i,j;
-    char poubelle;
-    FILE *fichier = NULL;
-    fichier = fopen(nomSauvegarde, "r");
-    if(fichier == NULL)
+    rewind(fichier);
+    if(BS > 10)
     {
-        printf("erreur d'ouverture de la sauvegarde");
-        exit(0);
+        fseek(fichier, 7, 0);
     }
-    for(i=0;i<nombreJoueur;i++)
+    else if(BS < 10)
     {
-        fscanf(fichier, "%s\n%d\n", joueur[i].nom, joueur[i].score);
+        fseek(fichier, 6, 0);
     }
-    fscanf(fichier, "%c", &poubelle);
-    printf("merde1\n");
-    for(i=0;i < nombreJoueur;i++)
+    for(i=0;i < nombreJoueur ; i++)
     {
         for(j=0;j < 6 ; j++)
         {
@@ -197,14 +179,12 @@ void recupererSauvegarde(T_TUILE plateau[][27], char *nomSauvegarde, int *nombre
         }
         fscanf(fichier, "\n");
     }
-    fscanf(fichier, "%c\n", &poubelle);
-    printf("merde2\n");
+    system("pause");
     for(i = 0 ; i < BS; i++)
     {
         fscanf(fichier, "%c%d", pioche[i].forme, pioche[i].forme);
     }
-    fscanf(fichier, "%c\n", &poubelle);
-    printf("merde3\n");
+    system("pause");
     for(i=0; i< 13;i++)
     {
         for(j=0; j < 27 ; j++)
@@ -213,19 +193,8 @@ void recupererSauvegarde(T_TUILE plateau[][27], char *nomSauvegarde, int *nombre
         }
         fscanf(fichier, "\n");
     }
-    printf("merde4\n");
-    fclose(fichier);
-}
-
-void recupererSauvegardeAuxiliere(int *BS, int *nombreJoueur, char *nomSauvegarde, int *difficulte)
-{
-    char poubelle;
-    FILE *fichier = NULL;
-    fichier = fopen(nomSauvegarde, "r");
-    if(fichier == NULL)
+    for(i=0;i < nombreJoueur;i++)
     {
-        printf("erreur d'ouverture de la sauvegarde\n");
+        fscanf(fichier, "%s\n%d\n", joueur[i].nom, joueur[i].score);
     }
-    fscanf(fichier, "%c\n%d\n%c\n%d\n%c\n%d\n", &poubelle, BS, &poubelle, nombreJoueur, &poubelle, difficulte);
-    fclose(fichier);
 }

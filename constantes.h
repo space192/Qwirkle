@@ -3,7 +3,7 @@
 
 typedef struct JOUEUR
 {
-    char nom[20];
+    char nom[50];
     int score;
 }T_JOUEUR;
 
@@ -13,6 +13,5 @@ typedef struct TUILE
     int couleur;
 
 }T_TUILE;
-
 
 #endif // CONSTANTES_H_INCLUDED

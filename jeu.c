@@ -5,19 +5,31 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
     int BS, i,k, partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 31, premierTour = 0, lockC = 1, lockF = 1, scoreJoueurActif =0;
     T_TUILE *pioche = NULL;
     T_TUILE **main;
+    FILE *fichier;
     T_TUILE plateau[13][27];
     char nameSauvegarde[100] = "sauvegarde/";
     system("cls");
     if(sauvegarde == 1)
     {
         selecteurSauvegarde(nameSauvegarde);
-        recupererSauvegardeAuxiliere(&BS, &nombreJoueurs, nameSauvegarde, &difficulte);
-        main= malloc(nombreJoueurs * sizeof(T_TUILE*));
-        for(i = 0 ; i < nombreJoueurs ; i++)
+        fichier = fopen(nameSauvegarde, "r+");
+        if(fichier == NULL)
         {
-            main[i] = malloc(6 * sizeof(T_TUILE*));
+            printf("FUCK");
         }
-        pioche = malloc(BS * sizeof(T_TUILE));
+        else
+        {
+            fscanf(fichier, "%d\n%d\n%d\n", &BS, &nombreJoueurs, &difficulte);
+            main = malloc(nombreJoueurs * sizeof(T_TUILE));
+            for(i = 0 ; i < nombreJoueurs ; i++)
+            {
+                main[i] = malloc(6 * sizeof(T_TUILE*));
+            }
+            pioche = malloc(BS * sizeof(T_TUILE));
+            joueur = malloc(nombreJoueurs * sizeof(T_JOUEUR*));
+            recupererSauvegarde(fichier , plateau, nombreJoueurs, main, joueur, pioche, BS, difficulte);
+        }
+
     }
     else if(sauvegarde == 2)
     {
@@ -44,11 +56,14 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
         }
         initialiserPlateau(plateau);
     }
+    for(i=0; i < nombreJoueurs; i++)
+    {
+        joueur[i].score = 0;
+    }
+    system("cls");
+    afficherTerrain(plateau);
     while(partie == 1)
     {
-        system("cls");
-        afficherTerrain(plateau);
-
         while(joueurActif < nombreJoueurs)
         {
             afficherNom(joueur, joueurActif);
@@ -108,7 +123,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
             gotoligcol(l++, 6);
         }
         while(partie < 1 || partie > 3);
-        effacerEcran();
+        effacerChoix();
         joueurActif = 0;
         gotoligcol(1, 1);
         l=31;
@@ -117,7 +132,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
     {
         effacerEcran();
         nomSauvegarde(nameSauvegarde);
-        sauvegarderPartie(plateau, nameSauvegarde, nombreJoueurs,main,joueur,pioche,BS, difficulte);
+        sauvegarderPartie(fichier , plateau, nombreJoueurs, main, joueur, pioche, BS, difficulte);
     }
     else if(partie == 3)
     {
