@@ -34,9 +34,6 @@
 		<Unit filename="AuxilierePartie.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="choix partie.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="constantes.h" />
 		<Unit filename="fichier.c">
 			<Option compilerVar="CC" />
@@ -51,9 +48,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="prototypes.h" />
-		<Unit filename="score.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="test.c">
 			<Option compilerVar="CC" />
 		</Unit>

@@ -15,7 +15,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
         fichier = fopen(nameSauvegarde, "r+");
         if(fichier == NULL)
         {
-            printf("FUCK");
+            printf("erreur dans l'ouverture du fichier");
         }
         else
         {
@@ -26,7 +26,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
                 main[i] = malloc(6 * sizeof(T_TUILE));
             }
             pioche = malloc(BS * sizeof(T_TUILE));
-            joueur = malloc(nombreJoueurs * sizeof(T_JOUEUR*));
+            joueur = malloc(nombreJoueurs * sizeof(T_JOUEUR));
             recupererSauvegarde(fichier , plateau, nombreJoueurs, main, joueur, pioche, BS, difficulte);
         }
         fclose(fichier);

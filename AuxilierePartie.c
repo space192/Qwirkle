@@ -231,11 +231,15 @@ void deplacerCurseur(int *x, int *y, int *num)
     }
     else if(*x <= 0)
     {
-        *x+=2;
+        *x=51;
     }
     else if(*y >= 25)
     {
         *y=1;
+    }
+    else if(*y <= 0)
+    {
+        *y=23;
     }
     gotoligcol(*y, *x);
 }
@@ -306,7 +310,7 @@ void afficherNom(T_JOUEUR *joueur, int j)
 {
     int i;
     gotoligcol(2, 60);
-    for(i=0; i < 20 ; i++)
+    for(i=0; i < 30 ; i++)
     {
         printf(" ");
     }

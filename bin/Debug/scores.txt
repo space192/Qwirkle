@@ -1,24 +1,6 @@
-Arthur : 11
-Pilou : 16
+Arthur : 19
+Pilo : 23
 
-Arthur : 2
-Pilou : 12
-
-Arthur : 6
-Pilou : 0
-
-Arthur : 2
-Pilou : 6
-
-Arthur : 2
-Pilou : 5
-
-Arthur : 4
-Pilou : 0
-
-arthur : 9
-Pilou : 0
-
-Arthur : 6
-Pilou : 7
+Arthurh : 31
+Pilo : 23
 

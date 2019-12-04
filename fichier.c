@@ -153,7 +153,6 @@ void nomSauvegarde(char *nomSauvegarde)
 void sauvegarderPartie(char *nomfichier, T_TUILE plateau[][27], int nombreJoueur, T_TUILE main[][6], T_JOUEUR *joueur, T_TUILE *pioche, int BS, int difficulte)
 {
     int i,j;
-    int espace;
     FILE *fichier = NULL;
     fichier = fopen(nomfichier ,"w");
     fprintf(fichier, "%d\n%d\n%d\n", BS, nombreJoueur, difficulte);
@@ -182,7 +181,7 @@ void sauvegarderPartie(char *nomfichier, T_TUILE plateau[][27], int nombreJoueur
     }
     for(i=0; i < nombreJoueur; i++)
     {
-        fprintf(fichier, "%s%d", joueur[i].nom,joueur[i].score);
+        fprintf(fichier, "%s%d\n", joueur[i].nom,joueur[i].score);
     }
     fclose(fichier);
 }
@@ -197,50 +196,40 @@ void recupererSauvegarde(FILE *fichier, T_TUILE plateau[][27], int nombreJoueur,
         {
             main[i][j].forme = fgetc(fichier);
             fscanf(fichier, "%d", &main[i][j].couleur);
-            printf("%d%c%d\n",ftell(fichier), main[i][j].forme, main[i][j].couleur);
         }
     }
-    system("pause");
     for(i=0;i < BS; i++)
     {
         pioche[i].forme = fgetc(fichier);
         fscanf(fichier, "%d", &pioche[i].couleur);
-        printf("%d%c%d\n",ftell(fichier), pioche[i].forme, pioche[i].couleur);
     }
-    system("pause");
     for(i=0;i < 13;i++)
     {
         for(j=0;j < 27; j++)
         {
             plateau[i][j].forme = fgetc(fichier);
             fscanf(fichier, "%d", &plateau[i][j].couleur);
-            printf("%d%c%d\n",ftell(fichier), plateau[i][j].forme, plateau[i][j].couleur);
         }
     }
     fscanf(fichier, "\n");
-    system("pause");
-    for(i=0;i< nombreJoueur; i++)
-    {
-        fscanf(fichier, "%d", &temp[i]);
-        printf("%d et %d\n",ftell(fichier), temp[i]);
-    }
     for(i=0; i < nombreJoueur; i++)
     {
-        for(j=0; j <= temp[i]; j++)
+        fscanf(fichier, "%d", &temp[i]);
+    }
+    fscanf(fichier, "\n");
+    for(i=0; i < nombreJoueur; i++)
+    {
+        for(j=0; j < temp[i] ; j++)
         {
             joueur[i].nom[j] = fgetc(fichier);
         }
-        fscanf(fichier, "%d", &joueur[i].score);
+        if(i==0)
+        {
+            joueur[i].nom[temp[i]] = '\0';
+        }
         joueur[i].nom[temp[i]+1] = '\0';
-        printf("%s\n", joueur[i].nom);
-
+        fscanf(fichier, " %d", &joueur[i].score);
+        fscanf(fichier, "\n");
     }
-    system("pause");
     effacerEcran();
-    system("cls");
-    system("cls");
-    system("cls");
-    system("cls");
-    system("cls");
-    system("cls");
 }
