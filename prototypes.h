@@ -8,7 +8,7 @@
 #include <conio.h>
 #include <dirent.h>
 void Color(int couleurDuTexte,int couleurDeFond);
-void sauvegarderPartie(FILE *fichier, T_TUILE plateau[][27], int nombreJoueur, T_TUILE main[][6], T_JOUEUR *joueur, T_TUILE *pioche, int BS, int difficulte);
+void sauvegarderPartie(char *nomfichier,T_TUILE plateau[][27], int nombreJoueur, T_TUILE main[][6], T_JOUEUR *joueur, T_TUILE *pioche, int BS, int difficulte);
 void recupererSauvegarde(FILE *fichier, T_TUILE plateau[][27], int nombreJoueur, T_TUILE main[][6], T_JOUEUR *joueur, T_TUILE *pioche, int BS, int difficulte);
 void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs, int sauvegarde);
 void menu();

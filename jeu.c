@@ -20,10 +20,10 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
         else
         {
             fscanf(fichier, "%d\n%d\n%d\n", &BS, &nombreJoueurs, &difficulte);
-            main = malloc(nombreJoueurs * sizeof(T_TUILE));
+            main = malloc(nombreJoueurs * sizeof(T_TUILE*));
             for(i = 0 ; i < nombreJoueurs ; i++)
             {
-                main[i] = malloc(6 * sizeof(T_TUILE*));
+                main[i] = malloc(6 * sizeof(T_TUILE));
             }
             pioche = malloc(BS * sizeof(T_TUILE));
             joueur = malloc(nombreJoueurs * sizeof(T_JOUEUR*));
@@ -132,7 +132,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
     {
         effacerEcran();
         nomSauvegarde(nameSauvegarde);
-        sauvegarderPartie(fichier , plateau, nombreJoueurs, main, joueur, pioche, BS, difficulte);
+        sauvegarderPartie(nameSauvegarde, plateau, nombreJoueurs, main, joueur, pioche, BS, difficulte);
     }
     else if(partie == 3)
     {
