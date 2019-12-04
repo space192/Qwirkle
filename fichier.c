@@ -167,7 +167,6 @@ void sauvegarderPartie(char *nomfichier, T_TUILE plateau[][27], int nombreJoueur
 void recupererSauvegarde(FILE *fichier, T_TUILE plateau[][27], int nombreJoueur, T_TUILE main[][6], T_JOUEUR *joueur, T_TUILE *pioche, int BS, int difficulte)
 {
     int i,j;
-    char test;
     for(i=0;i < nombreJoueur; i++)
     {
         for(j=0;j < 6;j++)

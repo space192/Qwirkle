@@ -9,11 +9,6 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
     T_TUILE plateau[13][27];
     char nameSauvegarde[100] = "sauvegarde/";
     system("cls");
-
-    for(i=0;i<nombreJoueurs;i++)
-    {
-        joueur[i].score = 0;
-    }
     if(sauvegarde == 1)
     {
         selecteurSauvegarde(nameSauvegarde);
