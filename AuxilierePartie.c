@@ -345,8 +345,15 @@ void Leaderbord(T_JOUEUR *joueur, int x, int y, int nombreJoueurs)
     for(i = 0 ; i < nombreJoueurs ; i++)
     {
         gotoligcol(k++, 66);
-        printf("Le Score du Joueur %d vaut: %d", i+1, joueur->score);
+        printf("Le Score du Joueur %d vaut: %d", i+1, joueur[i].score);
     }
+
+    for(i=0 ; i < 29; i++)
+    {
+        printf("%c", 0xCD);
+    }
+    printf("%c", 0xBB);
+
     gotoligcol(y,x);
 }
 

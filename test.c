@@ -7,6 +7,7 @@ int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][27],int joueurActif, in
     char formetemp1, formetemp2, formeTuile1;
     for(i=0;i<4;i++)
     {
+        *pscore = 0;
         switch(i)
         {
         case 0:
@@ -149,7 +150,7 @@ int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][27],int joueurActif, in
     }
     if(res1 == 1 && res2 == 1 && res3 == 1 && res4 == 1 && connecte == 1)
     {
-        *pscore = score;
+        *pscore = *pscore + score;
         return 1;
     }
     else
