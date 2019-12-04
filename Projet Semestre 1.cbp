@@ -38,6 +38,10 @@
 		<Unit filename="fichier.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="genann.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="genann.h" />
 		<Unit filename="jeu.c">
 			<Option compilerVar="CC" />
 		</Unit>
