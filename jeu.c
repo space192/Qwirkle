@@ -29,6 +29,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
             joueur = malloc(nombreJoueurs * sizeof(T_JOUEUR*));
             recupererSauvegarde(fichier , plateau, nombreJoueurs, main, joueur, pioche, BS, difficulte);
         }
+        fclose(fichier);
 
     }
     else if(sauvegarde == 2)
@@ -55,10 +56,10 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
             retraitPioche(pioche,main,&BS, nombreJoueurs);
         }
         initialiserPlateau(plateau);
-    }
-    for(i=0; i < nombreJoueurs; i++)
-    {
-        joueur[i].score = 0;
+        for(i=0; i < nombreJoueurs; i++)
+        {
+            joueur[i].score = 0;
+        }
     }
     system("cls");
     afficherTerrain(plateau);
@@ -134,9 +135,10 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
         effacerEcran();
         nomSauvegarde(nameSauvegarde);
         sauvegarderPartie(nameSauvegarde, plateau, nombreJoueurs, main, joueur, pioche, BS, difficulte);
+        sauvegardeScore(joueur, nombreJoueurs);
     }
     else if(partie == 3)
     {
-        //sauvegarde des scores
+        sauvegardeScore(joueur, nombreJoueurs);
     }
 }

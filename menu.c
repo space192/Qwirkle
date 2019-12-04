@@ -90,6 +90,7 @@ void menu()
         }
         else if(choix == 3)
         {
+            afficherScore();
             menu = 1;
         }
         else if(choix == 4)

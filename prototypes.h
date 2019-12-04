@@ -21,6 +21,7 @@ int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][27],int joueurActif, in
 void deplacerCurseurSauvegarde(int *y, int *num,int k);
 void selecteurSauvegarde(char *nomSauvegarde);
 void affichageRegle();
+void afficherScore();
 void sauvegardeScore(T_JOUEUR joueur[], int nombrejoueur);
 void gotoligcol(int lig, int col);
 void deplacerCurseur(int *x, int *y, int *num);
