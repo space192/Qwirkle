@@ -9,6 +9,11 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
     T_TUILE plateau[13][27];
     char nameSauvegarde[100] = "sauvegarde/";
     system("cls");
+
+    for(i=0;i<nombreJoueurs;i++)
+    {
+        joueur[i].score = 0;
+    }
     if(sauvegarde == 1)
     {
         selecteurSauvegarde(nameSauvegarde);
@@ -93,6 +98,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
                        afficherTuile(main, joueurActif, deplacement, plateau, x, y);
                        joueur[joueurActif].score = scoreJoueurActif + joueur[joueurActif].score;
                        premierTour = 1;
+
                    }
                    deplacement = 8;
                 }

@@ -48,6 +48,7 @@ int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][27],int joueurActif, in
                     coleurTuile1 = colortemp2;
                     connecte=1;
                     *lockC= 0;
+                    score++;
                 }
                 else if(colortemp1 == colortemp2)
                 {
@@ -71,6 +72,7 @@ int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][27],int joueurActif, in
                     coleurTuile1 = colortemp2;
                     connecte = 1;
                     *lockC= 0;
+                    score++;
                 }
             }
             else if(colortemp1 == colortemp2 && *lockC == 1 && *l == 1)
@@ -82,6 +84,7 @@ int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][27],int joueurActif, in
                     coleurTuile1 = colortemp2;
                     connecte = 1;
                     *lockF= 0;
+                    score++;
                 }
                 else if(formetemp1 == formetemp2)
                 {
@@ -105,6 +108,7 @@ int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][27],int joueurActif, in
                     coleurTuile1 = colortemp2;
                     connecte = 1;
                     *lockF= 0;
+                    score++;
                 }
             }
             if(*l == 0)
@@ -114,6 +118,7 @@ int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][27],int joueurActif, in
                     *l = 1;
                     formeTuile1 = formetemp2;
                     coleurTuile1 = colortemp2;
+                    score++;
                 }
                 else
                 {
@@ -137,18 +142,19 @@ int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][27],int joueurActif, in
                 k--;
             }
 
-            score++;
+
 
         }
 
     }
     if(res1 == 1 && res2 == 1 && res3 == 1 && res4 == 1 && connecte == 1)
     {
+        *pscore = score;
         return 1;
-        *pscore = *pscore +score;
     }
     else
     {
+        *pscore = 0;
         return 0;
     }
 }
