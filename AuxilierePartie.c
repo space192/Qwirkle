@@ -311,15 +311,21 @@ void afficherNom(T_JOUEUR *joueur, int j)
         printf(" ");
     }
     gotoligcol(2, 60);
-    printf("C'est a %s de jouer!\n", joueur[j].nom);
+    printf("C'est a ");
+    Color(11, 0);
+    printf("%s ",joueur[j].nom);
+    Color(15, 0);
+    printf("de jouer!\n");
     gotoligcol(1, 1);
 }
 
 void Leaderbord(T_JOUEUR *joueur, int x, int y, int nombreJoueurs)
 {
     int i,j,k = 16;
+    Color(11, 0);
     gotoligcol(14, 76);
     printf("Leaderboard");
+    Color(15, 0);
     gotoligcol(15, 65);
     printf("%c", 0xC9);
     for(i=0 ; i < 29; i++)
@@ -347,12 +353,32 @@ void Leaderbord(T_JOUEUR *joueur, int x, int y, int nombreJoueurs)
         gotoligcol(k++, 66);
         printf("Le Score du Joueur %d vaut: %d", i+1, joueur[i].score);
     }
-
+    k+=3;
+    gotoligcol(k, 65);
+    printf("%c", 0xC9);
     for(i=0 ; i < 29; i++)
     {
         printf("%c", 0xCD);
     }
     printf("%c", 0xBB);
+    k++;
+    gotoligcol(k, 65);
+    printf("%c", 0xBA);
+    printf("p : passer au joueur suivant ");
+    printf("%c", 0xBA);
+    k++;
+    gotoligcol(k, 65);
+    printf("%c", 0xBA);
+    printf("c : changer ses tuiles       ");
+    printf("%c", 0xBA);
+    k++;
+    gotoligcol(k, 65);
+    printf("%c", 0xC8);
+    for(i=0 ; i < 29; i++)
+    {
+        printf("%c", 0xCD);
+    }
+    printf("%c", 0xBC);
 
     gotoligcol(y,x);
 }
