@@ -195,4 +195,10 @@ void recupererSauvegarde(FILE *fichier, T_TUILE plateau[][27], int nombreJoueur,
     }
     effacerEcran();
     system("cls");
+    system("cls");
+    system("cls");
+    system("cls");
+    system("cls");
+    system("cls");
+
 }
