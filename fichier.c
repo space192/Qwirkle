@@ -148,14 +148,15 @@ void sauvegarderPartie(char *nomfichier, T_TUILE plateau[][27], int nombreJoueur
     {
         fprintf(fichier, "%c%d", pioche[i].forme, pioche[i].couleur);
     }
+    fprintf(fichier, "\n");
     for(i=0; i< 13;i++)
     {
         for(j=0; j < 27 ; j++)
         {
             fprintf(fichier, "%c%d", plateau[i][j].forme, plateau[i][j].couleur);
         }
-        fprintf(fichier, "\n");
     }
+    fprintf(fichier, "\n");
     for(i=0; i < nombreJoueur; i++)
     {
         fprintf(fichier, "%s\n%d\n", joueur[i].nom, joueur[i].score);
@@ -166,15 +167,7 @@ void sauvegarderPartie(char *nomfichier, T_TUILE plateau[][27], int nombreJoueur
 void recupererSauvegarde(FILE *fichier, T_TUILE plateau[][27], int nombreJoueur, T_TUILE main[][6], T_JOUEUR *joueur, T_TUILE *pioche, int BS, int difficulte)
 {
     int i,j;
-    rewind(fichier);
-    if(BS > 10)
-    {
-        fseek(fichier, 10, 0);
-    }
-    else if(BS < 10)
-    {
-        fseek(fichier, 10, 0);
-    }
+    char test;
     for(i=0;i < nombreJoueur; i++)
     {
         for(j=0;j < 6;j++)
@@ -183,20 +176,24 @@ void recupererSauvegarde(FILE *fichier, T_TUILE plateau[][27], int nombreJoueur,
             fscanf(fichier, "%d", &main[i][j].couleur);
         }
     }
-    fseek(fichier, 12+12*nombreJoueur, 0);
     for(i=0;i < BS; i++)
     {
         pioche[i].forme = fgetc(fichier);
         fscanf(fichier, "%d", &pioche[i].couleur);
     }
-    system("cls");
-    for(j=0; j < BS; j++)
+    for(i=0;i < 13;i++)
     {
-        Color(pioche[j].couleur, 0);
-        printf("%c", pioche[j].forme);
-        Color(15,0);
+        for(j=0;j < 27; j++)
+        {
+            plateau[i][j].forme = fgetc(fichier);
+            fscanf(fichier, "%d", &plateau[i][j].couleur);
+        }
     }
-    printf("\n");
-    system("pause");
+    for(i = 0; i < nombreJoueur;i++)
+    {
+        fgets(joueur[i].nom, 20, fichier);
+        fscanf(fichier, "%d", &joueur[i].score);
+    }
+    effacerEcran();
     system("cls");
 }
