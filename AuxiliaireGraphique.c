@@ -53,39 +53,45 @@ SDL_Surface *attribuerImage(int carac,int couleur)
 {
     SDL_Surface *tuile = NULL;
 
-        if ((couleur==1)&&(carac == 0xFE))
+        if(carac == 0xFE)
         {
-           tuile = IMG_Load("Graphique/Ronds/RondViolet.png");
-           printf("1");
-        }
-        else if((couleur == 2)&&(carac == 0xFE))
-        {
-            tuile = IMG_Load("Graphique/Ronds/RondCyan.png");
-            printf("1");
-        }
-        else if((couleur == 3)&&(carac == 0xFE))
-        {
-            tuile = IMG_Load("Graphique/Ronds/RondJaune.png");
-            printf("1");
-        }
-        else if((couleur == 4)&&(carac == 0xFE))
-        {
-            tuile = IMG_Load("Graphique/Ronds/RondRouge.png");
-            printf("1");
-        }
-        else if((couleur == 5)&&(carac == 0xFE))
-        {
-            tuile = IMG_Load("Graphique/Ronds/RondVert.png");
-            printf("1");
-        }
-        else if((couleur == 6)&&(carac == 0xFE))
-        {
-            tuile = IMG_Load("Graphique/Ronds/RondBleu.png");
-            printf("1");
+            printf("    %d", couleur);
+            if(couleur == 1)
+            {
+                tuile = IMG_Load("Graphique/Ronds/RondViolet.png");
+                printf("1");
+            }
+            else if(couleur == 2)
+            {
+                tuile = IMG_Load("Graphique/Ronds/RondCyan.png");
+                printf("1");
+            }
+            else if(couleur == 3)
+            {
+                tuile = IMG_Load("Graphique/Ronds/RondJaune.png");
+                printf("1");
+            }
+            else if(couleur == 4)
+            {
+                tuile = IMG_Load("Graphique/Ronds/RondRouge.png");
+                printf("1");
+            }
+            else if(couleur == 5)
+            {
+                tuile = IMG_Load("Graphique/Ronds/RondVert.png");
+                printf("1");
+            }
+            else if(couleur == 6)
+            {
+                tuile = IMG_Load("Graphique/Ronds/RondBleu.png");
+                printf("1");
+            }
         }
 
 
-        else if ((couleur==1)&&(carac == 0x04))
+
+
+        /*else if ((couleur==1)&&(carac == 0x04))
         {
            tuile = IMG_Load("Graphique/Carres/CarreViolet.png");
            printf("1");
@@ -239,6 +245,10 @@ SDL_Surface *attribuerImage(int carac,int couleur)
             tuile = IMG_Load("Graphique/Etoiles/EtoileBleue.png");
             printf("1");
         }
+        else
+        {
+            tuile = IMG_Load("Graphique/Etoiles/EtoileBleue.png");
+        }*/
 
 
     return tuile;

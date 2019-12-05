@@ -10,10 +10,10 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
     }
     int continuer =1;
     int couleur;
-    int carac;
+    char carac;
 
 
-    int BS, i,k,j, partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 31, premierTour = 0, lockC = 1, lockF = 1, scoreJoueurActif =0;
+    int BS, i,k,j,m=0, partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 31, premierTour = 0, lockC = 1, lockF = 1, scoreJoueurActif =0;
     T_TUILE *pioche = NULL;
     T_TUILE **main;
     FILE *fichier;
@@ -177,18 +177,19 @@ couleur=1;
     {
         for(j=0;j<13;j++)
         {
-            if(plateau[i][j].forme != ' ')
+            if(plateau[j][i].forme != ' ')
             {
-               carac = retournervaleur(plateau, i, j);
-               printf("%d",carac);
-               couleur = (plateau[i][j].couleur );
+               carac = plateau[j][i].forme;
+               couleur = (plateau[j][i].couleur);
+               printf("%c et %d\n",carac, couleur);
 
-               tuile[j].surface = attribuerImage(carac,couleur);
-               positionTuile.y = (40+ (i*69));
-               positionTuile.x = (70+ (j*69));
+               tuile[m].surface = attribuerImage(carac,couleur);
+               positionTuile.y = (40+ (j*69));
+               positionTuile.x = (70+ (i*69));
 
-               SDL_BlitSurface(tuile[j].surface, NULL, positionPlateau, &positionTuile);
+               SDL_BlitSurface(tuile[m].surface, NULL, positionPlateau, &positionTuile);
                SDL_UpdateWindowSurface(salut);
+               m++;
 
             }
 
