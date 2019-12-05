@@ -8,3 +8,9 @@ pilou : 14
 a : 22
 z : 0
 
+Arthur : 11
+Pilou : 11
+
+azer : 9
+azerty : 9
+
