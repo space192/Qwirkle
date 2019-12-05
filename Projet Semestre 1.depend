@@ -10,10 +10,10 @@
 
 1575451888 c:\users\plpai\onedrive\documents\github\projet-semetre-1\constantes.h
 
-1575537645 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\menu.c
+1575544652 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\menu.c
 	"prototypes.h"
 
-1575544474 c:\users\plpai\onedrive\documents\github\projet-semetre-1\prototypes.h
+1575544652 c:\users\plpai\onedrive\documents\github\projet-semetre-1\prototypes.h
 	"constantes.h"
 	<windows.h>
 	<time.h>
@@ -21,6 +21,7 @@
 	<stdlib.h>
 	<conio.h>
 	<dirent.h>
+	<SDL2/SDL.h>
 
 1574183819 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\score.c
 	"prototypes.h"
