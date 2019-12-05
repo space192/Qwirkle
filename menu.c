@@ -78,7 +78,9 @@ void menu()
             }
             else if (graphique = 1)
             {
-                printf("graphic\n");
+                system("cls");
+                jeuGraphique(joueur, difficulte, nombreJoueurs, sauvegarde);
+                menu = 0;
             }
         }
         else if (choix == 2)
