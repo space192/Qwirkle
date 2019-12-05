@@ -51,6 +51,9 @@
 		<Unit filename="jeuGraphique.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="machine learning.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
