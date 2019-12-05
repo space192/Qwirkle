@@ -8,7 +8,8 @@
 1575550570 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\fichier.c
 	"prototypes.h"
 
-1575451888 c:\users\plpai\onedrive\documents\github\projet-semetre-1\constantes.h
+1575587053 c:\users\plpai\onedrive\documents\github\projet-semetre-1\constantes.h
+	<SDL2/SDL.h>
 
 1575544652 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\menu.c
 	"prototypes.h"
@@ -441,16 +442,15 @@
 	"begin_code.h"
 	"close_code.h"
 
-1575584532 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\auxiliairegraphique.c
+1575587484 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\auxiliairegraphique.c
 	"prototypes.h"
 	"prototypesG.h"
 
-1575584303 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\jeugraphique.c
+1575587053 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\jeugraphique.c
 	"prototypes.h"
 	"prototypesG.h"
 
-1575552190 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\machine learning.c
-	"prototypes.h"
+1575587053 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\machine learning.c
 	"prototypes.h"
 
 1575566748 c:\users\plpai\onedrive\documents\github\projet-semetre-1\prototypesg.h
