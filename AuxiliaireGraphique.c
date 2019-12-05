@@ -244,5 +244,9 @@ SDL_Surface *attribuerImage(int carac,int couleur)
     return tuile;
 }
 
+char retournervaleur(T_TUILE plateau[13][27],int i,int j)
+{
+    return (plateau[13][27].forme);
+}
 
 
