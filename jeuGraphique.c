@@ -9,6 +9,8 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
         exit(0);
     }
     int continuer =1;
+    int couleur;
+    int carac;
 
 
     int BS, i,k,j, partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 31, premierTour = 0, lockC = 1, lockF = 1, scoreJoueurActif =0;
@@ -100,7 +102,10 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
         {
             if(plateau[i][j].forme != ' ')
             {
-               tuile = attribuerImage(plateau[i][j].forme,plateau[i][j].couleur );
+               carac=  plateau[i][j].forme;
+               couleur =plateau[i][j].couleur ;
+
+               tuile = attribuerImage(carac,couleur );
                positionTuile.y = (40+ (i*69));
                positionTuile.x = (70+ (j*69));
                SDL_BlitSurface(tuile, NULL, positionPlateau, &positionTuile);

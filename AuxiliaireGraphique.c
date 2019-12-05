@@ -57,26 +57,32 @@ SDL_Surface *attribuerImage(int carac,int couleur)
         if (couleur==1)
         {
            tuile = IMG_Load("Graphique/Ronds/RondViolet.png");
+           printf("1");
         }
         else if(couleur == 2)
         {
             tuile = IMG_Load("Graphique/Ronds/RondCyan.png");
+            printf("1");
         }
         else if(couleur == 3)
         {
             tuile = IMG_Load("Graphique/Ronds/RondJaune.png");
+            printf("1");
         }
         else if(couleur == 4)
         {
             tuile = IMG_Load("Graphique/Ronds/RondRouge.png");
+            printf("1");
         }
         else if(couleur == 5)
         {
             tuile = IMG_Load("Graphique/Ronds/RondVert.png");
+            printf("1");
         }
         else if(couleur == 6)
         {
             tuile = IMG_Load("Graphique/Ronds/RondBleu.png");
+            printf("1");
         }
 
     }
@@ -85,26 +91,32 @@ SDL_Surface *attribuerImage(int carac,int couleur)
         if (couleur==1)
         {
            tuile = IMG_Load("Graphique/Carrés/CarréViolet.png");
+           printf("1");
         }
         else if(couleur == 2)
         {
            tuile = IMG_Load("Graphique/Carrés/CarréCyan.png");
+           printf("1");
         }
         else if(couleur == 3)
         {
             tuile = IMG_Load("Graphique/Carrés/CarréJaune.png");
+            printf("1");
         }
         else if(couleur == 4)
         {
             tuile = IMG_Load("Graphique/Carrés/CarréOrange.png");
+            printf("1");
         }
         else if(couleur == 5)
         {
             tuile = IMG_Load("Graphique/Carrés/CarréVert.png");
+            printf("1");
         }
         else if(couleur == 6)
         {
             tuile = IMG_Load("Graphique/Carrés/CarréBleu.png");
+            printf("1");
         }
     }
     else if(carac == 0x05)
@@ -112,26 +124,32 @@ SDL_Surface *attribuerImage(int carac,int couleur)
         if (couleur==1)
         {
            tuile = IMG_Load("Graphique/Triangles/TriangleViolet.png");
+           printf("1");
         }
         else if(couleur == 2)
         {
            tuile = IMG_Load("Graphique/Triangles/TriangleCyan.png");
+           printf("1");
         }
         else if(couleur == 3)
         {
             tuile = IMG_Load("Graphique/Triangles/TriangleJaune.png");
+            printf("1");
         }
         else if(couleur == 4)
         {
             tuile = IMG_Load("Graphique/Triangles/TriangleRouge.png");
+            printf("1");
         }
         else if(couleur == 5)
         {
             tuile = IMG_Load("Graphique/Triangles/TriangleVert.png");
+            printf("1");
         }
         else if(couleur == 6)
         {
             tuile = IMG_Load("Graphique/Triangles/TriangleBleue.png");
+            printf("1");
         }
     }
     else if(carac == 0x06)
@@ -139,26 +157,32 @@ SDL_Surface *attribuerImage(int carac,int couleur)
         if (couleur==1)
         {
            tuile = IMG_Load("Graphique/Trèfles/TrefleViolet.png");
+           printf("1");
         }
         else if(couleur == 2)
         {
            tuile = IMG_Load("Graphique/Trèfles/TrefleCyan.png");
+           printf("1");
         }
         else if(couleur == 3)
         {
             tuile = IMG_Load("Graphique/Trèfles/TrefleJaune.png");
+            printf("1");
         }
         else if(couleur == 4)
         {
             tuile = IMG_Load("Graphique/Trèfles/TrefleRouge.png");
+            printf("1");
         }
         else if(couleur == 5)
         {
             tuile = IMG_Load("Graphique/Trèfles/TrèfleVert.png");
+            printf("1");
         }
         else if(couleur == 6)
         {
             tuile = IMG_Load("Graphique/Trèfles/TrefleBleue.png");
+            printf("1");
         }
     }
     else if(carac == 0x1E)
@@ -166,26 +190,32 @@ SDL_Surface *attribuerImage(int carac,int couleur)
         if (couleur==1)
         {
            tuile = IMG_Load("Graphique/Losanges/LosangeViolet.png");
+           printf("1");
         }
         else if(couleur == 2)
         {
            tuile = IMG_Load("Graphique/Losanges/LosangeCyan.png");
+           printf("1");
         }
         else if(couleur == 3)
         {
             tuile = IMG_Load("Graphique/Losanges/LosangeJaune.png");
+            printf("1");
         }
         else if(couleur == 4)
         {
             tuile = IMG_Load("Graphique/Losanges/LosangeRouge.png");
+            printf("1");
         }
         else if(couleur == 5)
         {
             tuile = IMG_Load("Graphique/Losanges/LosangeVert.png");
+            printf("1");
         }
         else if(couleur == 6)
         {
             tuile = IMG_Load("Graphique/Losanges/LosangeBleue.png");
+            printf("1");
         }
     }
     else if(carac == 0x9E)
@@ -193,26 +223,32 @@ SDL_Surface *attribuerImage(int carac,int couleur)
         if (couleur==1)
         {
            tuile = IMG_Load("Graphique/Etoiles/EtoileViolette.png");
+           printf("1");
         }
         else if(couleur == 2)
         {
            tuile = IMG_Load("Graphique/Etoiles/EtoileCyan.png");
+           printf("1");
         }
         else if(couleur == 3)
         {
             tuile = IMG_Load("Graphique/Etoiles/EtoileJaune.png");
+            printf("1");
         }
         else if(couleur == 4)
         {
             tuile = IMG_Load("Graphique/Etoiles/EtoileRouge.png");
+            printf("1");
         }
         else if(couleur == 5)
         {
             tuile = IMG_Load("Graphique/Etoiles/EtoileVerte.png");
+            printf("1");
         }
         else if(couleur == 6)
         {
             tuile = IMG_Load("Graphique/Etoiles/EtoileBleue.png");
+            printf("1");
         }
     }
     return tuile;
