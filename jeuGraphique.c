@@ -12,9 +12,10 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
    SDL_Window* salut = NULL;
    SDL_Rect* fenetreGenerale = NULL;
    SDL_Surface* image= NULL;
-   salut = SDL_CreateWindow("coucou", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 522, 522, SDL_WINDOW_SHOWN);
+   salut = SDL_CreateWindow("coucou", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1837, 1065, SDL_WINDOW_SHOWN);
+   SDL_SetWindowFullscreen(salut,SDL_WINDOW_FULLSCREEN_DESKTOP);
    fenetreGenerale = SDL_GetWindowSurface(salut);
-   image= IMG_Load("Salar5carre.png");
+   image= IMG_Load("Graphique/plateau9.png");
    SDL_BlitSurface(image, NULL, fenetreGenerale, NULL);
    SDL_UpdateWindowSurface(salut);
    system("pause");

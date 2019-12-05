@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1575451888 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\main.c
+1575544944 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\main.c
 	"prototypes.h"
 
 1574183819 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\choix partie.c
@@ -13,7 +13,7 @@
 1575544652 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\menu.c
 	"prototypes.h"
 
-1575544652 c:\users\plpai\onedrive\documents\github\projet-semetre-1\prototypes.h
+1575545163 c:\users\plpai\onedrive\documents\github\projet-semetre-1\prototypes.h
 	"constantes.h"
 	<windows.h>
 	<time.h>
@@ -22,6 +22,8 @@
 	<conio.h>
 	<dirent.h>
 	<SDL2/SDL.h>
+	<SDL2/SDL_image.h>
+	<SDL2/SDL_ttf.h>
 
 1574183819 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\score.c
 	"prototypes.h"
@@ -438,6 +440,6 @@
 1575537645 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\auxiliairegraphique.c
 	"prototypes.h"
 
-1575537645 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\jeugraphique.c
+1575546305 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\jeugraphique.c
 	"prototypes.h"
 

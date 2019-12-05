@@ -8,7 +8,8 @@
 #include <conio.h>
 #include <dirent.h>
 #include <SDL2/SDL.h>
-
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 
 void Color(int couleurDuTexte,int couleurDeFond);
 void sauvegarderPartie(char *nomfichier,T_TUILE plateau[][27], int nombreJoueur, T_TUILE main[][6], T_JOUEUR *joueur, T_TUILE *pioche, int BS, int difficulte);
