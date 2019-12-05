@@ -31,6 +31,9 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="AuxiliaireGraphique.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="AuxilierePartie.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -43,6 +46,9 @@
 		</Unit>
 		<Unit filename="genann.h" />
 		<Unit filename="jeu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="jeuGraphique.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="main.c">
