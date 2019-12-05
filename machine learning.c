@@ -7,5 +7,5 @@ void IA(T_TUILE plateau[][27], T_TUILE main[][6])
     srand(time(0));
     int i;
 
-    genann *ann = genann_init()
+    //genann *ann = genann_init()
 }

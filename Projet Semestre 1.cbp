@@ -61,6 +61,7 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="prototypes.h" />
+		<Unit filename="prototypesG.h" />
 		<Unit filename="test.c">
 			<Option compilerVar="CC" />
 		</Unit>

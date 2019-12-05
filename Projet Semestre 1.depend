@@ -5,7 +5,7 @@
 1574183819 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\choix partie.c
 	"prototypes.h"
 
-1575502297 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\fichier.c
+1575550570 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\fichier.c
 	"prototypes.h"
 
 1575451888 c:\users\plpai\onedrive\documents\github\projet-semetre-1\constantes.h
@@ -13,7 +13,7 @@
 1575544652 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\menu.c
 	"prototypes.h"
 
-1575545163 c:\users\plpai\onedrive\documents\github\projet-semetre-1\prototypes.h
+1575559568 c:\users\plpai\onedrive\documents\github\projet-semetre-1\prototypes.h
 	"constantes.h"
 	<windows.h>
 	<time.h>
@@ -28,7 +28,7 @@
 1574183819 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\score.c
 	"prototypes.h"
 
-1575502297 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\auxilierepartie.c
+1575550570 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\auxilierepartie.c
 	"prototypes.h"
 
 1575382295 source:c:\users\arthur\documents\github\projet-semetre-1\main.c
@@ -60,7 +60,7 @@
 1575501887 source:c:\users\arthur\documents\github\projet-semetre-1\auxilierepartie.c
 	"prototypes.h"
 
-1575502297 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\jeu.c
+1575550570 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\jeu.c
 	"prototypes.h"
 
 1575500483 source:c:\users\arthur\documents\github\projet-semetre-1\jeu.c
@@ -69,7 +69,7 @@
 1575455381 source:c:\users\arthur\documents\github\projet-semetre-1\test.c
 	"prototypes.h"
 
-1575453789 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\test.c
+1575550570 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\test.c
 	"prototypes.h"
 
 1575536527 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\genann.c
@@ -437,9 +437,17 @@
 	"begin_code.h"
 	"close_code.h"
 
-1575537645 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\auxiliairegraphique.c
+1575562075 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\auxiliairegraphique.c
+	"prototypes.h"
+	"prototypesG.h"
+
+1575562170 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\jeugraphique.c
+	"prototypes.h"
+	"prototypesG.h"
+
+1575552190 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\machine learning.c
+	"prototypes.h"
 	"prototypes.h"
 
-1575546305 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\jeugraphique.c
-	"prototypes.h"
+1575562069 c:\users\plpai\onedrive\documents\github\projet-semetre-1\prototypesg.h
 
