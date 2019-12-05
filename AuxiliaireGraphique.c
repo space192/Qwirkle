@@ -250,6 +250,7 @@ SDL_Surface *attribuerImage(int carac,int couleur)
             tuile = IMG_Load("Graphique/Etoiles/EtoileBleue.png");
             printf("1");
         }
+
     }
     return tuile;
 }

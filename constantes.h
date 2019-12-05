@@ -1,5 +1,6 @@
 #ifndef CONSTANTES_H_INCLUDED
 #define CONSTANTES_H_INCLUDED
+#include <SDL2/SDL.h>
 
 typedef struct JOUEUR
 {
@@ -11,7 +12,7 @@ typedef struct TUILE
 {
     char forme;
     int couleur;
-
+    SDL_Surface *surface;
 }T_TUILE;
 
 #endif // CONSTANTES_H_INCLUDED
