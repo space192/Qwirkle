@@ -102,10 +102,10 @@ couleur=1;
     {
 
         carac = 0xFE;
-        tuile[i] = attribuerImage(carac,couleur);
+        tuile[i].surface = attribuerImage(carac,couleur);
         positionTuile.y = (40+ (i*69));
         positionTuile.x = 70;
-        SDL_BlitSurface(tuile[i], NULL, positionPlateau, &positionTuile);
+        SDL_BlitSurface(tuile[i].surface, NULL, positionPlateau, &positionTuile);
         SDL_UpdateWindowSurface(salut);
         couleur++;
 
@@ -115,10 +115,10 @@ couleur=1;
     {
 
         carac = 0x04;
-        tuile[i] = attribuerImage(carac,couleur);
+        tuile[i].surface = attribuerImage(carac,couleur);
         positionTuile.y = (40+ (i*69));
         positionTuile.x = 139;
-        SDL_BlitSurface(tuile[i], NULL, positionPlateau, &positionTuile);
+        SDL_BlitSurface(tuile[i].surface, NULL, positionPlateau, &positionTuile);
         SDL_UpdateWindowSurface(salut);
         couleur++;
     }
@@ -127,10 +127,10 @@ couleur=1;
     {
 
         carac = 0x05;
-        tuile[i] = attribuerImage(carac,couleur);
+        tuile[i].surface = attribuerImage(carac,couleur);
         positionTuile.y = (40+ (i*69));
         positionTuile.x = 208;
-        SDL_BlitSurface(tuile[i], NULL, positionPlateau, &positionTuile);
+        SDL_BlitSurface(tuile[i].surface, NULL, positionPlateau, &positionTuile);
         SDL_UpdateWindowSurface(salut);
         couleur++;
     }
@@ -139,10 +139,10 @@ couleur=1;
     {
 
         carac = 0x06;
-        tuile[i] = attribuerImage(carac,couleur);
+        tuile[i].surface = attribuerImage(carac,couleur);
         positionTuile.y = (40+ (i*69));
         positionTuile.x = 277;
-        SDL_BlitSurface(tuile[i], NULL, positionPlateau, &positionTuile);
+        SDL_BlitSurface(tuile[i].surface, NULL, positionPlateau, &positionTuile);
         SDL_UpdateWindowSurface(salut);
         couleur++;
     }
@@ -151,10 +151,10 @@ couleur=1;
     {
 
         carac = 0x9E;
-        tuile[i] = attribuerImage(carac,couleur);
+        tuile[i].surface = attribuerImage(carac,couleur);
         positionTuile.y = (40+ (i*69));
         positionTuile.x = 346;
-        SDL_BlitSurface(tuile[i], NULL, positionPlateau, &positionTuile);
+        SDL_BlitSurface(tuile[i].surface, NULL, positionPlateau, &positionTuile);
         SDL_UpdateWindowSurface(salut);
         couleur++;
     }
@@ -163,10 +163,10 @@ couleur=1;
     {
 
         carac = 0x1E;
-        tuile[i] = attribuerImage(carac,couleur);
+        tuile[i].surface = attribuerImage(carac,couleur);
         positionTuile.y = (40+ (i*69));
         positionTuile.x = 415;
-        SDL_BlitSurface(tuile[i], NULL, positionPlateau, &positionTuile);
+        SDL_BlitSurface(tuile[i].surface, NULL, positionPlateau, &positionTuile);
         SDL_UpdateWindowSurface(salut);
         couleur++;
     }*/
@@ -179,7 +179,8 @@ couleur=1;
         {
             if(plateau[i][j].forme != ' ')
             {
-               carac = plateau[i][j].forme;
+               carac = retournervaleur(plateau, i, j);
+               printf("%d",carac);
                couleur = (plateau[i][j].couleur );
 
                tuile[j].surface = attribuerImage(carac,couleur);
