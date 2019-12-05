@@ -9,3 +9,4 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
 SDL_Rect allocationCoordonees(SDL_Rect positionClic);
 int coordonees();
 SDL_Surface *attribuerImage(int carac,int couleur);
+

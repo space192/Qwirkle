@@ -218,3 +218,5 @@ SDL_Surface *attribuerImage(int carac,int couleur)
     return tuile;
 }
 
+
+

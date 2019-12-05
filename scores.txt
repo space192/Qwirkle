@@ -2,3 +2,6 @@ Arthur : 4
 Pilou : 14
 Arthur : 0
 Pilou : 0
+arthur : 14
+pilou : 14
+
