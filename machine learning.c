@@ -1,11 +1,35 @@
 #include "prototypes.h"
-#include "prototypes.h"
 
-void IA(T_TUILE plateau[][27], T_TUILE main[][6])
+int evaluer(T_TUILE plateau[13][27], T_TUILE main[][6], int coordX[6], int coordY[6])
 {
-    printf("premiere essaie IA sur le qwirkle");
-    srand(time(0));
-    int i;
+    int i, j,score, x, y;
+    for(i=0; i < 6 ; i++) //prototype de test : test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][27],int joueurActif, int tuileJoueur, int *lockC, int *lockF, int *pscore);
+    {
+        switch(i)
+        {
+        case 0:
+            x=1;
+            y=0;
+            break;
+        case 1:
+            x=-1;
+            y=0;
+            break;
+        case 2:
+            x=0;
+            y=1;
+            break;
+        case 3:
+            x=0;
+            y=-1;
+            break;
+        }
 
-    //genann *ann = genann_init()
+        for(j=0; j < 6 ; j++)
+        {
+
+        }
+    }
+
 }
+
