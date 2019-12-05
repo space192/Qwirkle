@@ -78,7 +78,14 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
 
 
     SDL_Window* salut = NULL;
-    SDL_Surface *plateau1= NULL, *tuile = NULL;
+    SDL_Surface *plateau1= NULL;
+
+    SDL_Surface ** tuile = malloc(sizeof(SDL_Surface *) * 36);
+    for( i = 0; i < 36; i++){
+
+    tuile[i] = malloc(sizeof(SDL_Surface*));
+    }
+
     SDL_Rect* positionPlateau = NULL;
     SDL_Rect positionTuile;
     SDL_Event clicSouris;
@@ -105,10 +112,11 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                carac=  plateau[i][j].forme;
                couleur =plateau[i][j].couleur ;
 
-               tuile = attribuerImage(carac,couleur );
+               tuile[i] = attribuerImage(carac,couleur );
                positionTuile.y = (40+ (i*69));
                positionTuile.x = (70+ (j*69));
-               SDL_BlitSurface(tuile, NULL, positionPlateau, &positionTuile);
+
+               SDL_BlitSurface(tuile[i], NULL, positionPlateau, &positionTuile);
                SDL_UpdateWindowSurface(salut);
 
 

@@ -90,32 +90,32 @@ SDL_Surface *attribuerImage(int carac,int couleur)
     {
         if (couleur==1)
         {
-           tuile = IMG_Load("Graphique/Carrés/CarréViolet.png");
+           tuile = IMG_Load("Graphique/Carres/CarreViolet.png");
            printf("1");
         }
         else if(couleur == 2)
         {
-           tuile = IMG_Load("Graphique/Carrés/CarréCyan.png");
+           tuile = IMG_Load("Graphique/Carres/CarreCyan.png");
            printf("1");
         }
         else if(couleur == 3)
         {
-            tuile = IMG_Load("Graphique/Carrés/CarréJaune.png");
+            tuile = IMG_Load("Graphique/Carres/CarreJaune.png");
             printf("1");
         }
         else if(couleur == 4)
         {
-            tuile = IMG_Load("Graphique/Carrés/CarréOrange.png");
+            tuile = IMG_Load("Graphique/Carres/CarreOrange.png");
             printf("1");
         }
         else if(couleur == 5)
         {
-            tuile = IMG_Load("Graphique/Carrés/CarréVert.png");
+            tuile = IMG_Load("Graphique/Carres/CarreVert.png");
             printf("1");
         }
         else if(couleur == 6)
         {
-            tuile = IMG_Load("Graphique/Carrés/CarréBleu.png");
+            tuile = IMG_Load("Graphique/Carres/CarreBleu.png");
             printf("1");
         }
     }
@@ -156,32 +156,32 @@ SDL_Surface *attribuerImage(int carac,int couleur)
     {
         if (couleur==1)
         {
-           tuile = IMG_Load("Graphique/Trèfles/TrefleViolet.png");
+           tuile = IMG_Load("Graphique/Trefles/TrefleViolet.png");
            printf("1");
         }
         else if(couleur == 2)
         {
-           tuile = IMG_Load("Graphique/Trèfles/TrefleCyan.png");
+           tuile = IMG_Load("Graphique/Trefles/TrefleCyan.png");
            printf("1");
         }
         else if(couleur == 3)
         {
-            tuile = IMG_Load("Graphique/Trèfles/TrefleJaune.png");
+            tuile = IMG_Load("Graphique/Trefles/TrefleJaune.png");
             printf("1");
         }
         else if(couleur == 4)
         {
-            tuile = IMG_Load("Graphique/Trèfles/TrefleRouge.png");
+            tuile = IMG_Load("Graphique/Trefles/TrefleRouge.png");
             printf("1");
         }
         else if(couleur == 5)
         {
-            tuile = IMG_Load("Graphique/Trèfles/TrèfleVert.png");
+            tuile = IMG_Load("Graphique/Trefles/TrèfleVert.png");
             printf("1");
         }
         else if(couleur == 6)
         {
-            tuile = IMG_Load("Graphique/Trèfles/TrefleBleue.png");
+            tuile = IMG_Load("Graphique/Trefles/TrefleBleue.png");
             printf("1");
         }
     }
