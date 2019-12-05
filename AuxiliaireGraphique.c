@@ -176,7 +176,7 @@ SDL_Surface *attribuerImage(int carac,int couleur)
         }
         else if(couleur == 5)
         {
-            tuile = IMG_Load("Graphique/Trefles/TrèfleVert.png");
+            tuile = IMG_Load("Graphique/Trefles/TrefleVert.png");
             printf("1");
         }
         else if(couleur == 6)

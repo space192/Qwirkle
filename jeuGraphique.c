@@ -100,6 +100,81 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
     positionTuile.y=40;
     SDL_UpdateWindowSurface(salut);
 
+    /*
+couleur=1;
+    for(i=0;i<6;i++)
+    {
+
+        carac = 0xFE;
+        tuile[i] = attribuerImage(carac,couleur);
+        positionTuile.y = (40+ (i*69));
+        positionTuile.x = 70;
+        SDL_BlitSurface(tuile[i], NULL, positionPlateau, &positionTuile);
+        SDL_UpdateWindowSurface(salut);
+        couleur++;
+
+    }
+    couleur=1;
+    for(i=0;i<6;i++)
+    {
+
+        carac = 0x04;
+        tuile[i] = attribuerImage(carac,couleur);
+        positionTuile.y = (40+ (i*69));
+        positionTuile.x = 139;
+        SDL_BlitSurface(tuile[i], NULL, positionPlateau, &positionTuile);
+        SDL_UpdateWindowSurface(salut);
+        couleur++;
+    }
+    couleur=1;
+    for(i=0;i<6;i++)
+    {
+
+        carac = 0x05;
+        tuile[i] = attribuerImage(carac,couleur);
+        positionTuile.y = (40+ (i*69));
+        positionTuile.x = 208;
+        SDL_BlitSurface(tuile[i], NULL, positionPlateau, &positionTuile);
+        SDL_UpdateWindowSurface(salut);
+        couleur++;
+    }
+    couleur=1;
+    for(i=0;i<6;i++)
+    {
+
+        carac = 0x06;
+        tuile[i] = attribuerImage(carac,couleur);
+        positionTuile.y = (40+ (i*69));
+        positionTuile.x = 277;
+        SDL_BlitSurface(tuile[i], NULL, positionPlateau, &positionTuile);
+        SDL_UpdateWindowSurface(salut);
+        couleur++;
+    }
+    couleur=1;
+    for(i=0;i<6;i++)
+    {
+
+        carac = 0x9E;
+        tuile[i] = attribuerImage(carac,couleur);
+        positionTuile.y = (40+ (i*69));
+        positionTuile.x = 346;
+        SDL_BlitSurface(tuile[i], NULL, positionPlateau, &positionTuile);
+        SDL_UpdateWindowSurface(salut);
+        couleur++;
+    }
+    couleur=1;
+    for(i=0;i<6;i++)
+    {
+
+        carac = 0x1E;
+        tuile[i] = attribuerImage(carac,couleur);
+        positionTuile.y = (40+ (i*69));
+        positionTuile.x = 415;
+        SDL_BlitSurface(tuile[i], NULL, positionPlateau, &positionTuile);
+        SDL_UpdateWindowSurface(salut);
+        couleur++;
+    }
+    */
 
 
 
@@ -110,7 +185,7 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
             if(plateau[i][j].forme != ' ')
             {
                carac=  plateau[i][j].forme;
-               couleur =plateau[i][j].couleur ;
+               couleur =plateau[i][j].couleur +1;
 
                tuile[i+(j*26)] = attribuerImage(carac,couleur );
                positionTuile.y = (40+ (i*69));
@@ -147,6 +222,14 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
      }
      }*/
 
+    system("pause");
+    system("pause");
+    system("pause");
+    system("pause");
+    system("pause");
+    system("pause");
+    system("pause");
+    system("pause");
     system("pause");
 
     SDL_DestroyWindow(salut);
