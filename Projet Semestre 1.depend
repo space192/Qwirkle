@@ -11,10 +11,10 @@
 1575587053 c:\users\plpai\onedrive\documents\github\projet-semetre-1\constantes.h
 	<SDL2/SDL.h>
 
-1575544652 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\menu.c
+1575630670 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\menu.c
 	"prototypes.h"
 
-1575559568 c:\users\plpai\onedrive\documents\github\projet-semetre-1\prototypes.h
+1575631542 c:\users\plpai\onedrive\documents\github\projet-semetre-1\prototypes.h
 	"constantes.h"
 	<windows.h>
 	<time.h>
@@ -25,11 +25,12 @@
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
 	<SDL2/SDL_ttf.h>
+	"prototypesG.h"
 
 1574183819 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\score.c
 	"prototypes.h"
 
-1575550570 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\auxilierepartie.c
+1575630670 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\auxilierepartie.c
 	"prototypes.h"
 
 1575547754 source:c:\users\arthur\documents\github\projet-semetre-1\main.c
@@ -66,7 +67,7 @@
 1575593393 source:c:\users\arthur\documents\github\projet-semetre-1\auxilierepartie.c
 	"prototypes.h"
 
-1575550570 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\jeu.c
+1575630670 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\jeu.c
 	"prototypes.h"
 
 1575594925 source:c:\users\arthur\documents\github\projet-semetre-1\jeu.c
@@ -443,15 +444,13 @@
 	"begin_code.h"
 	"close_code.h"
 
-1575588981 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\auxiliairegraphique.c
+1575635049 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\auxiliairegraphique.c
 	"prototypes.h"
-	"prototypesG.h"
 
-1575588391 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\jeugraphique.c
+1575638773 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\jeugraphique.c
 	"prototypes.h"
-	"prototypesG.h"
 
-1575587053 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\machine learning.c
+1575630670 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\machine learning.c
 	"prototypes.h"
 
 1575588973 c:\users\plpai\onedrive\documents\github\projet-semetre-1\prototypesg.h
