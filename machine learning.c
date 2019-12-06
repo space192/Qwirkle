@@ -2,61 +2,11 @@
 
 int calculerCoup(T_TUILE plateau[][27], T_TUILE tuile[][6], int coordX, int coordY, int lockC, int lockF)
 {
-    int i,j,k=0,m=8, scoreCoup, x,y, scoreCoupParticulier[24];
+    int i,j,k=0,l=0,m=8, scoreCoup, x=0,y=0, scoreCoupParticulier[6][4], tuile1 = 0, position = 0, MAX, success, res0 = 1;
     int compteurCouleur[6], compteurForme[6];
     char carre = 0xFE, losange = 0x04, trefle = 0x05, pique =  0x06, triangle = 0x1E, croix = 0x9E;
-    for(i=0; i < 6; i++)
-    {
-        switch(tuile[1][i].couleur)
-        {
-        case 1:
-            compteurCouleur[0]++;
-            break;
-        case 2:
-            compteurCouleur[1]++;
-            break;
-        case 3:
-            compteurCouleur[2]++;
-            break;
-        case 4:
-            compteurCouleur[3]++;
-            break;
-        case 5:
-            compteurCouleur[4]++;
-        case 6:
-            compteurCouleur[5]++;
-        }
-        if(tuile[1][i].forme == carre)
-        {
-            compteurForme[0]++;
-        }
-        else if(tuile[1][i].forme == losange)
-        {
-            compteurForme[1]++;
-        }
-        else if(tuile[1][i].forme == trefle)
-        {
-            compteurForme[2]++;
-        }
-        else if(tuile[1][i].forme == pique)
-        {
-            compteurForme[3]++;
-        }
-        else if(tuile[1][i].forme == triangle)
-        {
-            compteurForme[4]++;
-        }
-        else if(tuile[1][i].forme == croix)
-        {
-            compteurForme[5]++;
-        }
-    }
     for(i=0; i < 6 ; i++)
     {
-        x=0;
-        y=0;
-        lockC=1;
-        lockF=1;
         for(j=0; j < 4 ; j++)
         {
             switch(j)
@@ -77,19 +27,47 @@ int calculerCoup(T_TUILE plateau[][27], T_TUILE tuile[][6], int coordX, int coor
                 x= 0;
                 y= -1;
             }
-            test(coordX+x,coordY+y, tuile, plateau, 1, i, &lockC, &lockF, &scoreCoup);
-            if(lockC == 0 || lockF == 0)
+            lockC=1;
+            lockF=1;
+            success = test(coordX+x,coordY+y, tuile, plateau, 1, i, &lockC, &lockF, &scoreCoup, &res0);
+            if((lockC == 0 || lockF == 0) && success == 1)
             {
-                scoreCoup++;
+                scoreCoup=scoreCoup+1;
             }
-            scoreCoupParticulier[k]=scoreCoup;
-            k++;
+            scoreCoupParticulier[i][j]=scoreCoup;
         }
     }
-    for(i=0; i < 24;i++)
+    for(i=0; i < 6;i++)
     {
-    gotoligcol(m, 100);
-    printf("%d et %d", i+1, scoreCoupParticulier[i]);
-    m++;
+        for(j=0; j < 4;j++)
+        {
+            gotoligcol(m, 100);
+            printf("%d et %d", i+1, scoreCoupParticulier[i][j]);
+            m++;
+        }
+        m++;
     }
+    MAX = valeurmaximum(scoreCoupParticulier, &tuile1, &position);
+    gotoligcol(m, 90);
+    printf("SCORE MAX : %d tuile :%d et direction : %d", MAX, tuile1, position);
 }
+
+int valeurmaximum(int scoreCoup[][4], int *tuile, int *position)
+{
+    int MAX1=0,MAX2=0,i,j;
+    for(i=0; i < 6; i++)
+    {
+        for(j = 0; j < 4; j++)
+        {
+            if(scoreCoup[i][j] > MAX1)
+            {
+                MAX1 = scoreCoup[i][j];
+                *tuile = i+1;
+                *position = j+1;
+            }
+        }
+    }
+    return MAX1;
+}
+
+

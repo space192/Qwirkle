@@ -22,7 +22,7 @@ void afficherTuile( T_TUILE main[][6], int i, int k,T_TUILE plateau[][27],int x,
 void definirPiocheDegrade(T_TUILE *pioche);
 void definirPiocheNormale(T_TUILE *pioche);
 void retraitPioche(T_TUILE *pioche,T_TUILE main[][6], int *BS, int k);
-int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][27],int joueurActif, int tuileJoueur, int *lockC, int *lockF, int *pscore);
+int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][27],int joueurActif, int tuileJoueur,int *lockC, int *lockF, int *pscore, int *res0);
 void deplacerCurseurSauvegarde(int *y, int *num,int k);
 void selecteurSauvegarde(char *nomSauvegarde);
 void affichageRegle();
