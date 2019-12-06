@@ -247,7 +247,6 @@ void deplacerCurseur(int *x, int *y, int *num)
 void afficherMainJoueur(T_TUILE main[][6], int j, int x, int y)
 {
     int i,l, m = 25, n = 13;
-
     gotoligcol(m, n);
 
     printf("%c", 0xC9);

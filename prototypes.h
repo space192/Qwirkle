@@ -10,12 +10,12 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
-
+#include "prototypesG.h"
 void Color(int couleurDuTexte,int couleurDeFond);
 void sauvegarderPartie(char *nomfichier,T_TUILE plateau[][27], int nombreJoueur, T_TUILE main[][6], T_JOUEUR *joueur, T_TUILE *pioche, int BS, int difficulte);
 void recupererSauvegarde(FILE *fichier, T_TUILE plateau[][27], int nombreJoueur, T_TUILE main[][6], T_JOUEUR *joueur, T_TUILE *pioche, int BS, int difficulte);
 void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs, int sauvegarde);
-
+int evaluer(T_TUILE plateau[13][27], T_TUILE main[][6], int coordX, int coordY);
 void menu();
 void effacerEcran();
 void afficherTuile( T_TUILE main[][6], int i, int k,T_TUILE plateau[][27],int x,int y);
@@ -40,5 +40,4 @@ void remplirMain(T_TUILE main[][6],T_TUILE *pioche, int j, int *BS);
 void afficherTitre();
 void initialiserPlateau(T_TUILE plateau[][27]);
 void nomSauvegarde(char *nomSauvegarde);
-
 #endif // PROTOTYPES_H_INCLUDED

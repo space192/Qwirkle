@@ -30,6 +30,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
             recupererSauvegarde(fichier , plateau, nombreJoueurs, main, joueur, pioche, BS, difficulte);
         }
         fclose(fichier);
+        premierTour = 1;
 
     }
     else if(sauvegarde == 2)
@@ -94,7 +95,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
                        afficherTuile(main, joueurActif, deplacement, plateau, x, y);
                        joueur[joueurActif].score = scoreJoueurActif + joueur[joueurActif].score;
                        premierTour = 1;
-
+                       evaluer(plateau, main, (x-1)/2, (y-1)/2);
                    }
                    deplacement = 8;
                 }
@@ -141,4 +142,12 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
     {
         sauvegardeScore(joueur, nombreJoueurs);
     }
+    for(i=0 ; i < 6 ; i++)
+    {
+        free(main[i]);
+    }
+    free(main);
+    free(pioche);
+    free(plateau);
+    free(joueur);
 }

@@ -1,6 +1,4 @@
 #include "prototypes.h"
-#include "prototypesG.h"
-
 int coordonees()
 {
     SDL_Rect carte[5][5];
@@ -200,5 +198,4 @@ SDL_Surface *attribuerImage(int carac,int couleur)
         }
         return tuile;
     }
-
 }

@@ -1,5 +1,4 @@
 #include "prototypes.h"
-#include "prototypesG.h"
 
 void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
 {

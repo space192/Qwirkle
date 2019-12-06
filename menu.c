@@ -76,7 +76,7 @@ void menu()
                 jeu(joueur, difficulte, nombreJoueurs, sauvegarde);
                 menu = 0;
             }
-            else if (graphique = 1)
+            else if(graphique == 1)
             {
                 system("cls");
                 jeuGraphique(joueur, difficulte, nombreJoueurs, sauvegarde);
