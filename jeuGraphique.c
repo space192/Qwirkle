@@ -35,7 +35,7 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
     int continuer2=1;
     int couleur;
     char carac;
-
+    int res0 = 1;
 
 
     int BS, i,k,j,m=0, partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 31, premierTour = 0, lockC = 1, lockF = 1, scoreJoueurActif =0;
@@ -265,7 +265,7 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                     continuer2 = 0;
                     }
 
-                   if(test(x,y, main, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif) == 1 || premierTour == 0)
+                   if(test(x,y, main, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif, &res0) == 1 || premierTour == 0)
                    {
                         couleur = couleurMainJoueurGraphique(main,joueurActif,deplacement);
                         carac = caracMainJoueurGraphique(main,joueurActif,deplacement);
