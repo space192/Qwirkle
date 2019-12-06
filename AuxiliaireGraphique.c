@@ -200,7 +200,47 @@ SDL_Surface *attribuerImage(int carac,int couleur)
     }
 }
 
-void LeaderBoardGraphique()
+int caracMainJoueurGraphique(T_TUILE main[][6], int j, int l)
 {
+    return main[j][l].forme;
+}
 
+int couleurMainJoueurGraphique(T_TUILE main[][6], int j, int l)
+{
+    return main[j][l].couleur;
+}
+
+int allocationCoordoneesMain(SDL_Rect positionClic)
+{
+    int i, j, xOriginal = 1382 , yOriginal = 992;
+    int deplacement;
+    for(i = 0; i<= 6; i++)
+    {
+            if((positionClic.x > xOriginal) && (positionClic.x < xOriginal+121) && (positionClic.y > yOriginal) && (positionClic.y < yOriginal+69))
+            {
+                deplacement = i+1;
+            }
+            xOriginal = xOriginal + 69;
+    }
+    return deplacement;
+}
+
+SDL_Rect allocationCoordoneesPlateau(SDL_Rect positionClic)
+{
+    int i, j, xOriginal = 70, yOriginal = 40;
+    for(i = 0; i<= 26; i++)
+    {
+        for(j=0; j <= 13 ; j++)
+        {
+            if((positionClic.x > xOriginal) && (positionClic.x < xOriginal+69) && (positionClic.y > yOriginal) && (positionClic.y < yOriginal+69))
+            {
+                positionClic.x = xOriginal;
+                positionClic.y = yOriginal;
+            }
+            xOriginal = xOriginal + 69;
+        }
+        xOriginal = 70;
+        yOriginal = yOriginal + 69;
+    }
+    return positionClic;
 }

@@ -10,4 +10,8 @@ SDL_Rect allocationCoordonees(SDL_Rect positionClic);
 int coordonees();
 SDL_Surface *attribuerImage(int carac,int couleur);
 char retournervaleur(T_TUILE plateau[13][27],int i,int j);
+int couleurMainJoueurGraphique(T_TUILE main[][6], int j, int l);
+int caracMainJoueurGraphique(T_TUILE main[][6], int j, int l);
+int allocationCoordoneesMain(SDL_Rect positionClic);
+SDL_Rect allocationCoordoneesPlateau(SDL_Rect positionClic);
 
