@@ -218,7 +218,7 @@ int allocationCoordoneesMain(SDL_Rect positionClic)
     {
             if((positionClic.x > xOriginal) && (positionClic.x < xOriginal+121) && (positionClic.y > yOriginal) && (positionClic.y < yOriginal+69))
             {
-                deplacement = i+1;
+                deplacement = i;
             }
             xOriginal = xOriginal + 69;
     }
@@ -228,6 +228,7 @@ int allocationCoordoneesMain(SDL_Rect positionClic)
 SDL_Rect allocationCoordoneesPlateau(SDL_Rect positionClic)
 {
     int i, j, xOriginal = 70, yOriginal = 40;
+    printf("test");
     for(i = 0; i<= 26; i++)
     {
         for(j=0; j <= 13 ; j++)
@@ -243,4 +244,46 @@ SDL_Rect allocationCoordoneesPlateau(SDL_Rect positionClic)
         yOriginal = yOriginal + 69;
     }
     return positionClic;
+}
+
+int allocationX(SDL_Rect positionClic)
+{
+    int i, j, xOriginal = 70, yOriginal = 40;
+    int valeur;
+    printf("test");
+    for(i = 0; i<= 26; i++)
+    {
+        for(j=0; j <= 13 ; j++)
+        {
+            if((positionClic.x > xOriginal) && (positionClic.x < xOriginal+69) && (positionClic.y > yOriginal) && (positionClic.y < yOriginal+69))
+            {
+                valeur=i;
+            }
+            xOriginal = xOriginal + 69;
+        }
+        xOriginal = 70;
+        yOriginal = yOriginal + 69;
+    }
+    return valeur;
+}
+
+int allocationY(SDL_Rect positionClic)
+{
+    int i, j, xOriginal = 70, yOriginal = 40;
+    int valeur;
+    printf("test");
+    for(i = 0; i<= 26; i++)
+    {
+        for(j=0; j <= 13 ; j++)
+        {
+            if((positionClic.x > xOriginal) && (positionClic.x < xOriginal+69) && (positionClic.y > yOriginal) && (positionClic.y < yOriginal+69))
+            {
+                valeur = j;
+            }
+            xOriginal = xOriginal + 69;
+        }
+        xOriginal = 70;
+        yOriginal = yOriginal + 69;
+    }
+    return valeur;
 }
