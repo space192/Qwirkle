@@ -105,14 +105,14 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
     SDL_Surface *plateau1= NULL;
 
     T_TUILE tuile[36];
-    T_TUILE tuileMain[36];
+    T_TUILE tuileMain[6];
 
     SDL_Rect* positionPlateau = NULL;
     SDL_Rect positionTuile;
     SDL_Rect positionTuileMain;
     SDL_Event clicSouris;
     salut = SDL_CreateWindow("coucou", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1837, 1065, SDL_WINDOW_SHOWN);
-    SDL_SetWindowFullscreen(salut,SDL_WINDOW_FULLSCREEN_DESKTOP);
+    //SDL_SetWindowFullscreen(salut,SDL_WINDOW_FULLSCREEN_DESKTOP);
     positionPlateau = SDL_GetWindowSurface(salut);
     plateau1= IMG_Load("Graphique/plateau9.png");
     //tuile = IMG_Load("Graphique/Ronds/RondViolet.png");
@@ -173,20 +173,21 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
             while(finTour == 0)
             {
                 //afficherMainJoueur(main, joueurActif, x, y);
-                m=1;
+                m=0;
 
                 for(i=0;i<6;i++)
                 {
-                    carac = plateau[joueurActif][i].forme;
-                    couleur = (plateau[joueurActif][i].couleur);
-                    tuileMain[m].surface = attribuerImage(carac,couleur);
-                    positionTuileMain.y = (1320);
-                    positionTuileMain.x = (906+i*69);
+                    carac = main[0][i].forme;
+                    couleur = main[0][i].couleur;
+                    printf("%c et %d\n", carac, couleur);
+                    //tuileMain[i].surface = attribuerImage(carac,couleur);
+                    //positionTuileMain.y = (1320);
+                    //positionTuileMain.x = (906+i*69);
 
-                    SDL_BlitSurface(tuileMain[m].surface, NULL, positionPlateau, &positionTuileMain);
-                    SDL_UpdateWindowSurface(salut);
-                    m++;
+                    //SDL_BlitSurface(tuileMain[i].surface, NULL, positionPlateau, &positionTuileMain);
+                    //SDL_UpdateWindowSurface(salut);
                 }
+
 
 
 
