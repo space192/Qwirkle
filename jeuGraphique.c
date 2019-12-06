@@ -8,7 +8,7 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
         printf("erreur lors de l'initialisation de la SDL");
         exit(0);
     }
-    int continuer =1;
+    int continuer=1;
     int couleur;
     char carac;
 
@@ -181,8 +181,6 @@ couleur=1;
             {
                carac = plateau[j][i].forme;
                couleur = (plateau[j][i].couleur);
-               printf("%c et %d\n",carac, couleur);
-
                tuile[m].surface = attribuerImage(carac,couleur);
                positionTuile.y = (40+ (j*69));
                positionTuile.x = (70+ (i*69));
