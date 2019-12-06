@@ -212,8 +212,18 @@ int couleurMainJoueurGraphique(T_TUILE main[][6], int j, int l)
 
 int allocationCoordoneesMain(SDL_Rect positionClic)
 {
-    int i, j, xOriginal = 1382 , yOriginal = 992;
+    int i, j, xOriginal = 1382 , yOriginal = 992,xOriginal2 = 90 , yOriginal2 = 960,xOriginal3 = 90 , yOriginal3 = 920;
     int deplacement;
+
+    if((positionClic.x > xOriginal2) && (positionClic.x < xOriginal2+493) && (positionClic.y > yOriginal2) && (positionClic.y < yOriginal2+40))
+    {
+        deplacement = 7;
+    }
+    else if((positionClic.x > xOriginal3) && (positionClic.x < xOriginal3+493) && (positionClic.y > yOriginal3) && (positionClic.y < yOriginal3+40))
+    {
+        deplacement = 6;
+    }
+
     for(i = 0; i<= 6; i++)
     {
             if((positionClic.x > xOriginal) && (positionClic.x < xOriginal+121) && (positionClic.y > yOriginal) && (positionClic.y < yOriginal+69))
@@ -286,4 +296,161 @@ int allocationY(SDL_Rect positionClic)
         yOriginal = yOriginal + 69;
     }
     return valeur;
+}
+
+SDL_Surface *attribuerImageMain(int carac,int couleur)
+{
+    SDL_Surface *tuile = NULL;
+    char rond = 0xFE, carre = 0x04, losange= 0x1E, triangle = 0x05, trefle = 0x06, etoile = 0x9E, rien = ' ';
+    if(carac ==rond)
+    {
+        switch(couleur)
+        {
+        case 1:
+            tuile = IMG_Load("Graphique/Ronds/RondViolet.png");
+            break;
+        case 2:
+            tuile = IMG_Load("Graphique/Ronds/RondCyan.png");
+            break;
+        case 3:
+            tuile = IMG_Load("Graphique/Ronds/RondJaune.png");
+            break;
+        case 4:
+            tuile = IMG_Load("Graphique/Ronds/RondRouge.png");
+            break;
+        case 5:
+            tuile = IMG_Load("Graphique/Ronds/RondVert.png");
+            break;
+        case 6:
+            tuile = IMG_Load("Graphique/Ronds/RondBleu.png");
+            break;
+        }
+    }
+    else if(carac == carre)
+    {
+        switch(couleur)
+        {
+        case 1:
+            tuile = IMG_Load("Graphique/Carres/CarreViolet.png");
+            break;
+        case 2:
+            tuile = IMG_Load("Graphique/Carres/CarreCyan.png");
+            break;
+        case 3:
+            tuile = IMG_Load("Graphique/Carres/CarreJaune.png");
+            break;
+        case 4:
+            tuile = IMG_Load("Graphique/Carres/CarreOrange.png");
+            break;
+        case 5:
+            tuile = IMG_Load("Graphique/Carres/CarreVert.png");
+            break;
+        case 6:
+            tuile = IMG_Load("Graphique/Carres/CarreBleu.png");
+            break;
+        }
+    }
+    else if(carac == triangle)
+    {
+        switch(couleur)
+        {
+        case 1:
+            tuile = IMG_Load("Graphique/Triangles/TriangleViolet.png");
+            break;
+        case 2:
+            tuile = IMG_Load("Graphique/Triangles/TriangleCyan.png");
+            break;
+        case 3:
+            tuile = IMG_Load("Graphique/Triangles/TriangleJaune.png");
+            break;
+        case 4:
+            tuile = IMG_Load("Graphique/Triangles/TriangleRouge.png");
+            break;
+        case 5:
+            tuile = IMG_Load("Graphique/Triangles/TriangleVert.png");
+            break;
+        case 6:
+            tuile = IMG_Load("Graphique/Triangles/TriangleBleue.png");
+            break;
+        }
+    }
+    else if (carac == trefle)
+    {
+        switch(couleur)
+        {
+        case 1:
+            tuile = IMG_Load("Graphique/Trefles/TrefleViolet.png");
+            break;
+        case 2:
+            tuile = IMG_Load("Graphique/Trefles/TrefleCyan.png");
+            break;
+        case 3:
+            tuile = IMG_Load("Graphique/Trefles/TrefleJaune.png");
+            break;
+        case 4:
+            tuile = IMG_Load("Graphique/Trefles/TrefleRouge.png");
+            break;
+        case 5:
+            tuile = IMG_Load("Graphique/Trefles/TrefleVert.png");
+            break;
+        case 6:
+            tuile = IMG_Load("Graphique/Trefles/TrefleBleue.png");
+            break;
+        }
+    }
+
+    else if(carac == losange)
+    {
+        switch(couleur)
+        {
+        case 1:
+            tuile = IMG_Load("Graphique/Losanges/LosangeViolet.png");
+            break;
+        case 2:
+            tuile = IMG_Load("Graphique/Losanges/LosangeCyan.png");
+            break;
+        case 3:
+            tuile = IMG_Load("Graphique/Losanges/LosangeJaune.png");
+            break;
+        case 4:
+            tuile = IMG_Load("Graphique/Losanges/LosangeRouge.png");
+            break;
+        case 5:
+            tuile = IMG_Load("Graphique/Losanges/LosangeVert.png");
+            break;
+        case 6:
+            tuile = IMG_Load("Graphique/Losanges/LosangeBleue.png");
+            break;
+        }
+
+    }
+    else if(carac == etoile)
+    {
+        switch(couleur)
+        {
+        case 1:
+            tuile = IMG_Load("Graphique/Etoiles/EtoileViolette.png");
+            break;
+        case 2:
+            tuile = IMG_Load("Graphique/Etoiles/EtoileCyan.png");
+            break;
+        case 3:
+            tuile = IMG_Load("Graphique/Etoiles/EtoileJaune.png");
+            break;
+        case 4:
+            tuile = IMG_Load("Graphique/Etoiles/EtoileRouge.png");
+            break;
+        case 5:
+            tuile = IMG_Load("Graphique/Etoiles/EtoileVerte.png");
+            break;
+        case 6:
+            tuile = IMG_Load("Graphique/Etoiles/EtoileBleue.png");
+            break;
+        }
+        return tuile;
+    }
+    /*else if(carac == rien)
+    {
+        tuile = IMG_Load("Graphique/Etoiles/EtoileBleue.png");
+    }*/
 }
