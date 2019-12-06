@@ -2,9 +2,10 @@
 
 int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][27],int joueurActif, int tuileJoueur,int *lockC, int *lockF, int *pscore)
 {
-    int res1 = 1,res2 = 1,res3 = 1,res4 = 1,i,j,k,*l = NULL, connecte = 0,coleurTuile1=0, lockFtemp= 1, lockCtemp=1;
-    int colortemp1, colortemp2, score =0;
+    int res0 = 1, res1 = 1,res2 = 1,res3 = 1,res4 = 1,i,j,k,*l = NULL, connecte = 0,coleurTuile1=0, lockFtemp= 1, lockCtemp=1;
+    int colortemp1, colortemp2, score = 0;
     char formetemp1, formetemp2, formeTuile1;
+
     for(i=0;i<4;i++)
     {
         *pscore = 0;
@@ -148,7 +149,7 @@ int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][27],int joueurActif, in
         }
 
     }
-    if(res1 == 1 && res2 == 1 && res3 == 1 && res4 == 1 && connecte == 1)
+    if(res0 == 1 && res1 == 1 && res2 == 1 && res3 == 1 && res4 == 1 && connecte == 1)
     {
         *pscore = *pscore + score;
         return 1;

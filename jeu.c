@@ -95,7 +95,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
                        afficherTuile(main, joueurActif, deplacement, plateau, x, y);
                        joueur[joueurActif].score = scoreJoueurActif + joueur[joueurActif].score;
                        premierTour = 1;
-                       evaluer(plateau, main, (x-1)/2, (y-1)/2);
+                       calculerCoup(plateau, main, (x-1)/2, (y-1)/2, &lockC, &lockF);
                    }
                    deplacement = 8;
                 }
