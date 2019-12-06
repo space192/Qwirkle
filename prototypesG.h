@@ -16,5 +16,7 @@ int allocationCoordoneesMain(SDL_Rect positionClic);
 SDL_Rect allocationCoordoneesPlateau(SDL_Rect positionClic);
 int allocationX(SDL_Rect positionClic);
 int allocationy(SDL_Rect positionClic);
+SDL_Surface *attribuerImageMain(int carac,int couleur);
+
 
 
