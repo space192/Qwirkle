@@ -154,7 +154,7 @@ void sauvegarderPartie(char *nomfichier, T_TUILE plateau[][27], int nombreJoueur
 {
     int i,j;
     FILE *fichier = NULL;
-    fichier = fopen(nomfichier ,"w");
+    fichier = fopen(nomfichier ,"w+");
     fprintf(fichier, "%d\n%d\n%d\n", BS, nombreJoueur, difficulte);
     for(i=0;i < nombreJoueur; i++)
     {

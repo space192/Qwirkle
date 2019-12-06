@@ -179,9 +179,6 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
 
             while(finTour == 0)
             {
-
-                m=0;
-
                 for(i=0; i<6; i++)
                 {
                     couleur = couleurMainJoueurGraphique(main,joueurActif,i);
@@ -197,7 +194,7 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
 
 
 
-                if(2==nombreJoueurs)
+                if(nombreJoueurs==2)
                 {
                     sprintf(phraseScore1, "Score joueur1 = %d ", joueur[0].score);
                     positionTexte.x=(850);
@@ -223,10 +220,12 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                         positionCurseur.y = clicSouris.button.y;
                         deplacement = allocationCoordoneesMain(positionCurseur);
                         continuer = 0;
+                        continuer2=1;
                         if(deplacement==8)
                         {
                             continuer = 1;
                         }
+                    break;
                     }
                 }
 
@@ -247,7 +246,6 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                     while(continuer2 == 1)
                     {
                         SDL_WaitEvent(&clicSouris2);
-
                         switch(clicSouris2.type)
                         {
                         case SDL_MOUSEBUTTONDOWN:
@@ -280,7 +278,7 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                             //afficherTuile(main, joueurActif, deplacement, plateau, x, y);
                             joueur[joueurActif].score = scoreJoueurActif + joueur[joueurActif].score;
                             premierTour = 1;
-                            continuer=0;
+                            continuer=1;
 
                             plateau[y][x].forme=main[joueurActif][deplacement].forme;
                             plateau[y][x].couleur=main[joueurActif][deplacement].couleur;
@@ -289,6 +287,12 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
 
                             //evaluer(plateau, main, (x-1)/2, (y-1)/2);
                         }
+                        positionCurseur2.x = 0;
+                        positionCurseur2.y = 0;
+                        positionCurseur.x = 0;
+                        positionCurseur.y = 0;
+                        positionTuile.x = 0;
+                        positionTuile.y = 0;
                     }
                     res0 = 1;
                     deplacement = 8;

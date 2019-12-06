@@ -56,9 +56,25 @@ int calculerCoup(T_TUILE plateau[][27], T_TUILE tuile[][6], int coordX, int coor
             MAX = valeurmaximum(scoreCoupParticulier, &tuile1, &position);
             gotoligcol(m, 90);
             printf("SCORE MAX : %d tuile :%d et direction : %d", MAX, tuile1, position);
-
+            switch(position)
+            {
+            case 1:
+                coordX = coordX+1;
+                coordY = coordY;
+                break;
+            case 2:
+                coordX = coordX-1;
+                coordY = coordY;
+            case 3:
+                coordX = coordX;
+                coordY = coordY+1;
+                break;
+            case 4:
+                coordX = coordX;
+                coordY = coordY-1;
+            }
+            calculerCoup(plateau, main,coordX,coordY,lockC, lockF, iteration+1);
         }
-
     }
     else
     {
