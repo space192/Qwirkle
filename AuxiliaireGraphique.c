@@ -196,8 +196,9 @@ SDL_Surface *attribuerImage(int carac,int couleur)
             tuile = IMG_Load("Graphique/Etoiles/EtoileBleue.png");
             break;
         }
-        return tuile;
+
     }
+    return tuile;
 }
 
 int caracMainJoueurGraphique(T_TUILE main[][6], int j, int l)
@@ -232,6 +233,7 @@ int allocationCoordoneesMain(SDL_Rect positionClic)
             }
             xOriginal = xOriginal + 69;
     }
+    printf("Allocation Main réussie\n");
     return deplacement;
 }
 
@@ -253,6 +255,7 @@ SDL_Rect allocationCoordoneesPlateau(SDL_Rect positionClic)
         xOriginal = 70;
         yOriginal = yOriginal + 69;
     }
+    printf("Allocation Plateau réussie\n");
     return positionClic;
 }
 
@@ -447,10 +450,12 @@ SDL_Surface *attribuerImageMain(int carac,int couleur)
             tuile = IMG_Load("Graphique/Etoiles/EtoileBleue.png");
             break;
         }
-        return tuile;
+
     }
-    /*else if(carac == rien)
+
+    else if(carac == rien)
     {
         tuile = IMG_Load("Graphique/Etoiles/EtoileBleue.png");
-    }*/
+    }
+    return tuile;
 }
