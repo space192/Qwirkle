@@ -184,6 +184,8 @@ int recupererCouleur(T_TUILE plateau[13][27], int y, int x)
     return plateau[y][x].couleur;
 }
 
+
+
 int allocationCoordoneesMain(SDL_Rect positionClic)
 {
     int i, j, xOriginal = 1382 , yOriginal = 992,xOriginal2 = 90 , yOriginal2 = 960,xOriginal3 = 90 , yOriginal3 = 920;

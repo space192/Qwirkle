@@ -61,7 +61,7 @@
 1575593393 source:c:\users\arthur\documents\github\projet-semetre-1\auxilierepartie.c
 	"prototypes.h"
 
-1575735245 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\jeu.c
+1575738858 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\jeu.c
 	"prototypes.h"
 
 1575734362 source:c:\users\arthur\documents\github\projet-semetre-1\jeu.c
@@ -70,7 +70,7 @@
 1575655556 source:c:\users\arthur\documents\github\projet-semetre-1\test.c
 	"prototypes.h"
 
-1575727608 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\test.c
+1575740835 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\test.c
 	"prototypes.h"
 
 1575536527 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\genann.c
@@ -438,16 +438,16 @@
 	"begin_code.h"
 	"close_code.h"
 
-1575730735 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\auxiliairegraphique.c
+1575737886 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\auxiliairegraphique.c
 	"prototypes.h"
 
-1575736609 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\jeugraphique.c
+1575742291 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\jeugraphique.c
 	"prototypesG.h"
 
 1575735245 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\machine learning.c
 	"prototypes.h"
 
-1575735245 c:\users\plpai\onedrive\documents\github\projet-semetre-1\prototypesg.h
+1575741462 c:\users\plpai\onedrive\documents\github\projet-semetre-1\prototypesg.h
 	"prototypes.h"
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
@@ -480,8 +480,8 @@
 1575735062 source:c:\users\arthur\documents\github\projet-semetre-1\jeugraphique.c
 	"prototypesG.h"
 
-1575735245 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\testgraphique.c
-	"prototypesG.h"
+1575741533 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\testgraphique.c
+	"prototypes.h"
 
 1575735062 source:c:\users\arthur\documents\github\projet-semetre-1\testgraphique.c
 	"prototypesG.h"

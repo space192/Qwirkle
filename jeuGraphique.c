@@ -42,6 +42,7 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
     T_TUILE *pioche = NULL;
     T_TUILE **main;
     FILE *fichier;
+    T_TUILE plateau2[13][27];
     T_TUILE plateau[13][27];
     char nameSauvegarde[100] = "sauvegarde/";
 
@@ -63,7 +64,7 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
             }
             pioche = malloc(BS * sizeof(T_TUILE));
             joueur = malloc(nombreJoueurs * sizeof(T_JOUEUR));
-            recupererSauvegarde(fichier, plateau, nombreJoueurs, main, joueur, pioche, BS, difficulte);
+            recupererSauvegarde(fichier, plateau2, nombreJoueurs, main, joueur, pioche, BS, difficulte);
         }
         fclose(fichier);
 
@@ -91,15 +92,23 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
             initialiserMain(main, nombreJoueurs);
             retraitPioche(pioche,main,&BS, nombreJoueurs);
         }
-        initialiserPlateau(plateau);
+        initialiserPlateau(plateau2);
         for(i=0; i < nombreJoueurs; i++)
         {
             joueur[i].score = 0;
         }
     }
 
-
-
+    for(i=0; i < 13 ; i++)
+    {
+        for(j=0; j < 27; j++)
+        {
+            plateau[i][j].forme = recupererValeur(plateau2, i, j);
+            plateau[i][j].couleur= recupererCouleur(plateau2, i, j);
+        }
+    }
+    i=0;
+    j=0;
 
 
     SDL_Window* salut = NULL;
@@ -262,8 +271,8 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                             //printf("%d\n",positionCurseur2.x);
                             //printf("%d\n",positionCurseur2.y);
 
-                            y = ((positionCurseur2.x - 70)/69);
-                            x = ((positionCurseur2.y - 40)/69);
+                            x = ((positionCurseur2.x - 70)/69);
+                            y = ((positionCurseur2.y - 40)/69);
                             printf("%d\n",x);
                             printf("%d\n",y);
                             if(test(x,y, main, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif, &res0) == 1 || premierTour == 0)
@@ -292,6 +301,16 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                                 printf("J'ai posé\n");
                                 printf("%d\n", continuer);
                                 printf("%d\n", continuer2);
+                            }
+
+
+                            for(i=0; i < 13 ; i++)
+                            {
+                                for(j=0; j < 27 ; j++)
+                                {
+                                    printf("%c%d", plateau[i][j].forme, plateau[i][j].couleur);
+                                }
+                                printf("\n");
                             }
                                 res0=1;
                                 deplacement = 8;
