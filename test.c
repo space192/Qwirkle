@@ -1,6 +1,6 @@
 #include "prototypes.h"
 
-int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][27],int joueurActif, int tuileJoueur,int *lockC, int *lockF, int *pscore, int *res0)
+int test(int x,int y,T_TUILE tuile[][6],T_TUILE plateau[][27],int joueurActif, int tuileJoueur,int *lockC, int *lockF, int *pscore, int *res0)
 {
     int res1 = 1,res2 = 1,res3 = 1,res4 = 1,i,j,k,*l = NULL, connecte = 0,coleurTuile1=0, lockFtemp= 1, lockCtemp=1;
     int colortemp1, colortemp2, score = 0;
@@ -45,9 +45,9 @@ int test(int x,int y,T_TUILE main[][6],T_TUILE plateau[][27],int joueurActif, in
 
         while((formetemp2!=' ' && colortemp2 != 0) && (*l!=0))
         {
-            colortemp1 = main[joueurActif][tuileJoueur].couleur;
+            colortemp1 = tuile[joueurActif][tuileJoueur].couleur;
             colortemp2 = plateau[y+k][x+j].couleur;
-            formetemp1 = main[joueurActif][tuileJoueur].forme;
+            formetemp1 = tuile[joueurActif][tuileJoueur].forme;
             formetemp2 = plateau[y+k][x+j].forme;
             if(formetemp1 == formetemp2 && *lockF == 1&& *l == 1) //lockF = 1
             {

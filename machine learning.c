@@ -1,10 +1,55 @@
 #include "prototypes.h"
 
-int calculerCoup(T_TUILE plateau[][27], T_TUILE tuile[][6], int coordX, int coordY, int lockC, int lockF, T_MINIMAX *faitChier)
+int calculerCoup(T_TUILE plateau[][27], T_TUILE tuile[][6], int coordX, int coordY, int lockC, int lockF, T_MINIMAX *faitChier, int iteration)
 {
-    int i,j,k=0,m=8, scoreCoup, x,y, scoreCoupParticulier[6][4], res0=1, success, tuile1, direction;
-    int MAXx, MAXy, MAXscore=-1;
-    int compteurCouleur[6], compteurForme[6];
+    int i,j,k=0,scoreCoup, x,y, scoreCoupParticulier[6][4], res0=1, success, tuile1, direction, MAXscore=0, nombreForme[6], nombreCouleur[6], nombreCTemp, nombreNTemp;
+    for(i=0; i < 6 ; i++)
+    {
+        nombreNTemp = tuile[1][i].couleur;
+        nombreCTemp = tuile[1][i].forme;
+        switch(nombreNTemp)
+        {
+        case 1:
+            nombreCouleur[0]++;
+            break;
+        case 2:
+            nombreCouleur[1]++;
+            break;
+        case 3:
+            nombreCouleur[2]++;
+            break;
+        case 4:
+            nombreCouleur[3]++;
+            break;
+        case 5:
+            nombreCouleur[4]++;
+            break;
+        case 6:
+            nombreCouleur[5]++;
+            break;
+        }
+        switch(nombreCTemp)
+        {
+        case 0xFE://carré
+            nombreForme[0]++;
+            break;
+        case 0x04://loange
+            nombreForme[1]++;
+            break;
+        case 0x05://trefle
+            nombreForme[2]++;
+            break;
+        case 0x06://pique
+            nombreForme[3]++;
+            break;
+        case 0x1E://triangle
+            nombreForme[4]++;
+            break;
+        case 0x9E://croix
+            nombreForme[5]++;
+            break;
+        }
+    }
     for(i=0; i < 6 ; i++)
     {
         x=0;
@@ -41,49 +86,62 @@ int calculerCoup(T_TUILE plateau[][27], T_TUILE tuile[][6], int coordX, int coor
         }
     }
     MAXscore = valeurmaximum(scoreCoupParticulier, &tuile1, &direction);
-    if(MAXscore != -1)
+    if(MAXscore>0)
     {
         switch(direction)
         {
         case 0:
-            faitChier->x = coordX+1;
-            faitChier->y = coordY;
+            faitChier[iteration].x = coordX+1;
+            faitChier[iteration].y = coordY;
             break;
         case 1:
-            faitChier->x= coordX-1;
-            faitChier->y=coordY;
+            faitChier[iteration].x= coordX-1;
+            faitChier[iteration].y=coordY;
             break;
         case 2:
-            faitChier->x=coordX;
-            faitChier->y=coordY+1;
+            faitChier[iteration].x=coordX;
+            faitChier[iteration].y=coordY+1;
             break;
         case 3:
-            faitChier->x=coordX;
-            faitChier->y=coordY-1;
+            faitChier[iteration].x=coordX;
+            faitChier[iteration].y=coordY-1;
         }
-        faitChier->tuile=tuile1+1;
-        faitChier->score=scoreCoupParticulier[tuile1][direction];
-        m++;
-        gotoligcol(m, 100);
-        printf("                               ");
-        gotoligcol(m, 100);
-        printf("x:%d, y:%d, tuile:%d, score:%d", faitChier->x, faitChier->y, faitChier->tuile, faitChier->score);
+        faitChier[iteration].tuile=(tuile1+1);
+        faitChier[iteration].score=scoreCoupParticulier[tuile1][direction];
+    }
+    else
+    {
+        faitChier[iteration].tuile=-1;
+        faitChier[iteration].score=-1;
+        faitChier[iteration].x=-1;
+        faitChier[iteration].y=-1;
     }
 }
 
-void miniMax(T_COORD tuilePlace[36], T_TUILE plateau[][27], T_TUILE tuile[][6], int lockC, int lockF)
+void miniMax(T_COORD tuilePlace[], T_TUILE plateau[][27], T_TUILE tuile[][6], int lockC, int lockF)
 {
     T_MINIMAX meilleur[36];
     int i,m=10;
     for(i=0; i < 36 ; i++)
     {
-        calculerCoup(plateau, main, tuilePlace[i].x, tuilePlace[i].y, lockC, lockF, &meilleur[i]);
+        if(tuilePlace[i].x != 0 && tuilePlace[i].y != 0)
+        {
+            calculerCoup(plateau, tuile, tuilePlace[i].x, tuilePlace[i].y, lockC, lockF, meilleur, i);
+            gotoligcol(m, 90);
+            m++;
+        }
     }
+    m=10;
     for(i=0; i < 36 ; i++)
     {
-        gotoligcol(m, 100);
-        printf("x:%d, y:%d, tuile :%d, score:%d", meilleur[i].x, meilleur[i].y, meilleur[i].tuile, meilleur[i].score);
-        m++;
+        if(tuilePlace[i].x != 0 && tuilePlace[i].y != 0)
+        {
+            gotoligcol(m, 100);
+            printf("                               ");
+            gotoligcol(m, 100);
+            printf("x:%d, y:%d, tuile :%d, score:%d", meilleur[i].x, meilleur[i].y, meilleur[i].tuile, meilleur[i].score);
+            m++;
+        }
     }
 }
 

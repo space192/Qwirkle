@@ -2,7 +2,7 @@
 
 void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
 {
-    int BS, i,k, m=0,partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 31, premierTour = 0, lockC = 1, lockF = 1, scoreJoueurActif =0, res0=1;
+    int BS, i,k, m=0, n=8,partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 31, premierTour = 0, lockC = 1, lockF = 1, scoreJoueurActif =0, res0=1;
     T_TUILE *pioche = NULL;
     T_TUILE **main;
     T_MINIMAX MAX;
@@ -64,6 +64,11 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
             joueur[i].score = 0;
         }
     }
+    for(i=0; i < 36 ; i++)
+    {
+        tuilePLace[i].x = 0;
+        tuilePLace[i].y = 0;
+    }
     system("cls");
     afficherTerrain(plateau);
     while(partie == 1)
@@ -92,14 +97,16 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
                 }
                 else if(deplacement < 6)
                 {
+
                    if(test((x-1)/2, (y-1)/2, main, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif, &res0) == 1 || premierTour == 0)
                    {
                        afficherTuile(main, joueurActif, deplacement, plateau, x, y);
                        joueur[joueurActif].score = scoreJoueurActif + joueur[joueurActif].score;
                        premierTour = 1;
                        tuilePLace[m].x = (x-1)/2;
-                       tuilePLace[m].y = (y-1/2);
+                       tuilePLace[m].y = (y-1)/2;
                        miniMax(tuilePLace, plateau, main, lockC, lockF);
+                       m++;
                    }
                    res0 = 1;
                    deplacement = 8;
