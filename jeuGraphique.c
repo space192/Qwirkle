@@ -266,7 +266,7 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                             x = ((positionCurseur2.y - 40)/69);
                             printf("%d\n",x);
                             printf("%d\n",y);
-                            if(testGraphique(x,y, main, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif, &res0) == 1 || premierTour == 0)
+                            if(test(x,y, main, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif, &res0) == 1 || premierTour == 0)
                             {
                             continuer2 = 0;
                             continuer=1;
@@ -281,7 +281,7 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                         }
                     }
 
-                    if(testGraphique(x,y, main, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif, &res0) == 1 || premierTour == 0)
+                    if(test(x,y, main, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif, &res0) == 1 || premierTour == 0)
                     {
                         //couleur = couleurMainJoueurGraphique(main,joueurActif,deplacement);
                         //carac = caracMainJoueurGraphique(main,joueurActif,deplacement);
@@ -327,30 +327,7 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
             joueurActif++;
             finTour = 0;
         }
-        gotoligcol(l,6);
-        printf("voulez-vous continuer la partie ?");
-        l++;
-        gotoligcol(l,6);
-        printf("1:Continuer");
-        l++;
-        gotoligcol(l,6);
-        printf("2:Sauvegarder et Quitter");
-        l++;
-        gotoligcol(l,6);
-        printf("3:Quitter sans sauvegarder");
-        l++;
-        gotoligcol(l,6);
-        do
-        {
-            fflush(stdin);
-            scanf("%d", &partie);
-            gotoligcol(l++, 6);
-        }
-        while(partie < 1 || partie > 3);
-        effacerChoix();
         joueurActif = 0;
-        gotoligcol(1, 1);
-        l=31;
     }
 
 
