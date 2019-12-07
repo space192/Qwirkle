@@ -32,11 +32,10 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
 
 
     int continuer=1;
-    int continuer2=1;
+    int continuer2=0;
     int couleur;
     char carac;
     int res0 = 1;
-    int a=0;
 
 
     int BS, i,k,j,m=0, partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 31, premierTour = 0, lockC = 1, lockF = 1, scoreJoueurActif =0;
@@ -181,6 +180,8 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
 
             while(finTour == 0)
             {
+                continuer = 1;
+                continuer2=0;
                 for(i=0; i<6; i++)
                 {
                     couleur = couleurMainJoueurGraphique(main,joueurActif,i);
@@ -232,12 +233,16 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                 {
                     finTour = 1;
                     deplacement = 8;
+                    continuer = 1;
+                    continuer2=0;
                 }
                 if(deplacement == 6)
                 {
                     remplacerTuile(main, pioche, joueurActif, &BS);
                     deplacement = 8;
                     finTour = 1;
+                    continuer = 1;
+                    continuer2=0;
                 }
                 else if(deplacement < 6)
                 {
@@ -257,22 +262,22 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                             x = ((positionCurseur2.y - 40)/69);
                             printf("%d\n",x);
                             printf("%d\n",y);
-                            if(test(x,y, main, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif, &res0) == 1 || premierTour == 0)
-                            {
+                            //if(test(x,y, main, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif, &res0) == 1 || premierTour == 0)
+                            //{
                             continuer2 = 0;
                             continuer=1;
                             printf("Premier test passé\n");
-                            }
+                            /*}
                             else
                             {
                                 res0=1;
-                            }
+                            }*/
 
 
                         }
                     }
 
-                    if(test(x,y, main, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif, &res0) == 1 || premierTour == 0)
+                    if(testGraphique(x,y, main, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif, &res0) == 1 || premierTour == 0)
                     {
                         //couleur = couleurMainJoueurGraphique(main,joueurActif,deplacement);
                         //carac = caracMainJoueurGraphique(main,joueurActif,deplacement);
@@ -289,14 +294,16 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                         premierTour = 1;
 
 
-                        plateau[y][x].forme=main[joueurActif][deplacement].forme;
-                        plateau[y][x].couleur=main[joueurActif][deplacement].couleur;
-                        main[joueurActif][deplacement].forme = ' ';
-                        main[joueurActif][deplacement].couleur = 0;
-                        a++;
+                        plateau[y][x].forme=caracMainJoueurGraphique(main,joueurActif,deplacement);
+                        plateau[y][x].couleur=couleurMainJoueurGraphique(main,joueurActif,deplacement);
+                        InitialisercouleurMainJoueurGraphique(main,joueurActif,deplacement);
+                        InitialisercaracMainJoueurGraphique(main,joueurActif,deplacement);
+
                         x=0;
                         y=0;
                         printf("J'ai posé\n");
+                        printf("%d\n", continuer);
+                        printf("%d\n", continuer2);
 
                             //evaluer(plateau, main, (x-1)/2, (y-1)/2);
                     }
@@ -314,7 +321,6 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
             }
             remplirMain(main,pioche,joueurActif,&BS);
             joueurActif++;
-            a=0;
             finTour = 0;
         }
         gotoligcol(l,6);

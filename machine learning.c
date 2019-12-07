@@ -59,7 +59,7 @@ int calculerCoup(T_TUILE plateau[][27], T_TUILE tuile[][6], int coordX, int coor
         faitChier->x=coordX;
         faitChier->y=coordY-1;
     }
-    faitChier->tuile=tuile1;
+    faitChier->tuile=tuile1+1;
     faitChier->score=scoreCoupParticulier[tuile1][direction];
     m++;
     gotoligcol(m, 100);
