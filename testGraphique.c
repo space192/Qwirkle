@@ -6,8 +6,8 @@ int testGraphique(int x,int y,T_TUILE main[][6],T_TUILE plateau[][27],int joueur
     int colortemp1, colortemp2, score = 0;
     char formetemp1, formetemp2, formeTuile1, test = ' ';
     int nombre=0;
-    int nombrePlateau = plateau[y][x].couleur;
-    char testPlateau = plateau[y][x].forme;
+    int nombrePlateau = recupererCouleur(plateau,y,x);
+    char testPlateau = recupererValeur(plateau,y,x);
 
     for(i=0;i<4;i++)
     {
