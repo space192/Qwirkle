@@ -1,4 +1,4 @@
-#include "prototypes.h"
+#include "prototypesG.h"
 
 int testGraphique(int x,int y,T_TUILE main[][6],T_TUILE plateau[][27],int joueurActif, int tuileJoueur,int *lockC, int *lockF, int *pscore, int *res0)
 {

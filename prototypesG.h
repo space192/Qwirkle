@@ -4,7 +4,10 @@
 
 
 #endif // PROTOTYPESG_H_INCLUDED
-
+#include "prototypes.h"
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_ttf.h>
 void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde);
 SDL_Rect allocationCoordonees(SDL_Rect positionClic);
 int coordonees();
