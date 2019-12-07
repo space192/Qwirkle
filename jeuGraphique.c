@@ -107,6 +107,7 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
 
     T_TUILE tuile[36];
     T_TUILE tuileMain[6];
+    SDL_Surface* selection = NULL;
 
     SDL_Rect* positionPlateau = NULL;
     SDL_Rect positionTuile;
@@ -222,6 +223,9 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                         positionCurseur.x = clicSouris.button.x;
                         positionCurseur.y = clicSouris.button.y;
                         deplacement = allocationCoordoneesMain(positionCurseur);
+                        selection = IMG_Load("Graphique/Dégradé.png");
+                        SDL_BlitSurface(selection, NULL, positionPlateau, &positionCurseur);
+
                         continuer = 0;
                         continuer2=1;
                     break;
@@ -262,16 +266,16 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                             x = ((positionCurseur2.y - 40)/69);
                             printf("%d\n",x);
                             printf("%d\n",y);
-                            //if(test(x,y, main, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif, &res0) == 1 || premierTour == 0)
-                            //{
+                            if(testGraphique(x,y, main, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif, &res0) == 1 || premierTour == 0)
+                            {
                             continuer2 = 0;
                             continuer=1;
                             printf("Premier test passé\n");
-                            /*}
+                            }
                             else
                             {
                                 res0=1;
-                            }*/
+                            }
 
 
                         }

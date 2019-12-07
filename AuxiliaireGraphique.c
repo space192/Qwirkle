@@ -428,7 +428,7 @@ SDL_Surface *attribuerImageMain(int carac,int couleur)
 
     else if(carac == rien)
     {
-        tuile = IMG_Load("Graphique/Etoiles/EtoileBleue.png");
+        tuile = IMG_Load("Graphique/TuileVide.png");
     }
     return tuile;
 }
