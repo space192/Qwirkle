@@ -15,4 +15,14 @@ typedef struct TUILE
     SDL_Surface *surface;
 }T_TUILE;
 
+typedef struct MINIMAX
+{
+    int x;
+    int y;
+    int score;
+    int tuile;
+}T_MINIMAX;
+
+
+
 #endif // CONSTANTES_H_INCLUDED

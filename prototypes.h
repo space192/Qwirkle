@@ -16,7 +16,7 @@ void sauvegarderPartie(char *nomfichier,T_TUILE plateau[][27], int nombreJoueur,
 void recupererSauvegarde(FILE *fichier, T_TUILE plateau[][27], int nombreJoueur, T_TUILE main[][6], T_JOUEUR *joueur, T_TUILE *pioche, int BS, int difficulte);
 void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs, int sauvegarde);
 int valeurmaximum(int scoreCoup[][4], int *tuile, int *position);
-int calculerCoup(T_TUILE plateau[][27], T_TUILE tuile[][6], int coordX, int coordY, int lockC, int lockF, int iteration);
+int calculerCoup(T_TUILE plateau[][27], T_TUILE tuile[][6], int coordX, int coordY, int lockC, int lockF, T_MINIMAX *faitChier);
 void menu();
 void effacerEcran();
 void afficherTuile( T_TUILE main[][6], int i, int k,T_TUILE plateau[][27],int x,int y);

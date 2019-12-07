@@ -5,6 +5,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
     int BS, i,k, partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 31, premierTour = 0, lockC = 1, lockF = 1, scoreJoueurActif =0, res0=1;
     T_TUILE *pioche = NULL;
     T_TUILE **main;
+    T_MINIMAX MAX;
     FILE *fichier;
     T_TUILE plateau[13][27];
     char nameSauvegarde[100] = "sauvegarde/";
@@ -95,7 +96,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
                        afficherTuile(main, joueurActif, deplacement, plateau, x, y);
                        joueur[joueurActif].score = scoreJoueurActif + joueur[joueurActif].score;
                        premierTour = 1;
-                       calculerCoup(plateau, main, (x-1)/2, (y-1)/2, &lockC, &lockF, 0);
+                       calculerCoup(plateau,main,(x-1)/2, (y-1)/2, lockC, lockF, &MAX);
                    }
                    res0 = 1;
                    deplacement = 8;
