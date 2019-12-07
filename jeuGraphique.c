@@ -228,7 +228,7 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
 
                         continuer = 0;
                         continuer2=1;
-                    break;
+                        break;
                     }
                 }
 
@@ -268,58 +268,59 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                             printf("%d\n",y);
                             if(test(x,y, main, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif, &res0) == 1 || premierTour == 0)
                             {
-                            continuer2 = 0;
-                            continuer=1;
-                            printf("Premier test passé\n");
+                                continuer2 = 0;
+                                continuer=1;
+                                printf("Premier test passé\n");
+                                positionTuileMain.y = positionCurseur2.y;
+                                positionTuileMain.x = positionCurseur2.x;
+
+                                SDL_BlitSurface(tuileMain[deplacement].surface, NULL, positionPlateau, &positionTuileMain);
+                                SDL_UpdateWindowSurface(salut);
+
+                                //afficherTuile(main, joueurActif, deplacement, plateau, x, y);
+                                joueur[joueurActif].score = scoreJoueurActif + joueur[joueurActif].score;
+                                premierTour = 1;
+
+
+                                plateau[y][x].forme=caracMainJoueurGraphique(main,joueurActif,deplacement);
+                                plateau[y][x].couleur=couleurMainJoueurGraphique(main,joueurActif,deplacement);
+                                InitialisercouleurMainJoueurGraphique(main,joueurActif,deplacement);
+                                InitialisercaracMainJoueurGraphique(main,joueurActif,deplacement);
+
+                                x=0;
+                                y=0;
+                                printf("J'ai posé\n");
+                                printf("%d\n", continuer);
+                                printf("%d\n", continuer2);
                             }
-                            else
-                            {
                                 res0=1;
-                            }
+                                deplacement = 8;
+
 
 
                         }
+                        positionCurseur2.x = 0;
+                        positionCurseur2.y = 0;
+                        positionCurseur.x = 0;
+                        positionCurseur.y = 0;
+                        positionTuile.x = 0;
+                        positionTuile.y = 0;
+
+                    res0 = 1;
+
                     }
 
-                    if(test(x,y, main, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif, &res0) == 1 || premierTour == 0)
-                    {
+                    //if(test(x,y, main, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif, &res0) == 1 || premierTour == 0)
+                    //{
                         //couleur = couleurMainJoueurGraphique(main,joueurActif,deplacement);
                         //carac = caracMainJoueurGraphique(main,joueurActif,deplacement);
 
                         //tuileMain[a].surface = attribuerImage(carac,couleur);
-                        positionTuileMain.y = positionCurseur2.y;
-                        positionTuileMain.x = positionCurseur2.x;
-
-                        SDL_BlitSurface(tuileMain[deplacement].surface, NULL, positionPlateau, &positionTuileMain);
-                        SDL_UpdateWindowSurface(salut);
-
-                            //afficherTuile(main, joueurActif, deplacement, plateau, x, y);
-                        joueur[joueurActif].score = scoreJoueurActif + joueur[joueurActif].score;
-                        premierTour = 1;
 
 
-                        plateau[y][x].forme=caracMainJoueurGraphique(main,joueurActif,deplacement);
-                        plateau[y][x].couleur=couleurMainJoueurGraphique(main,joueurActif,deplacement);
-                        InitialisercouleurMainJoueurGraphique(main,joueurActif,deplacement);
-                        InitialisercaracMainJoueurGraphique(main,joueurActif,deplacement);
+                        //evaluer(plateau, main, (x-1)/2, (y-1)/2);
+                    //}
 
-                        x=0;
-                        y=0;
-                        printf("J'ai posé\n");
-                        printf("%d\n", continuer);
-                        printf("%d\n", continuer2);
-
-                            //evaluer(plateau, main, (x-1)/2, (y-1)/2);
-                    }
-                    positionCurseur2.x = 0;
-                    positionCurseur2.y = 0;
-                    positionCurseur.x = 0;
-                    positionCurseur.y = 0;
-                    positionTuile.x = 0;
-                    positionTuile.y = 0;
-
-                    res0 = 1;
-                    deplacement = 8;
                 }
 
             }
