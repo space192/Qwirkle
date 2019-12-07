@@ -23,6 +23,12 @@ typedef struct MINIMAX
     int tuile;
 }T_MINIMAX;
 
+typedef struct Coordones
+{
+    int x;
+    int y;
+}T_COORD;
+
 
 
 #endif // CONSTANTES_H_INCLUDED

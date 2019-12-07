@@ -40,31 +40,54 @@ int calculerCoup(T_TUILE plateau[][27], T_TUILE tuile[][6], int coordX, int coor
             printf("", scoreCoup);
         }
     }
-    valeurmaximum(scoreCoupParticulier, &tuile1, &direction);
-    switch(direction)
+    MAXscore = valeurmaximum(scoreCoupParticulier, &tuile1, &direction);
+    if(MAXscore != -1)
     {
-    case 0:
-        faitChier->x = coordX+1;
-        faitChier->y = coordY;
-        break;
-    case 1:
-        faitChier->x= coordX-1;
-        faitChier->y=coordY;
-        break;
-    case 2:
-        faitChier->x=coordX;
-        faitChier->y=coordY+1;
-        break;
-    case 3:
-        faitChier->x=coordX;
-        faitChier->y=coordY-1;
+        switch(direction)
+        {
+        case 0:
+            faitChier->x = coordX+1;
+            faitChier->y = coordY;
+            break;
+        case 1:
+            faitChier->x= coordX-1;
+            faitChier->y=coordY;
+            break;
+        case 2:
+            faitChier->x=coordX;
+            faitChier->y=coordY+1;
+            break;
+        case 3:
+            faitChier->x=coordX;
+            faitChier->y=coordY-1;
+        }
+        faitChier->tuile=tuile1+1;
+        faitChier->score=scoreCoupParticulier[tuile1][direction];
+        m++;
+        gotoligcol(m, 100);
+        printf("                               ");
+        gotoligcol(m, 100);
+        printf("x:%d, y:%d, tuile:%d, score:%d", faitChier->x, faitChier->y, faitChier->tuile, faitChier->score);
     }
-    faitChier->tuile=tuile1+1;
-    faitChier->score=scoreCoupParticulier[tuile1][direction];
-    m++;
-    gotoligcol(m, 100);
-    printf("x:%d, y:%d, tuile:%d, score:%d", faitChier->x, faitChier->y, faitChier->tuile, faitChier->score);
 }
+
+void miniMax(T_COORD tuilePlace[36], T_TUILE plateau[][27], T_TUILE tuile[][6], int lockC, int lockF)
+{
+    T_MINIMAX meilleur[36];
+    int i,m=10;
+    for(i=0; i < 36 ; i++)
+    {
+        calculerCoup(plateau, main, tuilePlace[i].x, tuilePlace[i].y, lockC, lockF, &meilleur[i]);
+    }
+    for(i=0; i < 36 ; i++)
+    {
+        gotoligcol(m, 100);
+        printf("x:%d, y:%d, tuile :%d, score:%d", meilleur[i].x, meilleur[i].y, meilleur[i].tuile, meilleur[i].score);
+        m++;
+    }
+}
+
+
 
 int valeurmaximum(int scoreCoup[][4], int *tuile, int *position)
 {
@@ -80,6 +103,10 @@ int valeurmaximum(int scoreCoup[][4], int *tuile, int *position)
                 *position = j;
             }
         }
+    }
+    if(MAX1 > 100)
+    {
+        return -1;
     }
     return MAX1;
 }
