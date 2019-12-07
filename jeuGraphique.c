@@ -302,6 +302,11 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                                 printf("%d\n", continuer);
                                 printf("%d\n", continuer2);
                             }
+                            else
+                            {
+                                continuer2 = 0;
+                                continuer=1;
+                            }
 
 
                             for(i=0; i < 13 ; i++)
