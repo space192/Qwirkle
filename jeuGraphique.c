@@ -131,9 +131,9 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
 
 
 
-    for(i=0; i<27; i++)
+    for(j=0; j<13; j++)
     {
-        for(j=0; j<13; j++)
+        for(i=0; i<27; i++)
         {
             if(plateau[j][i].forme != ' ')
             {
@@ -253,16 +253,20 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                             //printf("%d\n",positionCurseur2.x);
                             //printf("%d\n",positionCurseur2.y);
 
-                            x = ((positionCurseur2.x - 70)/69);
-                            y = ((positionCurseur2.y - 40)/69);
+                            y = ((positionCurseur2.x - 70)/69);
+                            x = ((positionCurseur2.y - 40)/69);
                             printf("%d\n",x);
                             printf("%d\n",y);
-                             if(test(x,y, main, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif, &res0) == 1 || premierTour == 0)
-                             {
+                            if(test(x,y, main, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif, &res0) == 1 || premierTour == 0)
+                            {
                             continuer2 = 0;
                             continuer=1;
                             printf("Premier test passé\n");
-                             }
+                            }
+                            else
+                            {
+                                res0=1;
+                            }
 
 
                         }
@@ -270,14 +274,14 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
 
                     if(test(x,y, main, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif, &res0) == 1 || premierTour == 0)
                     {
-                        couleur = couleurMainJoueurGraphique(main,joueurActif,deplacement);
-                        carac = caracMainJoueurGraphique(main,joueurActif,deplacement);
+                        //couleur = couleurMainJoueurGraphique(main,joueurActif,deplacement);
+                        //carac = caracMainJoueurGraphique(main,joueurActif,deplacement);
 
-                        tuileMain[a].surface = attribuerImage(carac,couleur);
+                        //tuileMain[a].surface = attribuerImage(carac,couleur);
                         positionTuileMain.y = positionCurseur2.y;
                         positionTuileMain.x = positionCurseur2.x;
 
-                        SDL_BlitSurface(tuileMain[a].surface, NULL, positionPlateau, &positionTuileMain);
+                        SDL_BlitSurface(tuileMain[deplacement].surface, NULL, positionPlateau, &positionTuileMain);
                         SDL_UpdateWindowSurface(salut);
 
                             //afficherTuile(main, joueurActif, deplacement, plateau, x, y);
@@ -306,9 +310,11 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                     res0 = 1;
                     deplacement = 8;
                 }
+
             }
             remplirMain(main,pioche,joueurActif,&BS);
             joueurActif++;
+            a=0;
             finTour = 0;
         }
         gotoligcol(l,6);

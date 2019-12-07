@@ -1,51 +1,4 @@
 #include "prototypes.h"
-int coordonees()
-{
-    SDL_Rect carte[5][5];
-    int i, j,k,l, xOriginal = 31, yOriginal = 81;
-    for(i = 0; i <= 5-1; i++)
-    {
-        for(j = 0; j <= 5-1; j++)
-        {
-            carte[i][j].x = 0;
-            carte[i][j].y = 0;
-        }
-    }
-    for(i = 0; i <= 5-1; i++)
-    {
-        for(j = 0; j <= 5-1; j++)
-        {
-            carte[i][j].x = xOriginal;
-            carte[i][j].y = yOriginal;
-            xOriginal = xOriginal + 121;
-            printf("%d et %d\n", carte[i][j].x, carte[i][j].y);
-
-        }
-        xOriginal = 31;
-        yOriginal = yOriginal + 121;
-    }
-}
-
-
-SDL_Rect allocationCoordonees(SDL_Rect positionClic)
-{
-    int i, j, xOriginal = 31, yOriginal = 81;
-    for(i = 0; i<= 5; i++)
-    {
-        for(j=0; j <= 5 ; j++)
-        {
-            if((positionClic.x > xOriginal) && (positionClic.x < xOriginal+121) && (positionClic.y > yOriginal) && (positionClic.y < yOriginal+121))
-            {
-                positionClic.x = xOriginal;
-                positionClic.y = yOriginal;
-            }
-            xOriginal = xOriginal + 121;
-        }
-        xOriginal = 31;
-        yOriginal = yOriginal + 121;
-    }
-    return positionClic;
-}
 
 SDL_Surface *attribuerImage(int carac,int couleur)
 {
@@ -241,9 +194,9 @@ SDL_Rect allocationCoordoneesPlateau(SDL_Rect positionClic)
 {
     int i, j, xOriginal = 70, yOriginal = 40;
     printf("test");
-    for(i = 0; i<= 26; i++)
+    for(i = 0; i<= 13; i++)
     {
-        for(j=0; j <= 13 ; j++)
+        for(j=0; j <= 27 ; j++)
         {
             if((positionClic.x > xOriginal) && (positionClic.x < xOriginal+69) && (positionClic.y > yOriginal) && (positionClic.y < yOriginal+69))
             {
@@ -264,13 +217,13 @@ int allocationX(SDL_Rect positionClic)
     int i, j, xOriginal = 70, yOriginal = 40;
     int valeur;
     printf("test");
-    for(i = 0; i<= 26; i++)
+    for(i = 0; i<= 13; i++)
     {
-        for(j=0; j <= 13 ; j++)
+        for(j=0; j <= 27 ; j++)
         {
             if((positionClic.x > xOriginal) && (positionClic.x < xOriginal+69) && (positionClic.y > yOriginal) && (positionClic.y < yOriginal+69))
             {
-                valeur=i;
+                valeur=j;
             }
             xOriginal = xOriginal + 69;
         }
@@ -285,13 +238,13 @@ int allocationY(SDL_Rect positionClic)
     int i, j, xOriginal = 70, yOriginal = 40;
     int valeur;
     printf("test");
-    for(i = 0; i<= 26; i++)
+    for(i = 0; i<= 13; i++)
     {
-        for(j=0; j <= 13 ; j++)
+        for(j=0; j <= 27 ; j++)
         {
             if((positionClic.x > xOriginal) && (positionClic.x < xOriginal+69) && (positionClic.y > yOriginal) && (positionClic.y < yOriginal+69))
             {
-                valeur = j;
+                valeur = i;
             }
             xOriginal = xOriginal + 69;
         }
