@@ -2,7 +2,7 @@
 
 int test(int x,int y,T_TUILE tuile[][6],T_TUILE plateau[][27],int joueurActif, int tuileJoueur,int *lockC, int *lockF, int *pscore, int *res0)
 {
-    int res1 = 1,res2 = 1,res3 = 1,res4 = 1,i,j,k,*l = NULL, connecte = 0,coleurTuile1=0, lockFtemp= 1, lockCtemp=1;
+    int res1 = 1,res2 = 1,res3 = 1,res4 = 1,i,j,k,*l = NULL, connecte = 0,coleurTuile1=0, lockFtemp= 1, lockCtemp=1,qwirkle;
     int colortemp1, colortemp2, score = 0;
     char formetemp1, formetemp2, formeTuile1, test = ' ';
     int nombre=0;
@@ -30,6 +30,8 @@ int test(int x,int y,T_TUILE tuile[][6],T_TUILE plateau[][27],int joueurActif, i
             l = &res2;
             break;
         case 2:
+            *lockC = 1;
+            *lockF = 1;
             j=0;
             k=1;
             l = &res3;
@@ -42,6 +44,7 @@ int test(int x,int y,T_TUILE tuile[][6],T_TUILE plateau[][27],int joueurActif, i
         }
 
         formetemp2 = plateau[y+k][x+j].forme;
+        qwirkle = 0;
 
         while((formetemp2!=' ' && colortemp2 != 0) && (*l!=0))
         {
@@ -58,7 +61,15 @@ int test(int x,int y,T_TUILE tuile[][6],T_TUILE plateau[][27],int joueurActif, i
                     coleurTuile1 = colortemp2;
                     connecte=1;
                     *lockC= 0;
+                    qwirkle++;
                     score++;
+                    if(qwirkle==5)
+                    {
+                        score+=6;
+                        gotoligcol(30,13);
+                        printf("Qwirkle!");
+                        gotoligcol(x,y);
+                    }
                 }
                 else if(colortemp1 == colortemp2)
                 {
@@ -82,7 +93,15 @@ int test(int x,int y,T_TUILE tuile[][6],T_TUILE plateau[][27],int joueurActif, i
                     coleurTuile1 = colortemp2;
                     connecte = 1;
                     *lockC= 0;
+                    qwirkle++;
                     score++;
+                    if(qwirkle==5)
+                    {
+                        score+=6;
+                        gotoligcol(30,13);
+                        printf("Qwirkle!");
+                        gotoligcol(x,y);
+                    }
                 }
             }
             else if(colortemp1 == colortemp2 && *lockC == 1 && *l == 1)
@@ -94,7 +113,15 @@ int test(int x,int y,T_TUILE tuile[][6],T_TUILE plateau[][27],int joueurActif, i
                     coleurTuile1 = colortemp2;
                     connecte = 1;
                     *lockF= 0;
+                    qwirkle++;
                     score++;
+                    if(qwirkle==5)
+                    {
+                        score+=6;
+                        gotoligcol(30,13);
+                        printf("Qwirkle!");
+                        gotoligcol(x,y);
+                    }
                 }
                 else if(formetemp1 == formetemp2)
                 {
@@ -118,7 +145,15 @@ int test(int x,int y,T_TUILE tuile[][6],T_TUILE plateau[][27],int joueurActif, i
                     coleurTuile1 = colortemp2;
                     connecte = 1;
                     *lockF= 0;
+                    qwirkle++;
                     score++;
+                    if(qwirkle==5)
+                    {
+                        score+=6;
+                        gotoligcol(30,13);
+                        printf("Qwirkle!");
+                        gotoligcol(x,y);
+                    }
                 }
             }
             if(*l == 0)
