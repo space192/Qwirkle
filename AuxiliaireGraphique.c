@@ -188,7 +188,7 @@ int recupererCouleur(T_TUILE plateau[13][27], int y, int x)
 
 int allocationCoordoneesMain(SDL_Rect positionClic)
 {
-    int i, j, xOriginal = 1382 , yOriginal = 992,xOriginal2 = 90 , yOriginal2 = 960,xOriginal3 = 90 , yOriginal3 = 920;
+    int i, xOriginal = 1382 , yOriginal = 992,xOriginal2 = 90 , yOriginal2 = 960,xOriginal3 = 90 , yOriginal3 = 920;
     int deplacement;
 
     if((positionClic.x > xOriginal2) && (positionClic.x < xOriginal2+493) && (positionClic.y > yOriginal2) && (positionClic.y < yOriginal2+40))
@@ -218,7 +218,6 @@ int allocationCoordoneesMain(SDL_Rect positionClic)
 
 int allocationCoordoneesPause(SDL_Rect positionClic)
 {
-    int i, j, xOriginal = 1382 , yOriginal = 992,xOriginal2 = 90 , yOriginal2 = 960,xOriginal3 = 90 , yOriginal3 = 920;
     int deplacement;
 
     if((positionClic.x > 758) && (positionClic.x < 1172) && (positionClic.y > 383) && (positionClic.y < 463))
@@ -240,8 +239,7 @@ int allocationCoordoneesPause(SDL_Rect positionClic)
 
 SDL_Rect allocationCoordoneesMain2(SDL_Rect positionClic)
 {
-    int i, j, xOriginal = 1313 , yOriginal = 992,xOriginal2 = 90 , yOriginal2 = 960,xOriginal3 = 90 , yOriginal3 = 920;
-    int deplacement;
+    int i, xOriginal = 1313 , yOriginal = 992;
 
 
     for(i = 0; i<= 6; i++)

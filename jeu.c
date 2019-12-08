@@ -112,6 +112,10 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
 
                         if(test((x-1)/2, (y-1)/2, main, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif, &res0) == 1 || premierTour == 0)
                         {
+                            if(premierTour==0)
+                            {
+                                joueur[joueurActif].score +=2;
+                            }
                             afficherTuile(main, joueurActif, deplacement, plateau, x, y);
                             joueur[joueurActif].score = scoreJoueurActif + joueur[joueurActif].score;
                             premierTour = 1;
@@ -125,6 +129,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
                 }
                 else if(joueur[joueurActif].IA == 1)
                 {
+                    Leaderbord(joueur, x, y, nombreJoueurs);
                     if(premierTour == 0)
                     {
                         tuileAplacer = rand()%5;
@@ -146,20 +151,31 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
                     }
                     else if(IAjoue==1 && premierTour==1)
                     {
-                        for(i=0; i < 6 ; i++)
+                        if(BS > 0)
                         {
-                            miniMax(tuilePLace, plateau, main, lockC,m, lockF, coupIA, joueurActif);
-                            if(coupIA[i].score != -1)
+                            for(i=0; i < 6 ; i++)
                             {
-                                gotoligcol((coupIA[i].y*2)+1, (coupIA[i].x*2)+1);
-                                test(coupIA[i].x, coupIA[i].y, main, plateau, joueurActif, coupIA[i].tuile, &lockC, &lockF, &scoreJoueurActif, &res0);
-                                joueur[joueurActif].score = scoreJoueurActif + joueur[joueurActif].score;
-                                afficherTuile(main, joueurActif, coupIA[i].tuile, plateau, (coupIA[i].x)*2+1, (coupIA[i].y)*2+1);
-                                deplacement=8;
-                                tuilePLace[m].x = coupIA[i].x;
-                                tuilePLace[m].y = coupIA[i].y;
-                                m++;
+                                miniMax(tuilePLace, plateau, main, lockC,m, lockF, coupIA, joueurActif);
+                                if(coupIA[i].score != -1)
+                                {
+                                    gotoligcol((coupIA[i].y*2)+1, (coupIA[i].x*2)+1);
+                                    if(test(coupIA[i].x, coupIA[i].y, main, plateau, joueurActif, coupIA[i].tuile, &lockC, &lockF, &scoreJoueurActif, &res0)==1)
+                                    {
+                                        joueur[joueurActif].score = scoreJoueurActif + joueur[joueurActif].score;
+                                        afficherTuile(main, joueurActif, coupIA[i].tuile, plateau, (coupIA[i].x)*2+1, (coupIA[i].y)*2+1);
+                                        deplacement=8;
+                                        tuilePLace[m].x = coupIA[i].x;
+                                        tuilePLace[m].y = coupIA[i].y;
+                                        m++;
+                                    }
+                                }
                             }
+                        }
+                        else
+                        {
+                            finTour = 1;
+                            nombreJoueurs = 4;
+                            partie=1;
                         }
                         premierTour=1;
                         IAjoue=0;
@@ -168,7 +184,10 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
             }
             x = 1;
             y = 1;
-            remplirMain(main,pioche,joueurActif,&BS);
+            if(BS > 0)
+            {
+                remplirMain(main,pioche,joueurActif,&BS);
+            }
             joueurActif++;
             finTour = 0;
         }

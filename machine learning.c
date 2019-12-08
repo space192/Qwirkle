@@ -2,7 +2,7 @@
 
 int calculerCoup(T_TUILE plateau[][27], T_TUILE tuile[][6], int coordX, int coordY, int lockC, int lockF, T_MINIMAX *coup, int iteration, int joueurActif)
 {
-    int i,j,k=0,scoreCoup, x,y, scoreCoupParticulier[6][4], res0=1, success, tuile1, direction, MAXscore=0, nombreForme[6], nombreCouleur[6], nombreCTemp, nombreNTemp, MAX1, MAX2;
+    int i,j,scoreCoup, x,y, scoreCoupParticulier[6][4], res0=1, success, tuile1, direction, MAXscore=0, nombreForme[6], nombreCouleur[6], nombreCTemp, nombreNTemp, MAX1, MAX2;
     for(i=0; i < 6 ; i++)
     {
         nombreNTemp = tuile[joueurActif][i].couleur;

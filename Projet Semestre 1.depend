@@ -46,8 +46,9 @@
 1575771606 c:\users\arthur\documents\github\projet-semetre-1\constantes.h
 	<SDL2/SDL.h>
 
-1575773062 source:c:\users\arthur\documents\github\projet-semetre-1\menu.c
+1575820027 source:c:\users\arthur\documents\github\projet-semetre-1\menu.c
 	"prototypes.h"
+	"prototypesG.h"
 
 1574183889 source:c:\users\arthur\documents\github\projet-semetre-1\choix partie.c
 	"prototypes.h"
@@ -58,16 +59,16 @@
 1574183889 source:c:\users\arthur\documents\github\projet-semetre-1\score.c
 	"prototypes.h"
 
-1575769842 source:c:\users\arthur\documents\github\projet-semetre-1\auxilierepartie.c
+1575821204 source:c:\users\arthur\documents\github\projet-semetre-1\auxilierepartie.c
 	"prototypes.h"
 
 1575815465 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\jeu.c
 	"prototypes.h"
 
-1575817879 source:c:\users\arthur\documents\github\projet-semetre-1\jeu.c
+1575825980 source:c:\users\arthur\documents\github\projet-semetre-1\jeu.c
 	"prototypes.h"
 
-1575735625 source:c:\users\arthur\documents\github\projet-semetre-1\test.c
+1575825085 source:c:\users\arthur\documents\github\projet-semetre-1\test.c
 	"prototypes.h"
 
 1575745613 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\test.c
@@ -453,10 +454,10 @@
 	<SDL2/SDL_image.h>
 	<SDL2/SDL_ttf.h>
 
-1575815435 source:c:\users\arthur\documents\github\projet-semetre-1\auxiliairegraphique.c
+1575822961 source:c:\users\arthur\documents\github\projet-semetre-1\auxiliairegraphique.c
 	"prototypes.h"
 
-1575767290 c:\users\arthur\documents\github\projet-semetre-1\prototypesg.h
+1575825715 c:\users\arthur\documents\github\projet-semetre-1\prototypesg.h
 	"prototypes.h"
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
@@ -474,10 +475,10 @@
 1559926537 c:\users\arthur\documents\github\projet-semetre-1\genann.h
 	<stdio.h>
 
-1575817712 source:c:\users\arthur\documents\github\projet-semetre-1\machine learning.c
+1575822961 source:c:\users\arthur\documents\github\projet-semetre-1\machine learning.c
 	"prototypes.h"
 
-1575818437 source:c:\users\arthur\documents\github\projet-semetre-1\jeugraphique.c
+1575825715 source:c:\users\arthur\documents\github\projet-semetre-1\jeugraphique.c
 	"prototypesG.h"
 
 1575741533 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\testgraphique.c

@@ -66,9 +66,12 @@ int test(int x,int y,T_TUILE tuile[][6],T_TUILE plateau[][27],int joueurActif, i
                     if(qwirkle==5)
                     {
                         score+=6;
-                        gotoligcol(30,13);
+                        gotoligcol(30,14);
                         printf("Qwirkle!");
-                        gotoligcol(x,y);
+                        Sleep(1000);
+                        gotoligcol(30,14);
+                        printf("        ");
+                        gotoligcol(y*2+1,x*2+1);
                     }
                 }
                 else if(colortemp1 == colortemp2)
@@ -98,9 +101,12 @@ int test(int x,int y,T_TUILE tuile[][6],T_TUILE plateau[][27],int joueurActif, i
                     if(qwirkle==5)
                     {
                         score+=6;
-                        gotoligcol(30,13);
+                        gotoligcol(30,14);
                         printf("Qwirkle!");
-                        gotoligcol(x,y);
+                        Sleep(1000);
+                        gotoligcol(30,14);
+                        printf("        ");
+                        gotoligcol(y*2+1,x*2+1);
                     }
                 }
             }
@@ -118,9 +124,12 @@ int test(int x,int y,T_TUILE tuile[][6],T_TUILE plateau[][27],int joueurActif, i
                     if(qwirkle==5)
                     {
                         score+=6;
-                        gotoligcol(30,13);
+                        gotoligcol(30,14);
                         printf("Qwirkle!");
-                        gotoligcol(x,y);
+                        Sleep(1000);
+                        gotoligcol(30,14);
+                        printf("        ");
+                        gotoligcol(y*2+1,x*2+1);
                     }
                 }
                 else if(formetemp1 == formetemp2)
@@ -150,9 +159,12 @@ int test(int x,int y,T_TUILE tuile[][6],T_TUILE plateau[][27],int joueurActif, i
                     if(qwirkle==5)
                     {
                         score+=6;
-                        gotoligcol(30,13);
+                        gotoligcol(30,14);
                         printf("Qwirkle!");
-                        gotoligcol(x,y);
+                        Sleep(1000);
+                        gotoligcol(30,14);
+                        printf("        ");
+                        gotoligcol(y*2+1,y*2+1);
                     }
                 }
             }

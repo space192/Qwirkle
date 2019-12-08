@@ -26,6 +26,3 @@ int recupererValeur(T_TUILE plateau[13][27], int y, int x);
 int recupererCouleur(T_TUILE plateau[13][27], int y, int x);
 int testGraphique(int x,int y,T_TUILE main[][6],T_TUILE plateau[][27],int joueurActif, int tuileJoueur,int *lockC, int *lockF, int *pscore, int *res0);
 SDL_Rect allocationCoordoneesMain2(SDL_Rect positionClic);
-
-
-
