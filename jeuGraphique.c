@@ -16,11 +16,14 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
     TTF_Font *police = NULL;
 
     SDL_Surface *texte = NULL;
+    SDL_Surface *texteTemp = NULL;
+
     police = TTF_OpenFont("ELEPHNT.TTF", 40);
     SDL_Color couleurNoire = {0, 0, 0};
     SDL_Color couleurBlanche = {240, 240, 240};
     SDL_Rect positionTexte;
-    char phrase[25] = "";
+    SDL_Rect positionTexteTemp;
+    char phrase[50] = "";
     char phraseScore1[25] = "";
     char phraseScore2[25] = "";
     char phraseScore3[25] = "";
@@ -186,10 +189,16 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
     {
         while(joueurActif < nombreJoueurs)
         {
-            police = TTF_OpenFont("ELEPHNT.TTF", 40);
-            sprintf(phrase, "C'est à %s de jouer ", joueur[joueurActif].nom);
             positionTexte.x=1320;
             positionTexte.y=906;
+            positionTexteTemp.x=1340;
+            positionTexteTemp.y=906;
+            texteTemp = IMG_Load("Graphique/RectangleNoir.png");
+            SDL_BlitSurface(texteTemp, NULL, positionPlateau, &positionTexteTemp);
+            SDL_UpdateWindowSurface(salut);
+
+            police = TTF_OpenFont("ELEPHNT.TTF", 30);
+            sprintf(phrase, "C'est à %s de jouer ", joueur[joueurActif].nom);
             texte = TTF_RenderText_Shaded(police, phrase, couleurBlanche, couleurNoire);
             SDL_BlitSurface(texte, NULL, positionPlateau, &positionTexte);
             SDL_UpdateWindowSurface(salut);
@@ -238,6 +247,56 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                     texte = TTF_RenderText_Shaded(police, phraseScore2, couleurBlanche, couleurNoire);
                     SDL_BlitSurface(texte, NULL, positionPlateau, &positionTexte);
                     SDL_UpdateWindowSurface(salut);
+                }
+                if(nombreJoueurs==3)
+                {
+                    sprintf(phraseScore1, "Score joueur1 = %d ", joueur[0].score);
+                    positionTexte.x=(850);
+                    positionTexte.y=(906);
+                    texte = TTF_RenderText_Shaded(police, phraseScore1, couleurBlanche, couleurNoire);
+                    SDL_BlitSurface(texte, NULL, positionPlateau, &positionTexte);
+                    SDL_UpdateWindowSurface(salut);
+                    sprintf(phraseScore2, "Score joueur2 = %d ", joueur[1].score);
+                    positionTexte.x=(850);
+                    positionTexte.y=(943);
+                    texte = TTF_RenderText_Shaded(police, phraseScore2, couleurBlanche, couleurNoire);
+                    SDL_BlitSurface(texte, NULL, positionPlateau, &positionTexte);
+                    SDL_UpdateWindowSurface(salut);
+                    sprintf(phraseScore3, "Score joueur3 = %d ", joueur[2].score);
+                    positionTexte.x=(850);
+                    positionTexte.y=(980);
+                    texte = TTF_RenderText_Shaded(police, phraseScore3, couleurBlanche, couleurNoire);
+                    SDL_BlitSurface(texte, NULL, positionPlateau, &positionTexte);
+                    SDL_UpdateWindowSurface(salut);
+                }
+                if(nombreJoueurs==4)
+                {
+                    police = TTF_OpenFont("ELEPHNT.TTF", 25);
+                    sprintf(phraseScore1, "Score joueur1 = %d ", joueur[0].score);
+                    positionTexte.x=(850);
+                    positionTexte.y=(906);
+                    texte = TTF_RenderText_Shaded(police, phraseScore1, couleurBlanche, couleurNoire);
+                    SDL_BlitSurface(texte, NULL, positionPlateau, &positionTexte);
+                    SDL_UpdateWindowSurface(salut);
+                    sprintf(phraseScore2, "Score joueur2 = %d ", joueur[1].score);
+                    positionTexte.x=(850);
+                    positionTexte.y=(936);
+                    texte = TTF_RenderText_Shaded(police, phraseScore2, couleurBlanche, couleurNoire);
+                    SDL_BlitSurface(texte, NULL, positionPlateau, &positionTexte);
+                    SDL_UpdateWindowSurface(salut);
+                     sprintf(phraseScore1, "Score joueur3 = %d ", joueur[2].score);
+                    positionTexte.x=(850);
+                    positionTexte.y=(966);
+                    texte = TTF_RenderText_Shaded(police, phraseScore1, couleurBlanche, couleurNoire);
+                    SDL_BlitSurface(texte, NULL, positionPlateau, &positionTexte);
+                    SDL_UpdateWindowSurface(salut);
+                    sprintf(phraseScore3, "Score joueur4 = %d ", joueur[3].score);
+                    positionTexte.x=(850);
+                    positionTexte.y=(996);
+                    texte = TTF_RenderText_Shaded(police, phraseScore3, couleurBlanche, couleurNoire);
+                    SDL_BlitSurface(texte, NULL, positionPlateau, &positionTexte);
+                    SDL_UpdateWindowSurface(salut);
+                    police = TTF_OpenFont("ELEPHNT.TTF", 30);
                 }
 
                 while(continuer == 1)
