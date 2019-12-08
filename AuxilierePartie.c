@@ -98,7 +98,6 @@ void definirPiocheNormale(T_TUILE *pioche)
 void retraitPioche(T_TUILE *pioche,T_TUILE main[][6], int *BS, int k)
 {
     int i,j, alea;
-    srand(time(NULL));
     T_TUILE temp;
     for(j = 0; j < k ; j++)
     {
@@ -401,7 +400,6 @@ void initialiserMain(T_TUILE main[][6], int nombreJoueurs)
 void remplacerTuile(T_TUILE main[][6],T_TUILE *pioche, int j, int *BS)
 {
     int i;
-    srand(time(NULL));
     T_TUILE temp;
     int alea;
         if((*BS)!=0)
@@ -427,7 +425,6 @@ void remplacerTuile(T_TUILE main[][6],T_TUILE *pioche, int j, int *BS)
 void remplirMain(T_TUILE main[][6],T_TUILE *pioche, int j, int *BS)
 {
     int i, alea;
-    srand(time(NULL));
     T_TUILE temp;
         if((*BS)!=0)
         {
