@@ -199,6 +199,10 @@ int allocationCoordoneesMain(SDL_Rect positionClic)
     {
         deplacement = 6;
     }
+    else if((positionClic.x > 0) && (positionClic.x < 69) && (positionClic.y > 1021) && (positionClic.y < 1080))
+    {
+        deplacement = -1;
+    }
 
     for(i = 0; i<= 6; i++)
     {
@@ -212,15 +216,27 @@ int allocationCoordoneesMain(SDL_Rect positionClic)
     return deplacement;
 }
 
-int allocationCoordoneesMenu(SDL_Rect positionClic)
+int allocationCoordoneesPause(SDL_Rect positionClic)
 {
-    int i, j, xOriginal = 1382 , yOriginal = 992,xOriginal2 = 60 , yOriginal2 = 60,xOriginal3 = 90 , yOriginal3 = 920;
+    int i, j, xOriginal = 1382 , yOriginal = 992,xOriginal2 = 90 , yOriginal2 = 960,xOriginal3 = 90 , yOriginal3 = 920;
     int deplacement;
 
-    if((positionClic.x > xOriginal2) && (positionClic.x < xOriginal2+493) && (positionClic.y > yOriginal2) && (positionClic.y < yOriginal2+40))
+    if((positionClic.x > 758) && (positionClic.x < 1172) && (positionClic.y > 383) && (positionClic.y < 463))
     {
-        deplacement = 7;
+        deplacement = 1;
+        printf("Je suis censé quitter");
     }
+    else if((positionClic.x > 758) && (positionClic.x < 1172) && (positionClic.y > 463) && (positionClic.y < 532))
+    {
+        deplacement = 2;
+        printf("Je suis censé quitter");
+    }
+    else if((positionClic.x > 0) && (positionClic.x < 69) && (positionClic.y > 1021) && (positionClic.y < 1080))
+    {
+        deplacement = -1;
+    }
+
+
     return deplacement;
 }
 

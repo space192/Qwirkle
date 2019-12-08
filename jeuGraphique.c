@@ -120,6 +120,7 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
     T_TUILE tuile[36];
     T_TUILE tuileMain[6];
     T_TUILE selection;
+    T_TUILE bouton;
 
     SDL_Rect* positionPlateau = NULL;
     SDL_Rect positionTuile;
@@ -127,12 +128,17 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
     SDL_Rect positionCurseur;
     SDL_Rect positionCurseur2;
     SDL_Rect positionCurseur3;
+    SDL_Rect positionBouton;
     SDL_Event clicSouris;
     SDL_Event clicSouris2;
     SDL_Event clicSouris3;
 
+    SDL_Rect positionMenu;
+
+    SDL_Surface *menuPause = NULL;
+
     salut = SDL_CreateWindow("coucou", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1837, 1065, SDL_WINDOW_SHOWN);
-    //SDL_SetWindowFullscreen(salut,SDL_WINDOW_FULLSCREEN_DESKTOP);
+    SDL_SetWindowFullscreen(salut,SDL_WINDOW_FULLSCREEN_DESKTOP);
     positionPlateau = SDL_GetWindowSurface(salut);
     plateau1= IMG_Load("Graphique/plateau9.png");
     //tuile = IMG_Load("Graphique/Ronds/RondViolet.png");
@@ -140,6 +146,12 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
     SDL_UpdateWindowSurface(salut);
     positionTuile.x=70;
     positionTuile.y=40;
+    SDL_UpdateWindowSurface(salut);
+
+    bouton.surface = IMG_Load("Graphique/Pause.png");
+    positionBouton.x=0;
+    positionBouton.y=1021;
+    SDL_BlitSurface(bouton.surface, NULL, positionPlateau, &positionBouton);
     SDL_UpdateWindowSurface(salut);
 
 
@@ -241,10 +253,116 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                         positionCurseur = allocationCoordoneesMain2(positionCurseur);
                         selection.surface = IMG_Load("Graphique/Degrade.png");
 
-                        if(deplacement<6)
+                        if((deplacement<6)&&(deplacement>=0))
                         {
                             SDL_BlitSurface(selection.surface, NULL, positionPlateau, &positionCurseur);
                             SDL_UpdateWindowSurface(salut);
+                        }
+                        else if(deplacement==-1)
+                        {
+                            bouton.surface = IMG_Load("Graphique/Play.png");
+                            SDL_BlitSurface(bouton.surface, NULL, positionPlateau, &positionBouton);
+                            SDL_UpdateWindowSurface(salut);
+                            positionMenu.x =689;
+                            positionMenu.y =245;
+
+                            menuPause= IMG_Load("Graphique/MenuPause.png");
+
+                            SDL_BlitSurface(menuPause, NULL, positionPlateau, &positionMenu);
+                            SDL_UpdateWindowSurface(salut);
+
+
+                            while(continuer3==1)
+                            {
+                                SDL_WaitEvent(&clicSouris3);
+                                switch(clicSouris3.type)
+                                {
+                                case SDL_MOUSEBUTTONDOWN:
+                                    positionCurseur3.x = clicSouris3.button.x;
+                                    positionCurseur3.y = clicSouris3.button.y;
+                                    choix = allocationCoordoneesPause(positionCurseur3);
+
+                                    if (choix == -1)
+                                    {
+                                        bouton.surface = IMG_Load("Graphique/Pause.png");
+                                        SDL_BlitSurface(plateau1, NULL, positionPlateau, NULL);
+
+
+                                        police = TTF_OpenFont("ELEPHNT.TTF", 40);
+                                        sprintf(phrase, "C'est à %s de jouer ", joueur[joueurActif].nom);
+                                        positionTexte.x=1320;
+                                        positionTexte.y=906;
+                                        texte = TTF_RenderText_Shaded(police, phrase, couleurBlanche, couleurNoire);
+                                        SDL_BlitSurface(texte, NULL, positionPlateau, &positionTexte);
+                                        SDL_UpdateWindowSurface(salut);
+                                        positionTexte.x=90;
+                                        positionTexte.y=920;
+                                        police = TTF_OpenFont("ELEPHNT.TTF", 30);
+                                        texte = TTF_RenderText_Shaded(police, "Appuyez ICI pour changer de tuile", couleurBlanche, couleurNoire);
+                                        SDL_BlitSurface(texte, NULL, positionPlateau, &positionTexte);
+                                        SDL_UpdateWindowSurface(salut);
+                                        positionTexte.x=90;
+                                        positionTexte.y=960;
+                                        texte = TTF_RenderText_Shaded(police, "Appuyez ICI pour passez votre tour", couleurBlanche, couleurNoire);
+                                        SDL_BlitSurface(texte, NULL, positionPlateau, &positionTexte);
+                                        SDL_UpdateWindowSurface(salut);
+
+
+                                        for(j=0; j<13; j++)
+                                        {
+                                            for(i=0; i<27; i++)
+                                            {
+                                                if(plateau[j][i].forme != ' ')
+                                                {
+                                                carac = plateau[j][i].forme;
+                                                couleur = (plateau[j][i].couleur);
+                                                tuile[m].surface = attribuerImage(carac,couleur);
+                                                positionTuile.y = (40+ (j*69));
+                                                positionTuile.x = (70+ (i*69));
+
+                                                SDL_BlitSurface(tuile[m].surface, NULL, positionPlateau, &positionTuile);
+                                                SDL_UpdateWindowSurface(salut);
+                                                m++;
+
+                                                }
+
+                                            }
+
+                                        }
+
+
+                                        SDL_BlitSurface(bouton.surface, NULL, positionPlateau, &positionBouton);
+
+                                        SDL_UpdateWindowSurface(salut);
+
+                                        continuer3=0;
+
+                                    }
+                                    else if(choix == 2)
+                                    {
+                                        continuer=0;
+                                        continuer2=0;
+                                        continuer3=0;
+                                        partie =0;
+                                        SDL_DestroyWindow(salut);
+
+
+                                    }
+                                    else if(choix == 1)
+                                    {
+                                        continuer=0;
+                                        continuer2=0;
+                                        continuer3=0;
+                                       partie =0;
+                                       SDL_DestroyWindow(salut);
+
+
+                                    }
+
+                                break;
+                                }
+                                deplacement=8;
+                            }
                         }
 
 
@@ -369,6 +487,16 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
         }
         joueurActif = 0;
     }
+    if(choix == 1)
+    {
+        nomSauvegarde(nameSauvegarde);
+        sauvegarderPartie(nameSauvegarde, plateau, nombreJoueurs, main, joueur, pioche, BS, difficulte);
+        sauvegardeScore(joueur, nombreJoueurs);
+    }
+    else if(choix == 2)
+    {
+        sauvegardeScore(joueur, nombreJoueurs);
+    }
 
 
 
@@ -397,9 +525,7 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
      }
      }*/
 
-
-    SDL_DestroyWindow(salut);
-    SDL_Quit();
+      SDL_Quit();
     TTF_CloseFont(police);
     TTF_Quit();
     TTF_Quit();
