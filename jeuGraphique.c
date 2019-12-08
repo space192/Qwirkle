@@ -410,13 +410,12 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
 
                             x = ((positionCurseur2.x - 70)/69);
                             y = ((positionCurseur2.y - 40)/69);
-                            printf("%d\n",x);
-                            printf("%d\n",y);
+
                             if(test(x,y, main, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif, &res0) == 1 || premierTour == 0)
                             {
                                 continuer2 = 0;
                                 continuer=1;
-                                printf("Premier test passé\n");
+
                                 positionTuileMain.y = positionCurseur2.y;
                                 positionTuileMain.x = positionCurseur2.x;
 
@@ -435,24 +434,12 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
 
                                 x=0;
                                 y=0;
-                                printf("J'ai posé\n");
-                                printf("%d\n", continuer);
-                                printf("%d\n", continuer2);
+
                             }
                             else
                             {
                                 continuer2 = 0;
                                 continuer=1;
-                            }
-
-
-                            for(i=0; i < 13 ; i++)
-                            {
-                                for(j=0; j < 27 ; j++)
-                                {
-                                    printf("%c%d", plateau[i][j].forme, plateau[i][j].couleur);
-                                }
-                                printf("\n");
                             }
                                 res0=1;
                                 deplacement = 8;
