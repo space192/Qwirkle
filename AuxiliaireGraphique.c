@@ -366,7 +366,7 @@ SDL_Surface *attribuerImageMain(int carac,int couleur)
             tuile = IMG_Load("Graphique/Carres/CarreJaune.png");
             break;
         case 4:
-            tuile = IMG_Load("Graphique/Carres/CarreOrange.png");
+            tuile = IMG_Load("Graphique/Carres/CarreRouge.png");
             break;
         case 5:
             tuile = IMG_Load("Graphique/Carres/CarreVert.png");
