@@ -2,7 +2,7 @@
 
 int calculerCoup(T_TUILE plateau[][27], T_TUILE tuile[][6], int coordX, int coordY, int lockC, int lockF, T_MINIMAX *faitChier, int iteration)
 {
-    int i,j,k=0,scoreCoup, x,y, scoreCoupParticulier[6][4], res0=1, success, tuile1, direction, MAXscore=0, nombreForme[6], nombreCouleur[6], nombreCTemp, nombreNTemp;
+    int i,j,k=0,scoreCoup, x,y, scoreCoupParticulier[6][4], res0=1, success, tuile1, direction, MAXscore=0, nombreForme[6], nombreCouleur[6], nombreCTemp, nombreNTemp, MAX1, MAX2;
     for(i=0; i < 6 ; i++)
     {
         nombreNTemp = tuile[1][i].couleur;
@@ -106,7 +106,16 @@ int calculerCoup(T_TUILE plateau[][27], T_TUILE tuile[][6], int coordX, int coor
             faitChier[iteration].x=coordX;
             faitChier[iteration].y=coordY-1;
         }
-        faitChier[iteration].tuile=(tuile1+1);
+        maximumCouleurForme(nombreForme, nombreCouleur, &MAX1, &MAX2);
+        if(tuile1 == MAX1)
+        {
+            scoreCoupParticulier[tuile1][direction]++;
+        }
+        if(tuile1 == MAX2)
+        {
+            scoreCoupParticulier[tuile1][direction]++;
+        }
+        faitChier[iteration].tuile=tuile1;
         faitChier[iteration].score=scoreCoupParticulier[tuile1][direction];
     }
     else
@@ -118,29 +127,76 @@ int calculerCoup(T_TUILE plateau[][27], T_TUILE tuile[][6], int coordX, int coor
     }
 }
 
-void miniMax(T_COORD tuilePlace[], T_TUILE plateau[][27], T_TUILE tuile[][6], int lockC, int lockF)
+void miniMax(T_COORD tuilePlace[], T_TUILE plateau[][27], T_TUILE tuile[][6], int lockC,int o, int lockF, T_MINIMAX coupAFaire[])
 {
     T_MINIMAX meilleur[36];
-    int i,m=10;
+    T_COORD tuilePlaceImaginaire[36];
+    int meilleurTruc=0, temp;
+    int i,j,k=0,m=15,p=1,q, tempX, tempY, tempTuile, MAX=-1, tempScore;
+    T_TUILE plateauTest[13][27];
+    T_TUILE mainTest[1][6];
     for(i=0; i < 36 ; i++)
     {
-        if(tuilePlace[i].x != 0 && tuilePlace[i].y != 0)
+        meilleur[i].score = -1;
+        meilleur[i].x = -1;
+        meilleur[i].y = -1;
+        meilleur[i].tuile = -1;
+        tuilePlaceImaginaire[i].x = tuilePlace[i].x;
+        tuilePlaceImaginaire[i].y = tuilePlace[i].y;
+    }
+    for(i=0; i < 13; i++)
+    {
+        for(j=0; j < 27; j++)
         {
-            calculerCoup(plateau, tuile, tuilePlace[i].x, tuilePlace[i].y, lockC, lockF, meilleur, i);
-            gotoligcol(m, 90);
-            m++;
+            plateauTest[i][j].forme = plateau[i][j].forme;
+            plateauTest[i][j].couleur = plateau[i][j].couleur;
         }
     }
-    m=10;
-    for(i=0; i < 36 ; i++)
+    for(i=0; i < 6 ; i++)
     {
-        if(tuilePlace[i].x != 0 && tuilePlace[i].y != 0)
+        mainTest[1][i].forme = tuile[1][i].forme;
+        mainTest[1][i].couleur = tuile[1][i].couleur;
+    }
+    while(meilleurTruc!=-1)
+    {
+        for(i=0; i < 36 ; i++)
         {
-            gotoligcol(m, 100);
-            printf("                               ");
-            gotoligcol(m, 100);
-            printf("x:%d, y:%d, tuile :%d, score:%d", meilleur[i].x, meilleur[i].y, meilleur[i].tuile, meilleur[i].score);
-            m++;
+            if(tuilePlaceImaginaire[i].x != 0 && tuilePlaceImaginaire[i].y != 0)
+            {
+                calculerCoup(plateauTest, mainTest, tuilePlaceImaginaire[i].x, tuilePlaceImaginaire[i].y, lockC, lockF, meilleur, i);
+                gotoligcol(m, 100);
+                printf("x:%d, y:%d, tuile:%d et score:%d", meilleur[i].x, meilleur[i].y, meilleur[i].tuile, meilleur[i].score);
+                m++;
+            }
+        }
+        meilleurTruc = meilleurCoup(meilleur, 0);
+        tempX = meilleur[meilleurTruc].x;
+        tempY = meilleur[meilleurTruc].y;
+        tempTuile = meilleur[meilleurTruc].tuile;
+        tempScore = meilleur[meilleurTruc].score;
+        tuilePlaceImaginaire[o+p].x = meilleur[meilleurTruc].x;
+        tuilePlaceImaginaire[o+p].y = meilleur[meilleurTruc].y;
+        coupAFaire[k].x = tempX;
+        coupAFaire[k].y = tempY;
+        coupAFaire[k].tuile = tempTuile;
+        coupAFaire[k].score = tempScore;
+        plateauTest[tempY][tempX].forme = mainTest[1][tempTuile].forme;
+        plateauTest[tempY][tempX].couleur = mainTest[1][tempTuile].couleur;
+        mainTest[1][tempTuile].forme = ' ';
+        mainTest[1][tempTuile].couleur = 0;
+        k++;
+        p++;
+        temp = meilleurTruc;
+        for(i=0; i < 6 ; i++)
+        {
+            if(mainTest[1][i].forme == ' ' && mainTest[1][i].couleur == 0)
+            {
+                meilleurTruc = -1;
+            }
+            else
+            {
+                meilleurTruc = temp;
+            }
         }
     }
 }
@@ -167,4 +223,34 @@ int valeurmaximum(int scoreCoup[][4], int *tuile, int *position)
         return -1;
     }
     return MAX1;
+}
+
+int maximumCouleurForme(int forme[], int couleur[], int *MAX1, int *MAX2)
+{
+    int i;
+    for(i=0; i < 6; i++)
+    {
+        if(forme[i] > *MAX1)
+        {
+            *MAX1 = i;
+        }
+        if(couleur[i] > *MAX2)
+        {
+            *MAX2 = i;
+        }
+    }
+}
+
+int meilleurCoup(T_MINIMAX coup[], int p)
+{
+    int i;
+    int MAX=-1;
+    for(i=0; i < 36 ; i++)
+    {
+        if(coup[i].score > MAX)
+        {
+            MAX = i;
+        }
+    }
+    return MAX;
 }
