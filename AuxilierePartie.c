@@ -424,7 +424,6 @@ void remplacerTuile(T_TUILE main[][6],T_TUILE *pioche, int j, int *BS)
 
 void remplirMain(T_TUILE main[][6],T_TUILE *pioche, int j, int *BS)
 {
-    srand(time(NULL));
     int i, alea;
     T_TUILE temp;
         if((*BS)!=0)
