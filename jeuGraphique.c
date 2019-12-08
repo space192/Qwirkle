@@ -31,11 +31,14 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
 
 
 
+
     int continuer=1;
     int continuer2=0;
+    int continuer3 =1;
     int couleur;
     char carac;
     int res0 = 1;
+    int choix=0;
 
 
     int BS, i,k,j,m=0, partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 31, premierTour = 0, lockC = 1, lockF = 1, scoreJoueurActif =0;
@@ -116,15 +119,17 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
 
     T_TUILE tuile[36];
     T_TUILE tuileMain[6];
-    SDL_Surface* selection = NULL;
+    T_TUILE selection;
 
     SDL_Rect* positionPlateau = NULL;
     SDL_Rect positionTuile;
     SDL_Rect positionTuileMain;
     SDL_Rect positionCurseur;
     SDL_Rect positionCurseur2;
+    SDL_Rect positionCurseur3;
     SDL_Event clicSouris;
     SDL_Event clicSouris2;
+    SDL_Event clicSouris3;
 
     salut = SDL_CreateWindow("coucou", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1837, 1065, SDL_WINDOW_SHOWN);
     //SDL_SetWindowFullscreen(salut,SDL_WINDOW_FULLSCREEN_DESKTOP);
@@ -225,6 +230,7 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
 
                 while(continuer == 1)
                 {
+                    continuer3=1;
                     SDL_WaitEvent(&clicSouris);
                     switch(clicSouris.type)
                     {
@@ -232,13 +238,22 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                         positionCurseur.x = clicSouris.button.x;
                         positionCurseur.y = clicSouris.button.y;
                         deplacement = allocationCoordoneesMain(positionCurseur);
-                        selection = IMG_Load("Graphique/Dégradé.png");
-                        SDL_BlitSurface(selection, NULL, positionPlateau, &positionCurseur);
+                        positionCurseur = allocationCoordoneesMain2(positionCurseur);
+                        selection.surface = IMG_Load("Graphique/Degrade.png");
+
+                        if(deplacement<6)
+                        {
+                            SDL_BlitSurface(selection.surface, NULL, positionPlateau, &positionCurseur);
+                            SDL_UpdateWindowSurface(salut);
+                        }
+
 
                         continuer = 0;
                         continuer2=1;
                         break;
+
                     }
+
                 }
 
 
