@@ -40,4 +40,5 @@ void remplirMain(T_TUILE main[][6],T_TUILE *pioche, int j, int *BS);
 void afficherTitre();
 void initialiserPlateau(T_TUILE plateau[][27]);
 void nomSauvegarde(char *nomSauvegarde);
+int couleurMainJoueur(T_TUILE main[][6], int j, int l);
 #endif // PROTOTYPES_H_INCLUDED

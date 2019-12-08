@@ -427,7 +427,7 @@ void remplirMain(T_TUILE main[][6],T_TUILE *pioche, int j, int *BS)
     srand(time(NULL));
     int i, alea;
     T_TUILE temp;
-        if((*BS)!=0)
+        if((*BS)>0)
         {
             for(i=0;i<6;i++)
             {
@@ -532,3 +532,9 @@ void effacerChoix()
         printf(" ");
     }
 }
+
+int couleurMainJoueur(T_TUILE main[][6], int j, int l)
+{
+    return main[j][l].couleur;
+}
+
