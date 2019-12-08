@@ -33,7 +33,7 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
     int choix=0;
     int BS, i,j,m=0, partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, premierTour = 0, lockC = 1, lockF = 1, scoreJoueurActif =0;
     T_TUILE *pioche = NULL;
-    T_TUILE **main;
+    T_TUILE **paquet;
     FILE *fichier;
     T_TUILE plateau2[13][27];
     T_TUILE plateau[13][27];
@@ -49,39 +49,39 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
         else
         {
             fscanf(fichier, "%d\n%d\n%d\n", &BS, &nombreJoueurs, &difficulte);
-            main = malloc(nombreJoueurs * sizeof(T_TUILE*));
+            paquet = malloc(nombreJoueurs * sizeof(T_TUILE*));
             for(i = 0 ; i < nombreJoueurs ; i++)
             {
-                main[i] = malloc(6 * sizeof(T_TUILE));
+                paquet[i] = malloc(6 * sizeof(T_TUILE));
             }
             pioche = malloc(BS * sizeof(T_TUILE));
             joueur = malloc(nombreJoueurs * sizeof(T_JOUEUR));
-            recupererSauvegarde(fichier, plateau2, nombreJoueurs, main, joueur, pioche, BS, difficulte);
+            recupererSauvegarde(fichier, plateau2, nombreJoueurs, paquet, joueur, pioche, BS, difficulte);
         }
         fclose(fichier);
     }
     else if(sauvegarde == 2)
     {
-        main = malloc(nombreJoueurs * sizeof(T_TUILE*)); //main[][]
+        paquet = malloc(nombreJoueurs * sizeof(T_TUILE*)); //paquet[][]
         for(i = 0 ; i < nombreJoueurs ; i++)
         {
-            main[i] = malloc(6 * sizeof(T_TUILE*));
+            paquet[i] = malloc(6 * sizeof(T_TUILE*));
         }
         if(difficulte == 1) //difficulte 1 = degrade // diffuclte 2 = normal
         {
             BS = 36;
             pioche = malloc(BS * sizeof(T_TUILE));
             definirPiocheDegrade(pioche);
-            initialiserMain(main, nombreJoueurs);
-            retraitPioche(pioche,main,&BS, nombreJoueurs);
+            initialiserMain(paquet, nombreJoueurs);
+            retraitPioche(pioche,paquet,&BS, nombreJoueurs);
         }
         else if(difficulte == 2)
         {
             BS = 108;
             pioche = malloc(BS * sizeof(T_TUILE));
             definirPiocheNormale(pioche);
-            initialiserMain(main, nombreJoueurs);
-            retraitPioche(pioche,main,&BS, nombreJoueurs);
+            initialiserMain(paquet, nombreJoueurs);
+            retraitPioche(pioche,paquet,&BS, nombreJoueurs);
         }
         initialiserPlateau(plateau2);
         for(i=0; i < nombreJoueurs; i++)
@@ -182,8 +182,8 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                 continuer2=0;
                 for(i=0; i<6; i++)
                 {
-                    couleur = couleurMainJoueurGraphique(main,joueurActif,i);
-                    carac = caracMainJoueurGraphique(main,joueurActif,i);
+                    couleur = couleurMainJoueurGraphique(paquet,joueurActif,i);
+                    carac = caracMainJoueurGraphique(paquet,joueurActif,i);
                     tuileMain[i].surface = attribuerImageMain(carac,couleur);
                     positionTuileMain.y = (992);
                     positionTuileMain.x = (1382+i*69);
@@ -371,7 +371,7 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                 }
                 if(deplacement == 6)
                 {
-                    remplacerTuile(main, pioche, joueurActif, &BS);
+                    remplacerTuile(paquet, pioche, joueurActif, &BS);
                     deplacement = 8;
                     finTour = 1;
                     continuer = 1;
@@ -390,7 +390,7 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                             positionCurseur2 = allocationCoordoneesPlateau(positionCurseur2);
                             x = ((positionCurseur2.x - 70)/69);
                             y = ((positionCurseur2.y - 40)/69);
-                            if(test(x,y, main, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif, &res0) == 1 || premierTour == 0)
+                            if(test(x,y, paquet, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif, &res0) == 1 || premierTour == 0)
                             {
                                 continuer2 = 0;
                                 continuer=1;
@@ -400,10 +400,10 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                                 SDL_UpdateWindowSurface(salut);
                                 joueur[joueurActif].score = scoreJoueurActif + joueur[joueurActif].score;
                                 premierTour = 1;
-                                plateau[y][x].forme=caracMainJoueurGraphique(main,joueurActif,deplacement);
-                                plateau[y][x].couleur=couleurMainJoueurGraphique(main,joueurActif,deplacement);
-                                InitialisercouleurMainJoueurGraphique(main,joueurActif,deplacement);
-                                InitialisercaracMainJoueurGraphique(main,joueurActif,deplacement);
+                                plateau[y][x].forme=caracMainJoueurGraphique(paquet,joueurActif,deplacement);
+                                plateau[y][x].couleur=couleurMainJoueurGraphique(paquet,joueurActif,deplacement);
+                                InitialisercouleurMainJoueurGraphique(paquet,joueurActif,deplacement);
+                                InitialisercaracMainJoueurGraphique(paquet,joueurActif,deplacement);
                                 x=0;
                                 y=0;
                             }
@@ -425,7 +425,7 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                     }
                 }
             }
-            remplirMain(main,pioche,joueurActif,&BS);
+            remplirMain(paquet,pioche,joueurActif,&BS);
             joueurActif++;
             finTour = 0;
         }
@@ -435,7 +435,7 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
     {
         SDL_DestroyWindow(salut);
         nomSauvegarde(nameSauvegarde);
-        sauvegarderPartie(nameSauvegarde, plateau, nombreJoueurs, main, joueur, pioche, BS, difficulte);
+        sauvegarderPartie(nameSauvegarde, plateau, nombreJoueurs, paquet, joueur, pioche, BS, difficulte);
         sauvegardeScore(joueur, nombreJoueurs);
     }
     else if(choix == 2)

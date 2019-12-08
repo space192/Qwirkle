@@ -95,7 +95,7 @@ void definirPiocheNormale(T_TUILE *pioche)
      ajout= (ajout+36);
     }
 }
-void retraitPioche(T_TUILE *pioche,T_TUILE main[][6], int *BS, int k)
+void retraitPioche(T_TUILE *pioche,T_TUILE paquet[][6], int *BS, int k)
 {
     int i,j, alea;
     T_TUILE temp;
@@ -106,15 +106,15 @@ void retraitPioche(T_TUILE *pioche,T_TUILE main[][6], int *BS, int k)
             for(i=0;i<6;i++)
             {
                 alea= rand()%(*BS);
-                if(main[j][i].forme == ' ')
+                if(paquet[j][i].forme == ' ')
                 {
                     *BS -= 1;
-                    main[j][i].forme=pioche[alea].forme;
+                    paquet[j][i].forme=pioche[alea].forme;
                     temp.forme = pioche[alea].forme;
                     pioche[alea].forme=pioche[*BS].forme;
                     pioche[*BS].forme=temp.forme;
 
-                    main[j][i].couleur=pioche[alea].couleur;
+                    paquet[j][i].couleur=pioche[alea].couleur;
                     temp.couleur = pioche[alea].couleur;
                     pioche[alea].couleur=pioche[*BS].couleur;
                     pioche[*BS].couleur=temp.couleur;
@@ -243,7 +243,7 @@ void deplacerCurseur(int *x, int *y, int *num)
     gotoligcol(*y, *x);
 }
 
-void afficherMainJoueur(T_TUILE main[][6], int j, int x, int y)
+void afficherMainJoueur(T_TUILE paquet[][6], int j, int x, int y)
 {
     int i,l, m = 25, n = 13;
     gotoligcol(m, n);
@@ -260,8 +260,8 @@ void afficherMainJoueur(T_TUILE main[][6], int j, int x, int y)
     for(l=0; l<6 ; l++)
     {
         printf("%c", 0xBA);
-        Color(main[j][l].couleur, 0);
-        printf("%c", main[j][l].forme);
+        Color(paquet[j][l].couleur, 0);
+        printf("%c", paquet[j][l].forme);
         Color(15, 0);
     }
     printf("%c", 0xBA);
@@ -385,19 +385,19 @@ void Leaderbord(T_JOUEUR *joueur, int x, int y, int nombreJoueurs)
     gotoligcol(y,x);
 }
 
-void initialiserMain(T_TUILE main[][6], int nombreJoueurs)
+void initialiserMain(T_TUILE paquet[][6], int nombreJoueurs)
 {
     int i,j;
     for(i=0;i<nombreJoueurs;i++)
     {
         for(j=0;j<6;j++)
         {
-            main[i][j].forme= ' ';
+            paquet[i][j].forme= ' ';
         }
     }
 }
 
-void remplacerTuile(T_TUILE main[][6],T_TUILE *pioche, int j, int *BS)
+void remplacerTuile(T_TUILE paquet[][6],T_TUILE *pioche, int j, int *BS)
 {
     int i;
     T_TUILE temp;
@@ -408,12 +408,12 @@ void remplacerTuile(T_TUILE main[][6],T_TUILE *pioche, int j, int *BS)
             {
                 alea= rand()%(*BS);
 
-                    main[j][i].forme=pioche[alea].forme;
+                    paquet[j][i].forme=pioche[alea].forme;
                     temp.forme = pioche[alea].forme;
                     pioche[alea].forme=pioche[*BS].forme;
                     pioche[*BS].forme=temp.forme;
 
-                    main[j][i].couleur=pioche[alea].couleur;
+                    paquet[j][i].couleur=pioche[alea].couleur;
                     temp.couleur = pioche[alea].couleur;
                     pioche[alea].couleur=pioche[*BS].couleur;
                     pioche[*BS].couleur=temp.couleur;
@@ -422,7 +422,7 @@ void remplacerTuile(T_TUILE main[][6],T_TUILE *pioche, int j, int *BS)
         }
 }
 
-void remplirMain(T_TUILE main[][6],T_TUILE *pioche, int j, int *BS)
+void remplirMain(T_TUILE paquet[][6],T_TUILE *pioche, int j, int *BS)
 {
     int i, alea;
     T_TUILE temp;
@@ -431,15 +431,15 @@ void remplirMain(T_TUILE main[][6],T_TUILE *pioche, int j, int *BS)
             for(i=0;i<6;i++)
             {
                 alea= rand()%(*BS);
-                if(main[j][i].forme == ' ')
+                if(paquet[j][i].forme == ' ')
                 {
                     *BS -= 1;
-                    main[j][i].forme=pioche[alea].forme;
+                    paquet[j][i].forme=pioche[alea].forme;
                     temp.forme = pioche[alea].forme;
                     pioche[alea].forme=pioche[*BS].forme;
                     pioche[*BS].forme=temp.forme;
 
-                    main[j][i].couleur=pioche[alea].couleur;
+                    paquet[j][i].couleur=pioche[alea].couleur;
                     temp.couleur = pioche[alea].couleur;
                     pioche[alea].couleur=pioche[*BS].couleur;
                     pioche[*BS].couleur=temp.couleur;
@@ -461,18 +461,18 @@ void initialiserPlateau(T_TUILE plateau[][27])
     }
 }
 
-void afficherTuile( T_TUILE main[][6], int i, int k,T_TUILE plateau[13][27],int x,int y)
+void afficherTuile( T_TUILE paquet[][6], int i, int k,T_TUILE plateau[13][27],int x,int y)
 {
     int l,m;
     l=(x-1)/2;
     m=(y-1)/2;
-    Color(main[i][k].couleur, 0);
-    printf("%c", main[i][k].forme);
+    Color(paquet[i][k].couleur, 0);
+    printf("%c", paquet[i][k].forme);
     Color(15, 0);
-    plateau[m][l].forme=main[i][k].forme;
-    plateau[m][l].couleur=main[i][k].couleur;
-    main[i][k].forme = ' ';
-    main[i][k].couleur = 0;
+    plateau[m][l].forme=paquet[i][k].forme;
+    plateau[m][l].couleur=paquet[i][k].couleur;
+    paquet[i][k].forme = ' ';
+    paquet[i][k].couleur = 0;
 }
 
 void afficherTitre()
@@ -532,8 +532,8 @@ void effacerChoix()
     }
 }
 
-int couleurMainJoueur(T_TUILE main[][6], int j, int l)
+int couleurMainJoueur(T_TUILE paquet[][6], int j, int l)
 {
-    return main[j][l].couleur;
+    return paquet[j][l].couleur;
 }
 

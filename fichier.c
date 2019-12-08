@@ -150,7 +150,7 @@ void nomSauvegarde(char *nomSauvegarde)
     }
 }
 
-void sauvegarderPartie(char *nomfichier, T_TUILE plateau[][27], int nombreJoueur, T_TUILE main[][6], T_JOUEUR *joueur, T_TUILE *pioche, int BS, int difficulte)
+void sauvegarderPartie(char *nomfichier, T_TUILE plateau[][27], int nombreJoueur, T_TUILE paquet[][6], T_JOUEUR *joueur, T_TUILE *pioche, int BS, int difficulte)
 {
     int i,j;
     FILE *fichier = NULL;
@@ -160,7 +160,7 @@ void sauvegarderPartie(char *nomfichier, T_TUILE plateau[][27], int nombreJoueur
     {
         for(j=0;j < 6 ; j++)
         {
-            fprintf(fichier, "%c%d", main[i][j].forme, main[i][j].couleur);
+            fprintf(fichier, "%c%d", paquet[i][j].forme, paquet[i][j].couleur);
         }
     }
     for(i=0; i < BS; i++)
@@ -186,7 +186,7 @@ void sauvegarderPartie(char *nomfichier, T_TUILE plateau[][27], int nombreJoueur
     fclose(fichier);
 }
 
-void recupererSauvegarde(FILE *fichier, T_TUILE plateau[][27], int nombreJoueur, T_TUILE main[][6], T_JOUEUR *joueur, T_TUILE *pioche, int BS, int difficulte)
+void recupererSauvegarde(FILE *fichier, T_TUILE plateau[][27], int nombreJoueur, T_TUILE paquet[][6], T_JOUEUR *joueur, T_TUILE *pioche, int BS, int difficulte)
 {
     int i,j,temp[4];
     system("cls");
@@ -194,8 +194,8 @@ void recupererSauvegarde(FILE *fichier, T_TUILE plateau[][27], int nombreJoueur,
     {
         for(j=0;j < 6;j++)
         {
-            main[i][j].forme = fgetc(fichier);
-            fscanf(fichier, "%d", &main[i][j].couleur);
+            paquet[i][j].forme = fgetc(fichier);
+            fscanf(fichier, "%d", &paquet[i][j].couleur);
         }
     }
     for(i=0;i < BS; i++)

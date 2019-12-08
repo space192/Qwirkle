@@ -6,7 +6,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
     int positionX, positionY;
     char couleurTemp=0;
     T_TUILE *pioche = NULL;
-    T_TUILE **main;
+    T_TUILE **paquet;
     T_MINIMAX coupIA[6];
     FILE *fichier;
     T_COORD tuilePLace[36];
@@ -31,14 +31,14 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
         else
         {
             fscanf(fichier, "%d\n%d\n%d\n", &BS, &nombreJoueurs, &difficulte);
-            main = malloc(nombreJoueurs * sizeof(T_TUILE*));
+            paquet = malloc(nombreJoueurs * sizeof(T_TUILE*));
             for(i = 0 ; i < nombreJoueurs ; i++)
             {
-                main[i] = malloc(6 * sizeof(T_TUILE));
+                paquet[i] = malloc(6 * sizeof(T_TUILE));
             }
             pioche = malloc(BS * sizeof(T_TUILE));
             joueur = malloc(nombreJoueurs * sizeof(T_JOUEUR));
-            recupererSauvegarde(fichier, plateau, nombreJoueurs, main, joueur, pioche, BS, difficulte);
+            recupererSauvegarde(fichier, plateau, nombreJoueurs, paquet, joueur, pioche, BS, difficulte);
         }
         fclose(fichier);
         premierTour = 1;
@@ -46,26 +46,26 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
     }
     else if(sauvegarde == 2)
     {
-        main = malloc(nombreJoueurs * sizeof(T_TUILE*)); //main[][]
+        paquet = malloc(nombreJoueurs * sizeof(T_TUILE*)); //paquet[][]
         for(i = 0 ; i < nombreJoueurs ; i++)
         {
-            main[i] = malloc(6 * sizeof(T_TUILE*));
+            paquet[i] = malloc(6 * sizeof(T_TUILE*));
         }
         if(difficulte == 1) //difficulte 1 = degrade // diffuclte 2 = normal
         {
             BS = 36;
             pioche = malloc(BS * sizeof(T_TUILE));
             definirPiocheDegrade(pioche);
-            initialiserMain(main, nombreJoueurs);
-            retraitPioche(pioche,main,&BS, nombreJoueurs);
+            initialiserMain(paquet, nombreJoueurs);
+            retraitPioche(pioche,paquet,&BS, nombreJoueurs);
         }
         else if(difficulte == 2)
         {
             BS = 108;
             pioche = malloc(BS * sizeof(T_TUILE));
             definirPiocheNormale(pioche);
-            initialiserMain(main, nombreJoueurs);
-            retraitPioche(pioche,main,&BS, nombreJoueurs);
+            initialiserMain(paquet, nombreJoueurs);
+            retraitPioche(pioche,paquet,&BS, nombreJoueurs);
         }
         initialiserPlateau(plateau);
         for(i=0; i < nombreJoueurs; i++)
@@ -91,7 +91,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
                 if(joueur[joueurActif].IA == 2)
                 {
                     i=0;
-                    afficherMainJoueur(main, joueurActif, x, y);
+                    afficherMainJoueur(paquet, joueurActif, x, y);
                     Leaderbord(joueur, x, y, nombreJoueurs);
                     while(deplacement == 8)
                     {
@@ -104,20 +104,20 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
                     }
                     if(deplacement == 6)
                     {
-                        remplacerTuile(main, pioche, joueurActif, &BS);
+                        remplacerTuile(paquet, pioche, joueurActif, &BS);
                         deplacement = 8;
                         finTour = 1;
                     }
                     else if(deplacement < 6)
                     {
 
-                        if(test((x-1)/2, (y-1)/2, main, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif, &res0) == 1 || premierTour == 0)
+                        if(test((x-1)/2, (y-1)/2, paquet, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif, &res0) == 1 || premierTour == 0)
                         {
                             if(premierTour==0)
                             {
                                 joueur[joueurActif].score +=2;
                             }
-                            afficherTuile(main, joueurActif, deplacement, plateau, x, y);
+                            afficherTuile(paquet, joueurActif, deplacement, plateau, x, y);
                             joueur[joueurActif].score = scoreJoueurActif + joueur[joueurActif].score;
                             premierTour = 1;
                             tuilePLace[m].x = (x-1)/2;
@@ -137,7 +137,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
                         positionX = rand()%(15-11+1)+11;
                         positionY = rand()%(8-4+1)+4;
                         gotoligcol(positionY*2+1, positionX*2+1);
-                        afficherTuile(main, joueurActif, tuileAplacer, plateau, positionX*2+1, positionY*2+1);
+                        afficherTuile(paquet, joueurActif, tuileAplacer, plateau, positionX*2+1, positionY*2+1);
                         tuilePLace[m].x=positionX;
                         tuilePLace[m].y=positionY;
                         premierTour=1;
@@ -156,14 +156,14 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
                         {
                             for(i=0; i < 6 ; i++)
                             {
-                                miniMax(tuilePLace, plateau, main, lockC,m, lockF, coupIA, joueurActif);
+                                miniMax(tuilePLace, plateau, paquet, lockC,m, lockF, coupIA, joueurActif);
                                 if(coupIA[i].score != -1)
                                 {
                                     gotoligcol((coupIA[i].y*2)+1, (coupIA[i].x*2)+1);
-                                    if(test(coupIA[i].x, coupIA[i].y, main, plateau, joueurActif, coupIA[i].tuile, &lockC, &lockF, &scoreJoueurActif, &res0)==1)
+                                    if(test(coupIA[i].x, coupIA[i].y, paquet, plateau, joueurActif, coupIA[i].tuile, &lockC, &lockF, &scoreJoueurActif, &res0)==1)
                                     {
                                         joueur[joueurActif].score = scoreJoueurActif + joueur[joueurActif].score;
-                                        afficherTuile(main, joueurActif, coupIA[i].tuile, plateau, (coupIA[i].x)*2+1, (coupIA[i].y)*2+1);
+                                        afficherTuile(paquet, joueurActif, coupIA[i].tuile, plateau, (coupIA[i].x)*2+1, (coupIA[i].y)*2+1);
                                         deplacement=8;
                                         tuilePLace[m].x = coupIA[i].x;
                                         tuilePLace[m].y = coupIA[i].y;
@@ -187,7 +187,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
             y = 1;
             if(BS > 0)
             {
-                remplirMain(main,pioche,joueurActif,&BS);
+                remplirMain(paquet,pioche,joueurActif,&BS);
             }
             finTour = 0;
 
@@ -196,7 +196,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
             if(BS==0)
             {
                {
-                   couleurTemp = couleurMainJoueur(main, joueurActif, i);
+                   couleurTemp = couleurMainJoueur(paquet, joueurActif, i);
                    if(couleurTemp== 0)
                    {
                        conditionArret++;
@@ -244,7 +244,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
     {
         effacerEcran();
         nomSauvegarde(nameSauvegarde);
-        sauvegarderPartie(nameSauvegarde, plateau, nombreJoueurs, main, joueur, pioche, BS, difficulte);
+        sauvegarderPartie(nameSauvegarde, plateau, nombreJoueurs, paquet, joueur, pioche, BS, difficulte);
         sauvegardeScore(joueur, nombreJoueurs);
     }
     else if(partie == 3)
@@ -253,9 +253,9 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
     }
     for(i=0 ; i < 6 ; i++)
     {
-        free(main[i]);
+        free(paquet[i]);
     }
-    free(main);
+    free(paquet);
     free(pioche);
     free(plateau);
     free(joueur);

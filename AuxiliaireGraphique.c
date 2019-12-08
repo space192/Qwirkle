@@ -154,24 +154,24 @@ SDL_Surface *attribuerImage(int carac,int couleur)
     return tuile;
 }
 
-int caracMainJoueurGraphique(T_TUILE main[][6], int j, int l)
+int caracMainJoueurGraphique(T_TUILE paquet[][6], int j, int l)
 {
-    return main[j][l].forme;
+    return paquet[j][l].forme;
 }
 
-int couleurMainJoueurGraphique(T_TUILE main[][6], int j, int l)
+int couleurMainJoueurGraphique(T_TUILE paquet[][6], int j, int l)
 {
-    return main[j][l].couleur;
+    return paquet[j][l].couleur;
 }
 
-void InitialisercaracMainJoueurGraphique(T_TUILE main[][6], int j, int l)
+void InitialisercaracMainJoueurGraphique(T_TUILE paquet[][6], int j, int l)
 {
-    main[j][l].forme = ' ';
+    paquet[j][l].forme = ' ';
 }
 
-void InitialisercouleurMainJoueurGraphique(T_TUILE main[][6], int j, int l)
+void InitialisercouleurMainJoueurGraphique(T_TUILE paquet[][6], int j, int l)
 {
-    main[j][l].couleur = 0;
+    paquet[j][l].couleur = 0;
 }
 
 int recupererValeur(T_TUILE plateau[13][27], int y, int x)
