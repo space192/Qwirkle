@@ -1,11 +1,11 @@
 ﻿Les regles du jeu sont les suivantes:
 Le qwirkle est un jeu tactique d'association et de logique.
-Il se joue entre 2 à 4 joueurs, chacun des joueurs possedent chacun 6 tuiles.
+Il se joue entre 2 a 4 joueurs, chacun des joueurs possedent chacun 6 tuiles.
 Le but du jeu est de placer des tuiles sur le plateau en les allignants avec d'autres tuiles,
 il faut que les tuiles aies la meme couleur ou la meme forme pour pouvoir etre alligne.
 On peut jouer autant de tuiles que l'on veut (1, 2 voire 6 tuiles d'un coup).
-Pour chaque tuile place le joueur gagne autant de  points qu'il ya de tuile dans une ligne.
-Si la tuile est placé dans 2 lignes a la foi, elle accumulera les points gagné pour chacune des deux lignes.
-Si les joueurs aligne 6 tuiles d'affile alors le joueur ayant placé la 6eme tuile remporte 6 points et realise un
+Pour chaque tuile place le joueur gagne autant de  points qu'il y a de tuile dans une ligne.
+Si la tuile est place dans 2 lignes a la foi, elle accumulera les points gagne pour chacune des deux lignes.
+Si les joueurs aligne 6 tuiles d'affile alors le joueur ayant place la 6eme tuile remporte 6 points et realise un
 QWIRKLE.
 Maintenant c'est a vous de jouer !

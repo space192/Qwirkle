@@ -5,6 +5,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
     int BS, i,j,k, m=0, n=8,partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 31, premierTour = 0, lockC = 1, lockF = 1, scoreJoueurActif =0, res0=1, IAjoue=1, tuileAplacer, conditionArret=0;
     int positionX, positionY;
     char couleurTemp=0;
+    int nombreVide;
     T_TUILE *pioche = NULL;
     T_TUILE **paquet;
     T_MINIMAX coupIA[6];
@@ -185,27 +186,25 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
             }
             x = 1;
             y = 1;
-            if(BS > 0)
+            finTour = 0;
+            conditionArret = 0;
+            i=0;
+            if(BS != 0)
             {
                 remplirMain(paquet,pioche,joueurActif,&BS);
             }
-            finTour = 0;
-
-            conditionArret = 0;
-            i=0;
-            if(BS==0)
+            nombreVide=0;
+            for(j=0;j < 6 ; j++)
             {
-               {
-                   couleurTemp = couleurMainJoueur(paquet, joueurActif, i);
-                   if(couleurTemp== 0)
-                   {
-                       conditionArret++;
-                   }
-               }
+                if(formeMainJoueur(paquet, joueurActif, j)==' ');
+                {
+                    nombreVide++;
+                }
             }
-            if(conditionArret==6)
+            if(nombreVide<=4)
             {
                 effacerEcran();
+                system("cls");
                 printf("Fin de partie!");
                 finTour = 1;
                 joueurActif = 5;

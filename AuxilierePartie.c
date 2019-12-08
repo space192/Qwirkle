@@ -430,9 +430,14 @@ void remplirMain(T_TUILE paquet[][6],T_TUILE *pioche, int j, int *BS)
         {
             for(i=0;i<6;i++)
             {
-                alea= rand()%(*BS);
+                if(*BS>1)
+                {
+                    alea= rand()%(*BS);
+                }
                 if(paquet[j][i].forme == ' ')
                 {
+                    if(*BS>0)
+                    {
                     *BS -= 1;
                     paquet[j][i].forme=pioche[alea].forme;
                     temp.forme = pioche[alea].forme;
@@ -443,6 +448,7 @@ void remplirMain(T_TUILE paquet[][6],T_TUILE *pioche, int j, int *BS)
                     temp.couleur = pioche[alea].couleur;
                     pioche[alea].couleur=pioche[*BS].couleur;
                     pioche[*BS].couleur=temp.couleur;
+                    }
                 }
             }
         }
@@ -532,8 +538,10 @@ void effacerChoix()
     }
 }
 
-int couleurMainJoueur(T_TUILE paquet[][6], int j, int l)
+char formeMainJoueur(T_TUILE paquet[][6], int j, int l)
 {
-    return paquet[j][l].couleur;
+    char resultat;
+    resultat =paquet[j][l].forme;
+    return resultat;
 }
 
