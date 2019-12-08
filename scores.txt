@@ -41,3 +41,6 @@ Pilou : 13
 Arthur : 6
 Pilou : 7
 
+ARTHUR : 69
+PILOU : 37
+

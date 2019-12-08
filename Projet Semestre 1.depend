@@ -30,11 +30,11 @@
 1575770365 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\auxilierepartie.c
 	"prototypes.h"
 
-1575735041 source:c:\users\arthur\documents\github\projet-semetre-1\main.c
+1575769842 source:c:\users\arthur\documents\github\projet-semetre-1\main.c
 	"prototypesG.h"
 	"prototypes.h"
 
-1575762630 c:\users\arthur\documents\github\projet-semetre-1\prototypes.h
+1575817712 c:\users\arthur\documents\github\projet-semetre-1\prototypes.h
 	"constantes.h"
 	<windows.h>
 	<time.h>
@@ -43,28 +43,28 @@
 	<conio.h>
 	<dirent.h>
 
-1575733219 c:\users\arthur\documents\github\projet-semetre-1\constantes.h
+1575771606 c:\users\arthur\documents\github\projet-semetre-1\constantes.h
 	<SDL2/SDL.h>
 
-1575593949 source:c:\users\arthur\documents\github\projet-semetre-1\menu.c
+1575773062 source:c:\users\arthur\documents\github\projet-semetre-1\menu.c
 	"prototypes.h"
 
 1574183889 source:c:\users\arthur\documents\github\projet-semetre-1\choix partie.c
 	"prototypes.h"
 
-1575661111 source:c:\users\arthur\documents\github\projet-semetre-1\fichier.c
+1575771010 source:c:\users\arthur\documents\github\projet-semetre-1\fichier.c
 	"prototypes.h"
 
 1574183889 source:c:\users\arthur\documents\github\projet-semetre-1\score.c
 	"prototypes.h"
 
-1575593393 source:c:\users\arthur\documents\github\projet-semetre-1\auxilierepartie.c
+1575769842 source:c:\users\arthur\documents\github\projet-semetre-1\auxilierepartie.c
 	"prototypes.h"
 
 1575815465 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\jeu.c
 	"prototypes.h"
 
-1575766281 source:c:\users\arthur\documents\github\projet-semetre-1\jeu.c
+1575817879 source:c:\users\arthur\documents\github\projet-semetre-1\jeu.c
 	"prototypes.h"
 
 1575735625 source:c:\users\arthur\documents\github\projet-semetre-1\test.c
@@ -453,7 +453,7 @@
 	<SDL2/SDL_image.h>
 	<SDL2/SDL_ttf.h>
 
-1575769634 source:c:\users\arthur\documents\github\projet-semetre-1\auxiliairegraphique.c
+1575815435 source:c:\users\arthur\documents\github\projet-semetre-1\auxiliairegraphique.c
 	"prototypes.h"
 
 1575767290 c:\users\arthur\documents\github\projet-semetre-1\prototypesg.h
@@ -474,10 +474,10 @@
 1559926537 c:\users\arthur\documents\github\projet-semetre-1\genann.h
 	<stdio.h>
 
-1575766468 source:c:\users\arthur\documents\github\projet-semetre-1\machine learning.c
+1575817712 source:c:\users\arthur\documents\github\projet-semetre-1\machine learning.c
 	"prototypes.h"
 
-1575769634 source:c:\users\arthur\documents\github\projet-semetre-1\jeugraphique.c
+1575818437 source:c:\users\arthur\documents\github\projet-semetre-1\jeugraphique.c
 	"prototypesG.h"
 
 1575741533 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\testgraphique.c

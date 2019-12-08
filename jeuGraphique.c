@@ -141,7 +141,7 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
     SDL_Surface *menuPause = NULL;
 
     salut = SDL_CreateWindow("coucou", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1837, 1065, SDL_WINDOW_SHOWN);
-    SDL_SetWindowFullscreen(salut,SDL_WINDOW_FULLSCREEN_DESKTOP);
+    //SDL_SetWindowFullscreen(salut,SDL_WINDOW_FULLSCREEN_DESKTOP);
     positionPlateau = SDL_GetWindowSurface(salut);
     plateau1= IMG_Load("Graphique/plateau9.png");
     //tuile = IMG_Load("Graphique/Ronds/RondViolet.png");
