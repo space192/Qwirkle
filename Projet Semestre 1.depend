@@ -34,7 +34,7 @@
 	"prototypesG.h"
 	"prototypes.h"
 
-1575735041 c:\users\arthur\documents\github\projet-semetre-1\prototypes.h
+1575762630 c:\users\arthur\documents\github\projet-semetre-1\prototypes.h
 	"constantes.h"
 	<windows.h>
 	<time.h>
@@ -64,10 +64,10 @@
 1575767977 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\jeu.c
 	"prototypes.h"
 
-1575734362 source:c:\users\arthur\documents\github\projet-semetre-1\jeu.c
+1575766281 source:c:\users\arthur\documents\github\projet-semetre-1\jeu.c
 	"prototypes.h"
 
-1575655556 source:c:\users\arthur\documents\github\projet-semetre-1\test.c
+1575735625 source:c:\users\arthur\documents\github\projet-semetre-1\test.c
 	"prototypes.h"
 
 1575745613 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\test.c
@@ -453,10 +453,10 @@
 	<SDL2/SDL_image.h>
 	<SDL2/SDL_ttf.h>
 
-1575732028 source:c:\users\arthur\documents\github\projet-semetre-1\auxiliairegraphique.c
+1575769634 source:c:\users\arthur\documents\github\projet-semetre-1\auxiliairegraphique.c
 	"prototypes.h"
 
-1575735041 c:\users\arthur\documents\github\projet-semetre-1\prototypesg.h
+1575767290 c:\users\arthur\documents\github\projet-semetre-1\prototypesg.h
 	"prototypes.h"
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
@@ -474,15 +474,15 @@
 1559926537 c:\users\arthur\documents\github\projet-semetre-1\genann.h
 	<stdio.h>
 
-1575734469 source:c:\users\arthur\documents\github\projet-semetre-1\machine learning.c
+1575766468 source:c:\users\arthur\documents\github\projet-semetre-1\machine learning.c
 	"prototypes.h"
 
-1575735062 source:c:\users\arthur\documents\github\projet-semetre-1\jeugraphique.c
+1575769634 source:c:\users\arthur\documents\github\projet-semetre-1\jeugraphique.c
 	"prototypesG.h"
 
 1575741533 source:c:\users\plpai\onedrive\documents\github\projet-semetre-1\testgraphique.c
 	"prototypes.h"
 
-1575735062 source:c:\users\arthur\documents\github\projet-semetre-1\testgraphique.c
-	"prototypesG.h"
+1575744891 source:c:\users\arthur\documents\github\projet-semetre-1\testgraphique.c
+	"prototypes.h"
 
