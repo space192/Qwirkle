@@ -5,12 +5,19 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
     int BS, i,k, m=0, n=8,partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 31, premierTour = 0, lockC = 1, lockF = 1, scoreJoueurActif =0, res0=1;
     T_TUILE *pioche = NULL;
     T_TUILE **main;
-    T_MINIMAX MAX;
+    T_MINIMAX coupIA[6];
     FILE *fichier;
     T_COORD tuilePLace[36];
     T_TUILE plateau[13][27];
     char nameSauvegarde[100] = "sauvegarde/";
     system("cls");
+    for(i=0; i < 6 ; i++)
+    {
+        coupIA[i].x=-1;
+        coupIA[i].y=-1;
+        coupIA[i].tuile=-1;
+        coupIA[i].score=-1;
+    }
     if(sauvegarde == 1)
     {
         selecteurSauvegarde(nameSauvegarde);
@@ -105,7 +112,14 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
                        premierTour = 1;
                        tuilePLace[m].x = (x-1)/2;
                        tuilePLace[m].y = (y-1)/2;
-                       miniMax(tuilePLace, plateau, main, lockC, lockF);
+                       miniMax(tuilePLace, plateau, main, lockC,m, lockF, coupIA);
+                       n=8;
+                       for(i=0; i < 6 ; i++)
+                       {
+                           gotoligcol(n, 100);
+                           printf("x:%d, y:%d tuile:%d score:%d", coupIA[i].x, coupIA[i].y, coupIA[i].tuile+1, coupIA[i].score);
+                           n++;
+                       }
                        m++;
                    }
                    res0 = 1;
