@@ -424,6 +424,7 @@ void remplacerTuile(T_TUILE main[][6],T_TUILE *pioche, int j, int *BS)
 
 void remplirMain(T_TUILE main[][6],T_TUILE *pioche, int j, int *BS)
 {
+    srand(time(NULL));
     int i, alea;
     T_TUILE temp;
         if((*BS)!=0)
@@ -526,7 +527,7 @@ void effacerChoix()
 {
     int i;
     gotoligcol(31, 6);
-    for(i = 0 ; i < 500 ; i++)
+    for(i = 0 ; i < 700 ; i++)
     {
         printf(" ");
     }

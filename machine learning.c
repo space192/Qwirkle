@@ -132,7 +132,7 @@ void miniMax(T_COORD tuilePlace[], T_TUILE plateau[][27], T_TUILE tuile[][6], in
     T_MINIMAX meilleur[36];
     T_COORD tuilePlaceImaginaire[36];
     int meilleurTruc=0, temp;
-    int i,j,k=0,m=15,p=1,q, tempX, tempY, tempTuile, MAX=-1, tempScore;
+    int i,j,k=0,p=1, tempX, tempY, tempTuile, tempScore;
     T_TUILE plateauTest[13][27];
     T_TUILE mainTest[1][6];
     for(i=0; i < 36 ; i++)
@@ -164,9 +164,6 @@ void miniMax(T_COORD tuilePlace[], T_TUILE plateau[][27], T_TUILE tuile[][6], in
             if(tuilePlaceImaginaire[i].x != 0 && tuilePlaceImaginaire[i].y != 0)
             {
                 calculerCoup(plateauTest, mainTest, tuilePlaceImaginaire[i].x, tuilePlaceImaginaire[i].y, lockC, lockF, meilleur, i, joueurActif);
-                //gotoligcol(m, 100);
-                //printf("x:%d, y:%d, tuile:%d et score:%d", meilleur[i].x, meilleur[i].y, meilleur[i].tuile, meilleur[i].score);
-                //m++;
             }
         }
         meilleurTruc = meilleurCoup(meilleur);
@@ -205,7 +202,7 @@ void miniMax(T_COORD tuilePlace[], T_TUILE plateau[][27], T_TUILE tuile[][6], in
 
 int valeurmaximum(int scoreCoup[][4], int *tuile, int *position)
 {
-    int MAX1=0,MAX2=0,i,j;
+    int MAX1=0,i,j;
     for(i=0; i < 6; i++)
     {
         for(j = 0; j < 4; j++)

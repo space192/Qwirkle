@@ -2,7 +2,8 @@
 
 void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
 {
-    int BS, i,j,k, m=0, n=8,partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 31, premierTour = 0, lockC = 1, lockF = 1, scoreJoueurActif =0, res0=1, IAjoue=1;
+    int BS, i,j,k, m=0, n=8,partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 31, premierTour = 0, lockC = 1, lockF = 1, scoreJoueurActif =0, res0=1, IAjoue=1, tuileAplacer;
+    int positionX, positionY;
     T_TUILE *pioche = NULL;
     T_TUILE **main;
     T_MINIMAX coupIA[6];
@@ -126,15 +127,24 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
                 {
                     if(premierTour == 0)
                     {
-                        //generer la premiere tuile de manière aleatoire depuis la main de l'ia
+                        tuileAplacer = rand()%5;
+                        positionX = rand()%(15-11+1)+11;
+                        positionY = rand()%(8-4+1)+4;
+                        gotoligcol(positionY*2+1, positionX*2+1);
+                        afficherTuile(main, joueurActif, tuileAplacer, plateau, positionX*2+1, positionY*2+1);
+                        tuilePLace[m].x=positionX;
+                        tuilePLace[m].y=positionY;
+                        premierTour=1;
+                        m++;
                     }
-                    else if(IAjoue==0)
+                    if(IAjoue==0 && premierTour==1)
                     {
                         finTour=1;
                         deplacement=8;
+                        premierTour=1;
                         IAjoue=1;
                     }
-                    else if(IAjoue==1)
+                    else if(IAjoue==1 && premierTour==1)
                     {
                         for(i=0; i < 6 ; i++)
                         {
@@ -153,20 +163,8 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
                         }
                         premierTour=1;
                         IAjoue=0;
-
                     }
                 }
-                for(j=0; j < 13 ; j++)
-                    {
-                        gotoligcol(n, 100);
-                        for(k=0; k < 27 ; k++)
-                        {
-                            printf("%c%d", plateau[j][k].forme, plateau[j][k].couleur);
-                        }
-                        n++;
-                    }
-
-
             }
             x = 1;
             y = 1;

@@ -1,4 +1,5 @@
 #include "prototypes.h"
+#include "prototypesG.h"
 
 
 void menu()
@@ -51,12 +52,16 @@ void menu()
                 joueur = malloc(nombreJoueurs * sizeof(T_JOUEUR));
                 for(i=0; i < nombreJoueurs ; i++)
                 {
+                    do
+                    {
                     Color(11, 0);
                     printf("Le joueur %d sera-t-il une IA?\n", i+1);
                     Color(15, 0);
                     printf("1:Oui\n2:Non\n");
                     fflush(stdin);
                     scanf("%d", &joueur[i].IA);
+                    }
+                    while(joueur[i].IA < 1 || joueur[i].IA > 2);
                 }
                 system("cls");
                 for(i = 0; i < nombreJoueurs; i++)
