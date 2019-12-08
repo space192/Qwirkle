@@ -224,12 +224,10 @@ int allocationCoordoneesPause(SDL_Rect positionClic)
     if((positionClic.x > 758) && (positionClic.x < 1172) && (positionClic.y > 383) && (positionClic.y < 463))
     {
         deplacement = 1;
-        printf("Je suis censé quitter");
     }
     else if((positionClic.x > 758) && (positionClic.x < 1172) && (positionClic.y > 463) && (positionClic.y < 532))
     {
         deplacement = 2;
-        printf("Je suis censé quitter");
     }
     else if((positionClic.x > 0) && (positionClic.x < 69) && (positionClic.y > 1021) && (positionClic.y < 1080))
     {
@@ -310,7 +308,6 @@ int allocationY(SDL_Rect positionClic)
 {
     int i, j, xOriginal = 70, yOriginal = 40;
     int valeur;
-    printf("test");
     for(i = 0; i<= 13; i++)
     {
         for(j=0; j <= 27 ; j++)

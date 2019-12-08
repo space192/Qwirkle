@@ -343,8 +343,10 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                                         continuer=0;
                                         continuer2=0;
                                         continuer3=0;
+                                        joueurActif=4;
+                                        finTour=1;
                                         partie =0;
-                                        SDL_DestroyWindow(salut);
+
 
 
                                     }
@@ -353,8 +355,10 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
                                         continuer=0;
                                         continuer2=0;
                                         continuer3=0;
+                                        joueurActif=4;
+                                        finTour=1;
                                        partie =0;
-                                       SDL_DestroyWindow(salut);
+
 
 
                                     }
@@ -489,13 +493,17 @@ void jeuGraphique(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauveg
     }
     if(choix == 1)
     {
+        SDL_DestroyWindow(salut);
         nomSauvegarde(nameSauvegarde);
         sauvegarderPartie(nameSauvegarde, plateau, nombreJoueurs, main, joueur, pioche, BS, difficulte);
         sauvegardeScore(joueur, nombreJoueurs);
+
     }
     else if(choix == 2)
     {
+        SDL_DestroyWindow(salut);
         sauvegardeScore(joueur, nombreJoueurs);
+
     }
 
 
