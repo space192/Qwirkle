@@ -1,12 +1,12 @@
 #include "prototypes.h"
 
-int calculerCoup(T_TUILE plateau[][27], T_TUILE tuile[][6], int coordX, int coordY, int lockC, int lockF, T_MINIMAX *faitChier, int iteration)
+int calculerCoup(T_TUILE plateau[][27], T_TUILE tuile[][6], int coordX, int coordY, int lockC, int lockF, T_MINIMAX *coup, int iteration, int joueurActif)
 {
     int i,j,k=0,scoreCoup, x,y, scoreCoupParticulier[6][4], res0=1, success, tuile1, direction, MAXscore=0, nombreForme[6], nombreCouleur[6], nombreCTemp, nombreNTemp, MAX1, MAX2;
     for(i=0; i < 6 ; i++)
     {
-        nombreNTemp = tuile[1][i].couleur;
-        nombreCTemp = tuile[1][i].forme;
+        nombreNTemp = tuile[joueurActif][i].couleur;
+        nombreCTemp = tuile[joueurActif][i].forme;
         switch(nombreNTemp)
         {
         case 1:
@@ -76,7 +76,7 @@ int calculerCoup(T_TUILE plateau[][27], T_TUILE tuile[][6], int coordX, int coor
                 x= 0;
                 y= -1;
             }
-            success = test(coordX+x,coordY+y, tuile, plateau, 1, i, &lockC, &lockF, &scoreCoup, &res0);
+            success = test(coordX+x,coordY+y, tuile, plateau, joueurActif, i, &lockC, &lockF, &scoreCoup, &res0);
             if((lockC == 0 || lockF == 0) && success)
             {
                 scoreCoup++;
@@ -91,20 +91,20 @@ int calculerCoup(T_TUILE plateau[][27], T_TUILE tuile[][6], int coordX, int coor
         switch(direction)
         {
         case 0:
-            faitChier[iteration].x = coordX+1;
-            faitChier[iteration].y = coordY;
+            coup[iteration].x = coordX+1;
+            coup[iteration].y = coordY;
             break;
         case 1:
-            faitChier[iteration].x= coordX-1;
-            faitChier[iteration].y=coordY;
+            coup[iteration].x= coordX-1;
+            coup[iteration].y=coordY;
             break;
         case 2:
-            faitChier[iteration].x=coordX;
-            faitChier[iteration].y=coordY+1;
+            coup[iteration].x=coordX;
+            coup[iteration].y=coordY+1;
             break;
         case 3:
-            faitChier[iteration].x=coordX;
-            faitChier[iteration].y=coordY-1;
+            coup[iteration].x=coordX;
+            coup[iteration].y=coordY-1;
         }
         maximumCouleurForme(nombreForme, nombreCouleur, &MAX1, &MAX2);
         if(tuile1 == MAX1)
@@ -115,19 +115,19 @@ int calculerCoup(T_TUILE plateau[][27], T_TUILE tuile[][6], int coordX, int coor
         {
             scoreCoupParticulier[tuile1][direction]++;
         }
-        faitChier[iteration].tuile=tuile1;
-        faitChier[iteration].score=scoreCoupParticulier[tuile1][direction];
+        coup[iteration].tuile=tuile1;
+        coup[iteration].score=scoreCoupParticulier[tuile1][direction];
     }
     else
     {
-        faitChier[iteration].tuile=-1;
-        faitChier[iteration].score=-1;
-        faitChier[iteration].x=-1;
-        faitChier[iteration].y=-1;
+        coup[iteration].tuile=-1;
+        coup[iteration].score=-1;
+        coup[iteration].x=-1;
+        coup[iteration].y=-1;
     }
 }
 
-void miniMax(T_COORD tuilePlace[], T_TUILE plateau[][27], T_TUILE tuile[][6], int lockC,int o, int lockF, T_MINIMAX coupAFaire[])
+void miniMax(T_COORD tuilePlace[], T_TUILE plateau[][27], T_TUILE tuile[][6], int lockC,int o, int lockF, T_MINIMAX coupAFaire[], int joueurActif)
 {
     T_MINIMAX meilleur[36];
     T_COORD tuilePlaceImaginaire[36];
@@ -154,8 +154,8 @@ void miniMax(T_COORD tuilePlace[], T_TUILE plateau[][27], T_TUILE tuile[][6], in
     }
     for(i=0; i < 6 ; i++)
     {
-        mainTest[1][i].forme = tuile[1][i].forme;
-        mainTest[1][i].couleur = tuile[1][i].couleur;
+        mainTest[1][i].forme = tuile[joueurActif][i].forme;
+        mainTest[1][i].couleur = tuile[joueurActif][i].couleur;
     }
     while(meilleurTruc!=-1)
     {
@@ -163,7 +163,7 @@ void miniMax(T_COORD tuilePlace[], T_TUILE plateau[][27], T_TUILE tuile[][6], in
         {
             if(tuilePlaceImaginaire[i].x != 0 && tuilePlaceImaginaire[i].y != 0)
             {
-                calculerCoup(plateauTest, mainTest, tuilePlaceImaginaire[i].x, tuilePlaceImaginaire[i].y, lockC, lockF, meilleur, i);
+                calculerCoup(plateauTest, mainTest, tuilePlaceImaginaire[i].x, tuilePlaceImaginaire[i].y, lockC, lockF, meilleur, i, joueurActif);
                 //gotoligcol(m, 100);
                 //printf("x:%d, y:%d, tuile:%d et score:%d", meilleur[i].x, meilleur[i].y, meilleur[i].tuile, meilleur[i].score);
                 //m++;

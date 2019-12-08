@@ -2,7 +2,7 @@
 
 void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
 {
-    int BS, i,k, m=0, n=8,partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 31, premierTour = 0, lockC = 1, lockF = 1, scoreJoueurActif =0, res0=1, IAjoue=1;
+    int BS, i,j,k, m=0, n=8,partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 31, premierTour = 0, lockC = 1, lockF = 1, scoreJoueurActif =0, res0=1, IAjoue=1;
     T_TUILE *pioche = NULL;
     T_TUILE **main;
     T_MINIMAX coupIA[6];
@@ -85,6 +85,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
             afficherNom(joueur, joueurActif);
             while(finTour == 0)
             {
+                n=8;
                 if(joueur[joueurActif].IA == 2)
                 {
                     i=0;
@@ -137,17 +138,33 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
                     {
                         for(i=0; i < 6 ; i++)
                         {
-                        miniMax(tuilePLace, plateau, main, lockC,m, lockF, coupIA);
-                        gotoligcol((coupIA[i].y*2)+1, (coupIA[i].x*2)+1);
-                        afficherTuile(main, joueurActif, coupIA[i].tuile, plateau, coupIA[i].x, coupIA[i].y);
-                        deplacement=8;
-                        tuilePLace[m].x = coupIA[i].x;
-                        tuilePLace[m].y = coupIA[i].y;
+                            miniMax(tuilePLace, plateau, main, lockC,m, lockF, coupIA, joueurActif);
+                            if(coupIA[i].score != -1)
+                            {
+                                gotoligcol((coupIA[i].y*2)+1, (coupIA[i].x*2)+1);
+                                test(coupIA[i].x, coupIA[i].y, main, plateau, joueurActif, coupIA[i].tuile, &lockC, &lockF, &scoreJoueurActif, &res0);
+                                joueur[joueurActif].score = scoreJoueurActif + joueur[joueurActif].score;
+                                afficherTuile(main, joueurActif, coupIA[i].tuile, plateau, (coupIA[i].x)*2+1, (coupIA[i].y)*2+1);
+                                deplacement=8;
+                                tuilePLace[m].x = coupIA[i].x;
+                                tuilePLace[m].y = coupIA[i].y;
+                                m++;
+                            }
                         }
+                        premierTour=1;
                         IAjoue=0;
 
                     }
                 }
+                for(j=0; j < 13 ; j++)
+                    {
+                        gotoligcol(n, 100);
+                        for(k=0; k < 27 ; k++)
+                        {
+                            printf("%c%d", plateau[j][k].forme, plateau[j][k].couleur);
+                        }
+                        n++;
+                    }
 
 
             }
