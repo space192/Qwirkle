@@ -164,12 +164,12 @@ void miniMax(T_COORD tuilePlace[], T_TUILE plateau[][27], T_TUILE tuile[][6], in
             if(tuilePlaceImaginaire[i].x != 0 && tuilePlaceImaginaire[i].y != 0)
             {
                 calculerCoup(plateauTest, mainTest, tuilePlaceImaginaire[i].x, tuilePlaceImaginaire[i].y, lockC, lockF, meilleur, i);
-                gotoligcol(m, 100);
-                printf("x:%d, y:%d, tuile:%d et score:%d", meilleur[i].x, meilleur[i].y, meilleur[i].tuile, meilleur[i].score);
-                m++;
+                //gotoligcol(m, 100);
+                //printf("x:%d, y:%d, tuile:%d et score:%d", meilleur[i].x, meilleur[i].y, meilleur[i].tuile, meilleur[i].score);
+                //m++;
             }
         }
-        meilleurTruc = meilleurCoup(meilleur, 0);
+        meilleurTruc = meilleurCoup(meilleur);
         tempX = meilleur[meilleurTruc].x;
         tempY = meilleur[meilleurTruc].y;
         tempTuile = meilleur[meilleurTruc].tuile;
@@ -241,7 +241,7 @@ int maximumCouleurForme(int forme[], int couleur[], int *MAX1, int *MAX2)
     }
 }
 
-int meilleurCoup(T_MINIMAX coup[], int p)
+int meilleurCoup(T_MINIMAX coup[])
 {
     int i;
     int MAX=-1;

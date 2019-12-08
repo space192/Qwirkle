@@ -6,6 +6,7 @@ typedef struct JOUEUR
 {
     char nom[50];
     int score;
+    int IA;
 }T_JOUEUR;
 
 typedef struct TUILE

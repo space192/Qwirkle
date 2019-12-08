@@ -2,7 +2,7 @@
 
 void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
 {
-    int BS, i,k, m=0, n=8,partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 31, premierTour = 0, lockC = 1, lockF = 1, scoreJoueurActif =0, res0=1;
+    int BS, i,k, m=0, n=8,partie = 1, joueurActif = 0, deplacement = 8, x = 1, y=1, finTour = 0, l = 31, premierTour = 0, lockC = 1, lockF = 1, scoreJoueurActif =0, res0=1, IAjoue=1;
     T_TUILE *pioche = NULL;
     T_TUILE **main;
     T_MINIMAX coupIA[6];
@@ -36,7 +36,7 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
             }
             pioche = malloc(BS * sizeof(T_TUILE));
             joueur = malloc(nombreJoueurs * sizeof(T_JOUEUR));
-            recupererSauvegarde(fichier , plateau, nombreJoueurs, main, joueur, pioche, BS, difficulte);
+            recupererSauvegarde(fichier, plateau, nombreJoueurs, main, joueur, pioche, BS, difficulte);
         }
         fclose(fichier);
         premierTour = 1;
@@ -85,46 +85,71 @@ void jeu(T_JOUEUR *joueur, int difficulte, int nombreJoueurs,int sauvegarde)
             afficherNom(joueur, joueurActif);
             while(finTour == 0)
             {
-                afficherMainJoueur(main, joueurActif, x, y);
-                Leaderbord(joueur, x, y, nombreJoueurs);
-                while(deplacement == 8)
+                if(joueur[joueurActif].IA == 2)
                 {
-                    deplacerCurseur(&x, &y, &deplacement);
-                }
-                if(deplacement == 7)
-                {
-                    finTour = 1;
-                    deplacement = 8;
-                }
-                if(deplacement == 6)
-                {
-                    remplacerTuile(main, pioche, joueurActif, &BS);
-                    deplacement = 8;
-                    finTour = 1;
-                }
-                else if(deplacement < 6)
-                {
+                    i=0;
+                    afficherMainJoueur(main, joueurActif, x, y);
+                    Leaderbord(joueur, x, y, nombreJoueurs);
+                    while(deplacement == 8)
+                    {
+                        deplacerCurseur(&x, &y, &deplacement);
+                    }
+                    if(deplacement == 7)
+                    {
+                        finTour = 1;
+                        deplacement = 8;
+                    }
+                    if(deplacement == 6)
+                    {
+                        remplacerTuile(main, pioche, joueurActif, &BS);
+                        deplacement = 8;
+                        finTour = 1;
+                    }
+                    else if(deplacement < 6)
+                    {
 
-                   if(test((x-1)/2, (y-1)/2, main, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif, &res0) == 1 || premierTour == 0)
-                   {
-                       afficherTuile(main, joueurActif, deplacement, plateau, x, y);
-                       joueur[joueurActif].score = scoreJoueurActif + joueur[joueurActif].score;
-                       premierTour = 1;
-                       tuilePLace[m].x = (x-1)/2;
-                       tuilePLace[m].y = (y-1)/2;
-                       miniMax(tuilePLace, plateau, main, lockC,m, lockF, coupIA);
-                       n=8;
-                       for(i=0; i < 6 ; i++)
-                       {
-                           gotoligcol(n, 100);
-                           printf("x:%d, y:%d tuile:%d score:%d", coupIA[i].x, coupIA[i].y, coupIA[i].tuile+1, coupIA[i].score);
-                           n++;
-                       }
-                       m++;
-                   }
-                   res0 = 1;
-                   deplacement = 8;
+                        if(test((x-1)/2, (y-1)/2, main, plateau, joueurActif, deplacement, &lockC, &lockF, &scoreJoueurActif, &res0) == 1 || premierTour == 0)
+                        {
+                            afficherTuile(main, joueurActif, deplacement, plateau, x, y);
+                            joueur[joueurActif].score = scoreJoueurActif + joueur[joueurActif].score;
+                            premierTour = 1;
+                            tuilePLace[m].x = (x-1)/2;
+                            tuilePLace[m].y = (y-1)/2;
+                            m++;
+                        }
+                        res0 = 1;
+                        deplacement = 8;
+                    }
                 }
+                else if(joueur[joueurActif].IA == 1)
+                {
+                    if(premierTour == 0)
+                    {
+                        //generer la premiere tuile de manière aleatoire depuis la main de l'ia
+                    }
+                    else if(IAjoue==0)
+                    {
+                        finTour=1;
+                        deplacement=8;
+                        IAjoue=1;
+                    }
+                    else if(IAjoue==1)
+                    {
+                        for(i=0; i < 6 ; i++)
+                        {
+                        miniMax(tuilePLace, plateau, main, lockC,m, lockF, coupIA);
+                        gotoligcol((coupIA[i].y*2)+1, (coupIA[i].x*2)+1);
+                        afficherTuile(main, joueurActif, coupIA[i].tuile, plateau, coupIA[i].x, coupIA[i].y);
+                        deplacement=8;
+                        tuilePLace[m].x = coupIA[i].x;
+                        tuilePLace[m].y = coupIA[i].y;
+                        }
+                        IAjoue=0;
+
+                    }
+                }
+
+
             }
             x = 1;
             y = 1;
